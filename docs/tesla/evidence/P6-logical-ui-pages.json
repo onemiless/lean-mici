@@ -1,0 +1,32 @@
+{
+  "scope": "native large UI logical-canvas render; isolated Params, synthetic Tesla selection; no vehicle/CAN acceptance",
+  "passed": true,
+  "stages": [
+    "DeviceLayoutSP constructed",
+    "DeviceLayoutSP updated",
+    "MainLayout constructed",
+    "home rendered three frames",
+    "device rendered three frames",
+    "tesla rendered three frames",
+    "Vehicle panel uses actual TeslaSettings"
+  ],
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "device_type": "pc",
+  "capture": "flushed 2160x1080 render texture; excludes physical display rotation",
+  "screenshots": {
+    "home": {
+      "path": "/Users/mile/work/tesla-port/control-work/docs/tesla/evidence/P6-logical-ui-pages-home.png",
+      "sha256": "7a7b06afea8404940268eb60509bbe8795fb3243f78a552a3c84b01428d348df"
+    },
+    "device": {
+      "path": "/Users/mile/work/tesla-port/control-work/docs/tesla/evidence/P6-logical-ui-pages-device.png",
+      "sha256": "eca5e0bbdbe7d8544f1acdd0585faf0778fb962e5fc8bd594872b42504c883a3"
+    },
+    "tesla": {
+      "path": "/Users/mile/work/tesla-port/control-work/docs/tesla/evidence/P6-logical-ui-pages-tesla.png",
+      "sha256": "53acf9ca9658b0cdde64f7a6fe890e624a217b539dfb0e48023b9df7427f7559"
+    }
+  },
+  "source_sha256": "5fd1898395206b3b5e790539ad777b69040d82261e82ae007b33b6bc7e6b88ac",
+  "main_source_sha256": "9b2d4a2904efb5b4121c970116aca24c5f272a93108d5f9cd39320d21c3f9113"
+}

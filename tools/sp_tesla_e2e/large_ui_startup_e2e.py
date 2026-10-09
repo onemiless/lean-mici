@@ -4,12 +4,13 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path
 import traceback
 
 os.environ['BIG'] = '1'
 os.environ['SUNNYPILOT_UI'] = '1'
-os.environ.setdefault('SCALE', '0.5')
+os.environ['SCALE'] = '1'
 
 
 def main():
@@ -17,14 +18,21 @@ def main():
   parser.add_argument('--output', type=Path, required=True)
   args = parser.parse_args()
   from openpilot.common.prefix import OpenpilotPrefix
-  result = {'scope': 'actual desktop large MainLayout, DeviceLayoutSP and Tesla settings; isolated Params; no vehicle/CAN',
+  result = {'scope': 'native large UI logical-canvas render; isolated Params, synthetic Tesla selection; no vehicle/CAN acceptance',
             'passed': False, 'stages': []}
   with OpenpilotPrefix():
     from openpilot.system.ui.lib.application import gui_app
     from openpilot.selfdrive.ui.ui_state import ui_state
     from openpilot.selfdrive.ui.sunnypilot.layouts.settings.device import DeviceLayoutSP
+    from openpilot.common.hardware import HARDWARE
+    import pyray as rl
+    result.update(platform=platform.platform(), device_type=HARDWARE.get_device_type(),
+                  capture='flushed 2160x1080 render texture; excludes physical display rotation')
     gui_app.init_window('Large UI startup E2E', fps=20)
     try:
+      assert (gui_app.width, gui_app.height) == (2160, 1080)
+      if gui_app._render_texture is None:
+        gui_app._render_texture = rl.load_render_texture(gui_app.width, gui_app.height)
       ui_state.started = False
       ui_state.params.put_bool('IsOffroad', True, block=True)
       device = DeviceLayoutSP()
@@ -35,8 +43,6 @@ def main():
       from openpilot.selfdrive.ui.layouts.settings.settings import PanelType
       layout = MainLayout()
       result['stages'].append('MainLayout constructed')
-      import pyray as rl
-
       renderer = gui_app.render()
 
       def render_page(name):
@@ -45,7 +51,15 @@ def main():
         result['stages'].append(name + ' rendered three frames')
         screenshot = args.output.resolve().with_name(args.output.stem + '-' + name + '.png')
         screenshot.parent.mkdir(parents=True, exist_ok=True)
-        rl.take_screenshot(os.path.relpath(screenshot))
+        # render() yields before EndDrawing: flush the logical target, not the rotated physical framebuffer.
+        rl.rl_draw_render_batch_active()
+        image = rl.load_image_from_texture(gui_app._render_texture.texture)
+        try:
+          assert (image.width, image.height) == (2160, 1080)
+          rl.image_flip_vertical(rl.ffi.addressof(image))
+          assert rl.export_image(image, str(screenshot)), 'logical canvas PNG export failed'
+        finally:
+          rl.unload_image(image)
         result.setdefault('screenshots', {})[name] = {
           'path': str(screenshot), 'sha256': hashlib.sha256(screenshot.read_bytes()).hexdigest(),
         }
