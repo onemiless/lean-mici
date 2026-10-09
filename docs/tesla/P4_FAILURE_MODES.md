@@ -19,3 +19,7 @@ Validation artifacts are written to main repository docs/tesla/evidence. Existin
 - Postflash health and camera tests require incompatible manager states. Separate normal collection from explicit --camera stage, report expected service state and never stop/start manager.
 - Wide-road sensor may be wrong despite road camera passing; camera acceptance checks both road sensors and bounds acquisition to 45 seconds. Preserve >=100 frames, timestamp rate>=18 and contiguous frame IDs.
 - Slot readback must reject unknown boot_slot; existing explicit _a/_b mapping is retained.
+
+## Boot success readback correction, before implementation
+
+The actual abctl does not implement --get_success and returns help with status 0. Never classify CLI exit status alone as boot success. The installed libabctl.so.0 exports _Z25libabctl_getSuccessStatusj (unsigned int slot); captured disassembly calls only libgpt_getPartitionEntry and returns the partition success attribute bit or -1 on read failure. Use this existing read-only getter instead of guessing a misc/GPT layout. Reject unknown boot-slot text before the getter; output distinct unsuccessful (1) versus unsupported/read failure (2). Missing library/symbol or results outside 0/1 cannot PASS. Full CLI replay cases are recorded first.

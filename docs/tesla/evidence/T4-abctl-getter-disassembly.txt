@@ -1,0 +1,44 @@
+
+/lib/aarch64-linux-gnu/libabctl.so.0:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000002f88 <libabctl_getSuccessStatus(unsigned int)@@Base>:
+    2f88:	a9b553f3 	stp	x19, x20, [sp, #-176]!
+    2f8c:	900000d4 	adrp	x20, 1a000 <_fini@@Base+0x128a8>
+    2f90:	f9000bfe 	str	x30, [sp, #16]
+    2f94:	f947e281 	ldr	x1, [x20, #4032]
+    2f98:	f9400022 	ldr	x2, [x1]
+    2f9c:	f90057e2 	str	x2, [sp, #168]
+    2fa0:	d2800002 	mov	x2, #0x0                   	// #0
+    2fa4:	340002a0 	cbz	w0, 2ff8 <libabctl_getSuccessStatus(unsigned int)@@Base+0x70>
+    2fa8:	b0000020 	adrp	x0, 7000 <gpt_utils_get_partition_map@@Base+0xa18>
+    2fac:	911fa001 	add	x1, x0, #0x7e8
+    2fb0:	b0000023 	adrp	x3, 7000 <gpt_utils_get_partition_map@@Base+0xa18>
+    2fb4:	9100a3e2 	add	x2, sp, #0x28
+    2fb8:	91296060 	add	x0, x3, #0xa58
+    2fbc:	97fffd25 	bl	2450 <libgpt_getPartitionEntry(char const*, char16_t const*, gpt_partition_entry*)@plt>
+    2fc0:	3100041f 	cmn	w0, #0x1
+    2fc4:	2a0003f3 	mov	w19, w0
+    2fc8:	54000200 	b.eq	3008 <libabctl_getSuccessStatus(unsigned int)@@Base+0x80>  // b.none
+    2fcc:	f9402ff3 	ldr	x19, [sp, #88]
+    2fd0:	d376da73 	ubfx	x19, x19, #54, #1
+    2fd4:	f947e285 	ldr	x5, [x20, #4032]
+    2fd8:	2a1303e0 	mov	w0, w19
+    2fdc:	f94057e2 	ldr	x2, [sp, #168]
+    2fe0:	f94000a6 	ldr	x6, [x5]
+    2fe4:	ca060046 	eor	x6, x2, x6
+    2fe8:	b5000186 	cbnz	x6, 3018 <libabctl_getSuccessStatus(unsigned int)@@Base+0x90>
+    2fec:	f9400bfe 	ldr	x30, [sp, #16]
+    2ff0:	a8cb53f3 	ldp	x19, x20, [sp], #176
+    2ff4:	d65f03c0 	ret
+    2ff8:	b0000022 	adrp	x2, 7000 <gpt_utils_get_partition_map@@Base+0xa18>
+    2ffc:	911f6041 	add	x1, x2, #0x7d8
+    3000:	17ffffec 	b	2fb0 <libabctl_getSuccessStatus(unsigned int)@@Base+0x28>
+    3004:	d503201f 	nop
+    3008:	90000024 	adrp	x4, 7000 <gpt_utils_get_partition_map@@Base+0xa18>
+    300c:	9131e080 	add	x0, x4, #0xc78
+    3010:	97fffcd4 	bl	2360 <perror@plt>
+    3014:	17fffff0 	b	2fd4 <libabctl_getSuccessStatus(unsigned int)@@Base+0x4c>
+    3018:	97fffcda 	bl	2380 <__stack_chk_fail@plt>
