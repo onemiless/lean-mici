@@ -12,5 +12,7 @@
     "panda": "74a0adced421e8b7acd728d0f9988ce225423f13",
     "rednose_repo": "28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0",
     "tinygrad_repo": "9d0446a4ba8a532c8b674fb6ad795af015cd9dcf"
-  }
+  },
+  "opendbc_lean_tesla": "522598445d134bea277789e01ea7d1809b3afc7c",
+  "panda_lean_tesla": "2caa123f53bef8ba9c1561e74bde77616ee23124"
 }

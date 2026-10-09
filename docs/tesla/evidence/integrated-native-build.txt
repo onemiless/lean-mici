@@ -1,0 +1,23 @@
+scons: Reading SConscript files ...
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /Users/mile/work/tesla-port/lean-mici
+scons: done reading SConscript files.
+scons: Building targets ...
+progress: 1.6
+progress: 3.2
+progress: 4.8
+progress: 6.5
+progress: 8.1
+Retrieved `openpilot/cereal/gen/cpp/log.capnp.c++' from cache
+progress: 9.7
+progress: 11.3
+progress: 12.9
+progress: 14.5
+scons: *** Do not know how to make File target `openpilot/selfdrive/pandad/pandad' (/Users/mile/work/tesla-port/lean-mici/openpilot/selfdrive/pandad/pandad).  Stop.
+Retrieved `openpilot/cereal/gen/cpp/deprecated.capnp.c++' from cache
+Retrieved `openpilot/cereal/gen/cpp/custom.capnp.c++' from cache
+Retrieved `openpilot/cereal/gen/cpp/car.capnp.c++' from cache
+Retrieved `openpilot/cereal/gen/cpp/log.capnp.h' from cache
+Retrieved `openpilot/cereal/gen/cpp/deprecated.capnp.h' from cache
+Retrieved `openpilot/cereal/gen/cpp/custom.capnp.h' from cache
+Retrieved `openpilot/cereal/gen/cpp/car.capnp.h' from cache
+scons: building terminated because of errors.
