@@ -178,6 +178,24 @@ enum class LongitudinalPlanSource_ad47440556d96ec4: uint16_t {
 };
 CAPNP_DECLARE_ENUM(LongitudinalPlanSource, ad47440556d96ec4);
 CAPNP_DECLARE_SCHEMA(a567bce822ae28fe);
+CAPNP_DECLARE_SCHEMA(88dcd6d006f3c4a1);
+CAPNP_DECLARE_SCHEMA(8c9f9544b04650a6);
+enum class Profile_8c9f9544b04650a6: uint16_t {
+  ECO,
+  NORMAL,
+  SPORT,
+};
+CAPNP_DECLARE_ENUM(Profile, 8c9f9544b04650a6);
+CAPNP_DECLARE_SCHEMA(f3ef31c99115f2a3);
+enum class State_f3ef31c99115f2a3: uint16_t {
+  INACTIVE,
+  FREE,
+  RESTRICT,
+  HOLD,
+  RELEASE,
+  STOP_HOLD,
+};
+CAPNP_DECLARE_ENUM(State, f3ef31c99115f2a3);
 CAPNP_DECLARE_SCHEMA(da96579883444c35);
 CAPNP_DECLARE_SCHEMA(f6e831752fcdf793);
 CAPNP_DECLARE_SCHEMA(b8007ed8a646b5e6);
@@ -239,6 +257,9 @@ CAPNP_DECLARE_SCHEMA(d32ef1b9d6e3cdf5);
 CAPNP_DECLARE_SCHEMA(d8f4f047edce3c71);
 CAPNP_DECLARE_SCHEMA(9e62278160b7df26);
 CAPNP_DECLARE_SCHEMA(b86e6369214c01c8);
+CAPNP_DECLARE_SCHEMA(8f6f0b45bb38c685);
+CAPNP_DECLARE_SCHEMA(8a7b52354f67737e);
+CAPNP_DECLARE_SCHEMA(dfbea4ae06b998b3);
 CAPNP_DECLARE_SCHEMA(f416ec09499d9d19);
 CAPNP_DECLARE_SCHEMA(a1680744031fdb2d);
 CAPNP_DECLARE_SCHEMA(cf141966d082378b);
@@ -489,9 +510,10 @@ struct LongitudinalPlanSP {
   typedef ::capnp::schemas::LongitudinalPlanSource_ad47440556d96ec4 LongitudinalPlanSource;
 
   struct E2eAlerts;
+  struct AccelController;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(f35cc4560bbf6ec2, 2, 5)
+    CAPNP_DECLARE_STRUCT_HEADER(f35cc4560bbf6ec2, 2, 7)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -626,6 +648,25 @@ struct LongitudinalPlanSP::E2eAlerts {
 
   struct _capnpPrivate {
     CAPNP_DECLARE_STRUCT_HEADER(a567bce822ae28fe, 1, 0)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct LongitudinalPlanSP::AccelController {
+  AccelController() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+  typedef ::capnp::schemas::Profile_8c9f9544b04650a6 Profile;
+
+  typedef ::capnp::schemas::State_f3ef31c99115f2a3 State;
+
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(88dcd6d006f3c4a1, 1, 0)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -818,7 +859,52 @@ struct CarStateSP {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(b86e6369214c01c8, 1, 0)
+    CAPNP_DECLARE_STRUCT_HEADER(b86e6369214c01c8, 1, 2)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct TeslaRoadContext {
+  TeslaRoadContext() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(8f6f0b45bb38c685, 1, 0)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct TeslaTrafficControl {
+  TeslaTrafficControl() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(8a7b52354f67737e, 4, 1)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct TeslaTrafficControlPlan {
+  TeslaTrafficControlPlan() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(dfbea4ae06b998b3, 7, 0)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -890,15 +976,15 @@ struct BigModelReply {
   };
 };
 
-struct CustomReserved11 {
-  CustomReserved11() = delete;
+struct TrafficRadarState {
+  TrafficRadarState() = delete;
 
   class Reader;
   class Builder;
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(c2243c65e0340384, 0, 0)
+    CAPNP_DECLARE_STRUCT_HEADER(c2243c65e0340384, 8, 0)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -2330,6 +2416,12 @@ public:
   inline bool hasE2eAlerts() const;
   inline  ::cereal::LongitudinalPlanSP::E2eAlerts::Reader getE2eAlerts() const;
 
+  inline bool hasAccelController() const;
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Reader getAccelController() const;
+
+  inline bool hasTeslaTrafficControl() const;
+  inline  ::cereal::TeslaTrafficControlPlan::Reader getTeslaTrafficControl() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -2402,6 +2494,20 @@ public:
   inline void adoptE2eAlerts(::capnp::Orphan< ::cereal::LongitudinalPlanSP::E2eAlerts>&& value);
   inline ::capnp::Orphan< ::cereal::LongitudinalPlanSP::E2eAlerts> disownE2eAlerts();
 
+  inline bool hasAccelController();
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Builder getAccelController();
+  inline void setAccelController( ::cereal::LongitudinalPlanSP::AccelController::Reader value);
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Builder initAccelController();
+  inline void adoptAccelController(::capnp::Orphan< ::cereal::LongitudinalPlanSP::AccelController>&& value);
+  inline ::capnp::Orphan< ::cereal::LongitudinalPlanSP::AccelController> disownAccelController();
+
+  inline bool hasTeslaTrafficControl();
+  inline  ::cereal::TeslaTrafficControlPlan::Builder getTeslaTrafficControl();
+  inline void setTeslaTrafficControl( ::cereal::TeslaTrafficControlPlan::Reader value);
+  inline  ::cereal::TeslaTrafficControlPlan::Builder initTeslaTrafficControl();
+  inline void adoptTeslaTrafficControl(::capnp::Orphan< ::cereal::TeslaTrafficControlPlan>&& value);
+  inline ::capnp::Orphan< ::cereal::TeslaTrafficControlPlan> disownTeslaTrafficControl();
+
 private:
   ::capnp::_::StructBuilder _builder;
   template <typename, ::capnp::Kind>
@@ -2424,6 +2530,8 @@ public:
   inline  ::cereal::LongitudinalPlanSP::SmartCruiseControl::Pipeline getSmartCruiseControl();
   inline  ::cereal::LongitudinalPlanSP::SpeedLimit::Pipeline getSpeedLimit();
   inline  ::cereal::LongitudinalPlanSP::E2eAlerts::Pipeline getE2eAlerts();
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Pipeline getAccelController();
+  inline  ::cereal::TeslaTrafficControlPlan::Pipeline getTeslaTrafficControl();
 private:
   ::capnp::AnyPointer::Pipeline _typeless;
   friend class ::capnp::PipelineHook;
@@ -3186,6 +3294,102 @@ private:
 class LongitudinalPlanSP::E2eAlerts::Pipeline {
 public:
   typedef E2eAlerts Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
+class LongitudinalPlanSP::AccelController::Reader {
+public:
+  typedef AccelController Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand());
+  }
+#endif  // !CAPNP_LITE
+
+  inline bool getEnabled() const;
+
+  inline bool getActive() const;
+
+  inline bool getShadowOnlyDEPRECATED() const;
+
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Profile getProfile() const;
+
+  inline  ::cereal::LongitudinalPlanSP::AccelController::State getState() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class LongitudinalPlanSP::AccelController::Builder {
+public:
+  typedef AccelController Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline bool getEnabled();
+  inline void setEnabled(bool value);
+
+  inline bool getActive();
+  inline void setActive(bool value);
+
+  inline bool getShadowOnlyDEPRECATED();
+  inline void setShadowOnlyDEPRECATED(bool value);
+
+  inline  ::cereal::LongitudinalPlanSP::AccelController::Profile getProfile();
+  inline void setProfile( ::cereal::LongitudinalPlanSP::AccelController::Profile value);
+
+  inline  ::cereal::LongitudinalPlanSP::AccelController::State getState();
+  inline void setState( ::cereal::LongitudinalPlanSP::AccelController::State value);
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class LongitudinalPlanSP::AccelController::Pipeline {
+public:
+  typedef AccelController Pipelines;
 
   inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
   inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
@@ -4408,6 +4612,14 @@ public:
 
   inline float getSpeedLimit() const;
 
+  inline  ::uint32_t getFlags() const;
+
+  inline bool hasTeslaRoadContext() const;
+  inline  ::cereal::TeslaRoadContext::Reader getTeslaRoadContext() const;
+
+  inline bool hasTeslaTrafficControl() const;
+  inline  ::cereal::TeslaTrafficControl::Reader getTeslaTrafficControl() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -4439,6 +4651,23 @@ public:
   inline float getSpeedLimit();
   inline void setSpeedLimit(float value);
 
+  inline  ::uint32_t getFlags();
+  inline void setFlags( ::uint32_t value);
+
+  inline bool hasTeslaRoadContext();
+  inline  ::cereal::TeslaRoadContext::Builder getTeslaRoadContext();
+  inline void setTeslaRoadContext( ::cereal::TeslaRoadContext::Reader value);
+  inline  ::cereal::TeslaRoadContext::Builder initTeslaRoadContext();
+  inline void adoptTeslaRoadContext(::capnp::Orphan< ::cereal::TeslaRoadContext>&& value);
+  inline ::capnp::Orphan< ::cereal::TeslaRoadContext> disownTeslaRoadContext();
+
+  inline bool hasTeslaTrafficControl();
+  inline  ::cereal::TeslaTrafficControl::Builder getTeslaTrafficControl();
+  inline void setTeslaTrafficControl( ::cereal::TeslaTrafficControl::Reader value);
+  inline  ::cereal::TeslaTrafficControl::Builder initTeslaTrafficControl();
+  inline void adoptTeslaTrafficControl(::capnp::Orphan< ::cereal::TeslaTrafficControl>&& value);
+  inline ::capnp::Orphan< ::cereal::TeslaTrafficControl> disownTeslaTrafficControl();
+
 private:
   ::capnp::_::StructBuilder _builder;
   template <typename, ::capnp::Kind>
@@ -4452,6 +4681,506 @@ private:
 class CarStateSP::Pipeline {
 public:
   typedef CarStateSP Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+  inline  ::cereal::TeslaRoadContext::Pipeline getTeslaRoadContext();
+  inline  ::cereal::TeslaTrafficControl::Pipeline getTeslaTrafficControl();
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
+class TeslaRoadContext::Reader {
+public:
+  typedef TeslaRoadContext Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand());
+  }
+#endif  // !CAPNP_LITE
+
+  inline bool getAvailable() const;
+
+  inline  ::uint8_t getTrafficLightColor() const;
+
+  inline float getStopLineDistance() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class TeslaRoadContext::Builder {
+public:
+  typedef TeslaRoadContext Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline bool getAvailable();
+  inline void setAvailable(bool value);
+
+  inline  ::uint8_t getTrafficLightColor();
+  inline void setTrafficLightColor( ::uint8_t value);
+
+  inline float getStopLineDistance();
+  inline void setStopLineDistance(float value);
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class TeslaRoadContext::Pipeline {
+public:
+  typedef TeslaRoadContext Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
+class TeslaTrafficControl::Reader {
+public:
+  typedef TeslaTrafficControl Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand());
+  }
+#endif  // !CAPNP_LITE
+
+  inline bool getAvailable() const;
+
+  inline bool getValidForControl() const;
+
+  inline  ::uint8_t getSourceBus() const;
+
+  inline  ::uint8_t getDlc() const;
+
+  inline  ::uint8_t getFeatureState() const;
+
+  inline  ::uint8_t getStateMachine() const;
+
+  inline  ::uint8_t getControlSource() const;
+
+  inline  ::uint8_t getControlType() const;
+
+  inline float getDistance() const;
+
+  inline  ::uint8_t getLightState() const;
+
+  inline  ::uint8_t getContinuationReason() const;
+
+  inline  ::uint8_t getConfirmationType() const;
+
+  inline  ::uint8_t getWarningSuppressionReason() const;
+
+  inline  ::uint8_t getUnavailableReason() const;
+
+  inline bool getVisionLight() const;
+
+  inline bool getVisionSign() const;
+
+  inline bool getVisionRoadMarking() const;
+
+  inline bool getVisionLine() const;
+
+  inline  ::uint64_t getFrameMonoTime() const;
+
+  inline  ::uint8_t getQuality() const;
+
+  inline  ::uint32_t getRawAddress() const;
+
+  inline bool hasRawPayload() const;
+  inline  ::capnp::Data::Reader getRawPayload() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class TeslaTrafficControl::Builder {
+public:
+  typedef TeslaTrafficControl Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline bool getAvailable();
+  inline void setAvailable(bool value);
+
+  inline bool getValidForControl();
+  inline void setValidForControl(bool value);
+
+  inline  ::uint8_t getSourceBus();
+  inline void setSourceBus( ::uint8_t value);
+
+  inline  ::uint8_t getDlc();
+  inline void setDlc( ::uint8_t value);
+
+  inline  ::uint8_t getFeatureState();
+  inline void setFeatureState( ::uint8_t value);
+
+  inline  ::uint8_t getStateMachine();
+  inline void setStateMachine( ::uint8_t value);
+
+  inline  ::uint8_t getControlSource();
+  inline void setControlSource( ::uint8_t value);
+
+  inline  ::uint8_t getControlType();
+  inline void setControlType( ::uint8_t value);
+
+  inline float getDistance();
+  inline void setDistance(float value);
+
+  inline  ::uint8_t getLightState();
+  inline void setLightState( ::uint8_t value);
+
+  inline  ::uint8_t getContinuationReason();
+  inline void setContinuationReason( ::uint8_t value);
+
+  inline  ::uint8_t getConfirmationType();
+  inline void setConfirmationType( ::uint8_t value);
+
+  inline  ::uint8_t getWarningSuppressionReason();
+  inline void setWarningSuppressionReason( ::uint8_t value);
+
+  inline  ::uint8_t getUnavailableReason();
+  inline void setUnavailableReason( ::uint8_t value);
+
+  inline bool getVisionLight();
+  inline void setVisionLight(bool value);
+
+  inline bool getVisionSign();
+  inline void setVisionSign(bool value);
+
+  inline bool getVisionRoadMarking();
+  inline void setVisionRoadMarking(bool value);
+
+  inline bool getVisionLine();
+  inline void setVisionLine(bool value);
+
+  inline  ::uint64_t getFrameMonoTime();
+  inline void setFrameMonoTime( ::uint64_t value);
+
+  inline  ::uint8_t getQuality();
+  inline void setQuality( ::uint8_t value);
+
+  inline  ::uint32_t getRawAddress();
+  inline void setRawAddress( ::uint32_t value);
+
+  inline bool hasRawPayload();
+  inline  ::capnp::Data::Builder getRawPayload();
+  inline void setRawPayload( ::capnp::Data::Reader value);
+  inline  ::capnp::Data::Builder initRawPayload(unsigned int size);
+  inline void adoptRawPayload(::capnp::Orphan< ::capnp::Data>&& value);
+  inline ::capnp::Orphan< ::capnp::Data> disownRawPayload();
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class TeslaTrafficControl::Pipeline {
+public:
+  typedef TeslaTrafficControl Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
+class TeslaTrafficControlPlan::Reader {
+public:
+  typedef TeslaTrafficControlPlan Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand());
+  }
+#endif  // !CAPNP_LITE
+
+  inline  ::uint8_t getMode() const;
+
+  inline  ::uint8_t getPhase() const;
+
+  inline bool getActive() const;
+
+  inline bool getShadow() const;
+
+  inline bool getApplied() const;
+
+  inline bool getShouldStop() const;
+
+  inline float getRemainingDistance() const;
+
+  inline float getStopReference() const;
+
+  inline  ::uint8_t getLightState() const;
+
+  inline  ::uint8_t getSourceBus() const;
+
+  inline  ::uint8_t getQuality() const;
+
+  inline float getConstraintAccel() const;
+
+  inline  ::uint8_t getAction() const;
+
+  inline float getBaseATarget() const;
+
+  inline float getFinalATarget() const;
+
+  inline bool getStartRequested() const;
+
+  inline bool getStartApplied() const;
+
+  inline  ::uint8_t getStartBlockReason() const;
+
+  inline  ::uint32_t getEventId() const;
+
+  inline bool getTerminalCatchActive() const;
+
+  inline float getRawDistance() const;
+
+  inline  ::uint32_t getStopSessionId() const;
+
+  inline bool getDirectionUnknown() const;
+
+  inline bool getDriverOverrideActive() const;
+
+  inline float getCanRemaining() const;
+
+  inline float getStationInnovation() const;
+
+  inline bool getStopControlAllowed() const;
+
+  inline bool getRawObservationFresh() const;
+
+  inline float getRawObservationAgeMs() const;
+
+  inline bool getStopDirectionUnknown() const;
+
+  inline bool getStopSafetyAllowed() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class TeslaTrafficControlPlan::Builder {
+public:
+  typedef TeslaTrafficControlPlan Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline  ::uint8_t getMode();
+  inline void setMode( ::uint8_t value);
+
+  inline  ::uint8_t getPhase();
+  inline void setPhase( ::uint8_t value);
+
+  inline bool getActive();
+  inline void setActive(bool value);
+
+  inline bool getShadow();
+  inline void setShadow(bool value);
+
+  inline bool getApplied();
+  inline void setApplied(bool value);
+
+  inline bool getShouldStop();
+  inline void setShouldStop(bool value);
+
+  inline float getRemainingDistance();
+  inline void setRemainingDistance(float value);
+
+  inline float getStopReference();
+  inline void setStopReference(float value);
+
+  inline  ::uint8_t getLightState();
+  inline void setLightState( ::uint8_t value);
+
+  inline  ::uint8_t getSourceBus();
+  inline void setSourceBus( ::uint8_t value);
+
+  inline  ::uint8_t getQuality();
+  inline void setQuality( ::uint8_t value);
+
+  inline float getConstraintAccel();
+  inline void setConstraintAccel(float value);
+
+  inline  ::uint8_t getAction();
+  inline void setAction( ::uint8_t value);
+
+  inline float getBaseATarget();
+  inline void setBaseATarget(float value);
+
+  inline float getFinalATarget();
+  inline void setFinalATarget(float value);
+
+  inline bool getStartRequested();
+  inline void setStartRequested(bool value);
+
+  inline bool getStartApplied();
+  inline void setStartApplied(bool value);
+
+  inline  ::uint8_t getStartBlockReason();
+  inline void setStartBlockReason( ::uint8_t value);
+
+  inline  ::uint32_t getEventId();
+  inline void setEventId( ::uint32_t value);
+
+  inline bool getTerminalCatchActive();
+  inline void setTerminalCatchActive(bool value);
+
+  inline float getRawDistance();
+  inline void setRawDistance(float value);
+
+  inline  ::uint32_t getStopSessionId();
+  inline void setStopSessionId( ::uint32_t value);
+
+  inline bool getDirectionUnknown();
+  inline void setDirectionUnknown(bool value);
+
+  inline bool getDriverOverrideActive();
+  inline void setDriverOverrideActive(bool value);
+
+  inline float getCanRemaining();
+  inline void setCanRemaining(float value);
+
+  inline float getStationInnovation();
+  inline void setStationInnovation(float value);
+
+  inline bool getStopControlAllowed();
+  inline void setStopControlAllowed(bool value);
+
+  inline bool getRawObservationFresh();
+  inline void setRawObservationFresh(bool value);
+
+  inline float getRawObservationAgeMs();
+  inline void setRawObservationAgeMs(float value);
+
+  inline bool getStopDirectionUnknown();
+  inline void setStopDirectionUnknown(bool value);
+
+  inline bool getStopSafetyAllowed();
+  inline void setStopSafetyAllowed(bool value);
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class TeslaTrafficControlPlan::Pipeline {
+public:
+  typedef TeslaTrafficControlPlan Pipelines;
 
   inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
   inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
@@ -4923,9 +5652,9 @@ private:
 };
 #endif  // !CAPNP_LITE
 
-class CustomReserved11::Reader {
+class TrafficRadarState::Reader {
 public:
-  typedef CustomReserved11 Reads;
+  typedef TrafficRadarState Reads;
 
   Reader() = default;
   inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
@@ -4940,6 +5669,72 @@ public:
   }
 #endif  // !CAPNP_LITE
 
+  inline bool getTargetPresent() const;
+
+  inline float getOemTargetDistance() const;
+
+  inline float getTargetRelativeVelocity() const;
+
+  inline float getTargetRelativeAcceleration() const;
+
+  inline float getDistanceToStopPoint() const;
+
+  inline  ::uint8_t getPhase() const;
+
+  inline  ::uint8_t getLightState() const;
+
+  inline  ::uint8_t getSourceBus() const;
+
+  inline  ::uint8_t getQuality() const;
+
+  inline float getConfidence() const;
+
+  inline  ::uint32_t getEventId() const;
+
+  inline  ::uint64_t getPublishMonoTime() const;
+
+  inline bool getControlAllowed() const;
+
+  inline bool getSuppressedByPhysicalLead() const;
+
+  inline bool getShouldStop() const;
+
+  inline bool getPlannerStartRequested() const;
+
+  inline  ::uint8_t getMode() const;
+
+  inline bool getRawGreenSeen() const;
+
+  inline bool getReleaseEligible() const;
+
+  inline bool getEventContinuous() const;
+
+  inline  ::uint8_t getEventTransitionReason() const;
+
+  inline  ::uint32_t getEventTransitionSeq() const;
+
+  inline float getRawDistance() const;
+
+  inline float getObservationAgeMs() const;
+
+  inline  ::uint32_t getStopSessionId() const;
+
+  inline bool getDirectionUnknown() const;
+
+  inline bool getDriverOverrideActive() const;
+
+  inline float getCanRemaining() const;
+
+  inline float getStationInnovation() const;
+
+  inline bool getStopControlAllowed() const;
+
+  inline bool getRawObservationFresh() const;
+
+  inline bool getStopDirectionUnknown() const;
+
+  inline bool getStopSafetyAllowed() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -4952,9 +5747,9 @@ private:
   friend class ::capnp::Orphanage;
 };
 
-class CustomReserved11::Builder {
+class TrafficRadarState::Builder {
 public:
-  typedef CustomReserved11 Builds;
+  typedef TrafficRadarState Builds;
 
   Builder() = delete;  // Deleted to discourage incorrect usage.
                        // You can explicitly initialize to nullptr instead.
@@ -4968,6 +5763,105 @@ public:
   inline ::kj::StringTree toString() const { return asReader().toString(); }
 #endif  // !CAPNP_LITE
 
+  inline bool getTargetPresent();
+  inline void setTargetPresent(bool value);
+
+  inline float getOemTargetDistance();
+  inline void setOemTargetDistance(float value);
+
+  inline float getTargetRelativeVelocity();
+  inline void setTargetRelativeVelocity(float value);
+
+  inline float getTargetRelativeAcceleration();
+  inline void setTargetRelativeAcceleration(float value);
+
+  inline float getDistanceToStopPoint();
+  inline void setDistanceToStopPoint(float value);
+
+  inline  ::uint8_t getPhase();
+  inline void setPhase( ::uint8_t value);
+
+  inline  ::uint8_t getLightState();
+  inline void setLightState( ::uint8_t value);
+
+  inline  ::uint8_t getSourceBus();
+  inline void setSourceBus( ::uint8_t value);
+
+  inline  ::uint8_t getQuality();
+  inline void setQuality( ::uint8_t value);
+
+  inline float getConfidence();
+  inline void setConfidence(float value);
+
+  inline  ::uint32_t getEventId();
+  inline void setEventId( ::uint32_t value);
+
+  inline  ::uint64_t getPublishMonoTime();
+  inline void setPublishMonoTime( ::uint64_t value);
+
+  inline bool getControlAllowed();
+  inline void setControlAllowed(bool value);
+
+  inline bool getSuppressedByPhysicalLead();
+  inline void setSuppressedByPhysicalLead(bool value);
+
+  inline bool getShouldStop();
+  inline void setShouldStop(bool value);
+
+  inline bool getPlannerStartRequested();
+  inline void setPlannerStartRequested(bool value);
+
+  inline  ::uint8_t getMode();
+  inline void setMode( ::uint8_t value);
+
+  inline bool getRawGreenSeen();
+  inline void setRawGreenSeen(bool value);
+
+  inline bool getReleaseEligible();
+  inline void setReleaseEligible(bool value);
+
+  inline bool getEventContinuous();
+  inline void setEventContinuous(bool value);
+
+  inline  ::uint8_t getEventTransitionReason();
+  inline void setEventTransitionReason( ::uint8_t value);
+
+  inline  ::uint32_t getEventTransitionSeq();
+  inline void setEventTransitionSeq( ::uint32_t value);
+
+  inline float getRawDistance();
+  inline void setRawDistance(float value);
+
+  inline float getObservationAgeMs();
+  inline void setObservationAgeMs(float value);
+
+  inline  ::uint32_t getStopSessionId();
+  inline void setStopSessionId( ::uint32_t value);
+
+  inline bool getDirectionUnknown();
+  inline void setDirectionUnknown(bool value);
+
+  inline bool getDriverOverrideActive();
+  inline void setDriverOverrideActive(bool value);
+
+  inline float getCanRemaining();
+  inline void setCanRemaining(float value);
+
+  inline float getStationInnovation();
+  inline void setStationInnovation(float value);
+
+  inline bool getStopControlAllowed();
+  inline void setStopControlAllowed(bool value);
+
+  inline bool getRawObservationFresh();
+  inline void setRawObservationFresh(bool value);
+
+  inline bool getStopDirectionUnknown();
+  inline void setStopDirectionUnknown(bool value);
+
+  inline bool getStopSafetyAllowed();
+  inline void setStopSafetyAllowed(bool value);
+
 private:
   ::capnp::_::StructBuilder _builder;
   template <typename, ::capnp::Kind>
@@ -4978,9 +5872,9 @@ private:
 };
 
 #if !CAPNP_LITE
-class CustomReserved11::Pipeline {
+class TrafficRadarState::Pipeline {
 public:
-  typedef CustomReserved11 Pipelines;
+  typedef TrafficRadarState Pipelines;
 
   inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
   inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
@@ -7108,6 +8002,84 @@ inline ::capnp::Orphan< ::cereal::LongitudinalPlanSP::E2eAlerts> LongitudinalPla
       ::capnp::bounded<4>() * ::capnp::POINTERS));
 }
 
+inline bool LongitudinalPlanSP::Reader::hasAccelController() const {
+  return !_reader.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS).isNull();
+}
+inline bool LongitudinalPlanSP::Builder::hasAccelController() {
+  return !_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS).isNull();
+}
+inline  ::cereal::LongitudinalPlanSP::AccelController::Reader LongitudinalPlanSP::Reader::getAccelController() const {
+  return ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::get(_reader.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS));
+}
+inline  ::cereal::LongitudinalPlanSP::AccelController::Builder LongitudinalPlanSP::Builder::getAccelController() {
+  return ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::get(_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::cereal::LongitudinalPlanSP::AccelController::Pipeline LongitudinalPlanSP::Pipeline::getAccelController() {
+  return  ::cereal::LongitudinalPlanSP::AccelController::Pipeline(_typeless.getPointerField(5));
+}
+#endif  // !CAPNP_LITE
+inline void LongitudinalPlanSP::Builder::setAccelController( ::cereal::LongitudinalPlanSP::AccelController::Reader value) {
+  ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::set(_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS), value);
+}
+inline  ::cereal::LongitudinalPlanSP::AccelController::Builder LongitudinalPlanSP::Builder::initAccelController() {
+  return ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::init(_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS));
+}
+inline void LongitudinalPlanSP::Builder::adoptAccelController(
+    ::capnp::Orphan< ::cereal::LongitudinalPlanSP::AccelController>&& value) {
+  ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::adopt(_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::cereal::LongitudinalPlanSP::AccelController> LongitudinalPlanSP::Builder::disownAccelController() {
+  return ::capnp::_::PointerHelpers< ::cereal::LongitudinalPlanSP::AccelController>::disown(_builder.getPointerField(
+      ::capnp::bounded<5>() * ::capnp::POINTERS));
+}
+
+inline bool LongitudinalPlanSP::Reader::hasTeslaTrafficControl() const {
+  return !_reader.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS).isNull();
+}
+inline bool LongitudinalPlanSP::Builder::hasTeslaTrafficControl() {
+  return !_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS).isNull();
+}
+inline  ::cereal::TeslaTrafficControlPlan::Reader LongitudinalPlanSP::Reader::getTeslaTrafficControl() const {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::get(_reader.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS));
+}
+inline  ::cereal::TeslaTrafficControlPlan::Builder LongitudinalPlanSP::Builder::getTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::get(_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::cereal::TeslaTrafficControlPlan::Pipeline LongitudinalPlanSP::Pipeline::getTeslaTrafficControl() {
+  return  ::cereal::TeslaTrafficControlPlan::Pipeline(_typeless.getPointerField(6));
+}
+#endif  // !CAPNP_LITE
+inline void LongitudinalPlanSP::Builder::setTeslaTrafficControl( ::cereal::TeslaTrafficControlPlan::Reader value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::set(_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS), value);
+}
+inline  ::cereal::TeslaTrafficControlPlan::Builder LongitudinalPlanSP::Builder::initTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::init(_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS));
+}
+inline void LongitudinalPlanSP::Builder::adoptTeslaTrafficControl(
+    ::capnp::Orphan< ::cereal::TeslaTrafficControlPlan>&& value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::adopt(_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::cereal::TeslaTrafficControlPlan> LongitudinalPlanSP::Builder::disownTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControlPlan>::disown(_builder.getPointerField(
+      ::capnp::bounded<6>() * ::capnp::POINTERS));
+}
+
 inline  ::cereal::LongitudinalPlanSP::DynamicExperimentalControl::DynamicExperimentalControlState LongitudinalPlanSP::DynamicExperimentalControl::Reader::getState() const {
   return _reader.getDataField< ::cereal::LongitudinalPlanSP::DynamicExperimentalControl::DynamicExperimentalControlState>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
@@ -7696,6 +8668,76 @@ inline bool LongitudinalPlanSP::E2eAlerts::Builder::getLeadDepartAlert() {
 inline void LongitudinalPlanSP::E2eAlerts::Builder::setLeadDepartAlert(bool value) {
   _builder.setDataField<bool>(
       ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Reader::getEnabled() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Builder::getEnabled() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+inline void LongitudinalPlanSP::AccelController::Builder::setEnabled(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Reader::getActive() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Builder::getActive() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void LongitudinalPlanSP::AccelController::Builder::setActive(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Reader::getShadowOnlyDEPRECATED() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline bool LongitudinalPlanSP::AccelController::Builder::getShadowOnlyDEPRECATED() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void LongitudinalPlanSP::AccelController::Builder::setShadowOnlyDEPRECATED(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::cereal::LongitudinalPlanSP::AccelController::Profile LongitudinalPlanSP::AccelController::Reader::getProfile() const {
+  return _reader.getDataField< ::cereal::LongitudinalPlanSP::AccelController::Profile>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::cereal::LongitudinalPlanSP::AccelController::Profile LongitudinalPlanSP::AccelController::Builder::getProfile() {
+  return _builder.getDataField< ::cereal::LongitudinalPlanSP::AccelController::Profile>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void LongitudinalPlanSP::AccelController::Builder::setProfile( ::cereal::LongitudinalPlanSP::AccelController::Profile value) {
+  _builder.setDataField< ::cereal::LongitudinalPlanSP::AccelController::Profile>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::cereal::LongitudinalPlanSP::AccelController::State LongitudinalPlanSP::AccelController::Reader::getState() const {
+  return _reader.getDataField< ::cereal::LongitudinalPlanSP::AccelController::State>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline  ::cereal::LongitudinalPlanSP::AccelController::State LongitudinalPlanSP::AccelController::Builder::getState() {
+  return _builder.getDataField< ::cereal::LongitudinalPlanSP::AccelController::State>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void LongitudinalPlanSP::AccelController::Builder::setState( ::cereal::LongitudinalPlanSP::AccelController::State value) {
+  _builder.setDataField< ::cereal::LongitudinalPlanSP::AccelController::State>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
 }
 
 inline bool OnroadEventSP::Reader::hasEvents() const {
@@ -9032,6 +10074,902 @@ inline void CarStateSP::Builder::setSpeedLimit(float value) {
       ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
 }
 
+inline  ::uint32_t CarStateSP::Reader::getFlags() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t CarStateSP::Builder::getFlags() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void CarStateSP::Builder::setFlags( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool CarStateSP::Reader::hasTeslaRoadContext() const {
+  return !_reader.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
+}
+inline bool CarStateSP::Builder::hasTeslaRoadContext() {
+  return !_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
+}
+inline  ::cereal::TeslaRoadContext::Reader CarStateSP::Reader::getTeslaRoadContext() const {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::get(_reader.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+inline  ::cereal::TeslaRoadContext::Builder CarStateSP::Builder::getTeslaRoadContext() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::get(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::cereal::TeslaRoadContext::Pipeline CarStateSP::Pipeline::getTeslaRoadContext() {
+  return  ::cereal::TeslaRoadContext::Pipeline(_typeless.getPointerField(0));
+}
+#endif  // !CAPNP_LITE
+inline void CarStateSP::Builder::setTeslaRoadContext( ::cereal::TeslaRoadContext::Reader value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::set(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS), value);
+}
+inline  ::cereal::TeslaRoadContext::Builder CarStateSP::Builder::initTeslaRoadContext() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::init(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+inline void CarStateSP::Builder::adoptTeslaRoadContext(
+    ::capnp::Orphan< ::cereal::TeslaRoadContext>&& value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::adopt(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::cereal::TeslaRoadContext> CarStateSP::Builder::disownTeslaRoadContext() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaRoadContext>::disown(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+
+inline bool CarStateSP::Reader::hasTeslaTrafficControl() const {
+  return !_reader.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS).isNull();
+}
+inline bool CarStateSP::Builder::hasTeslaTrafficControl() {
+  return !_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS).isNull();
+}
+inline  ::cereal::TeslaTrafficControl::Reader CarStateSP::Reader::getTeslaTrafficControl() const {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::get(_reader.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS));
+}
+inline  ::cereal::TeslaTrafficControl::Builder CarStateSP::Builder::getTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::get(_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::cereal::TeslaTrafficControl::Pipeline CarStateSP::Pipeline::getTeslaTrafficControl() {
+  return  ::cereal::TeslaTrafficControl::Pipeline(_typeless.getPointerField(1));
+}
+#endif  // !CAPNP_LITE
+inline void CarStateSP::Builder::setTeslaTrafficControl( ::cereal::TeslaTrafficControl::Reader value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::set(_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS), value);
+}
+inline  ::cereal::TeslaTrafficControl::Builder CarStateSP::Builder::initTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::init(_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS));
+}
+inline void CarStateSP::Builder::adoptTeslaTrafficControl(
+    ::capnp::Orphan< ::cereal::TeslaTrafficControl>&& value) {
+  ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::adopt(_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::cereal::TeslaTrafficControl> CarStateSP::Builder::disownTeslaTrafficControl() {
+  return ::capnp::_::PointerHelpers< ::cereal::TeslaTrafficControl>::disown(_builder.getPointerField(
+      ::capnp::bounded<1>() * ::capnp::POINTERS));
+}
+
+inline bool TeslaRoadContext::Reader::getAvailable() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaRoadContext::Builder::getAvailable() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+inline void TeslaRoadContext::Builder::setAvailable(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaRoadContext::Reader::getTrafficLightColor() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaRoadContext::Builder::getTrafficLightColor() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaRoadContext::Builder::setTrafficLightColor( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaRoadContext::Reader::getStopLineDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaRoadContext::Builder::getStopLineDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaRoadContext::Builder::setStopLineDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getAvailable() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getAvailable() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setAvailable(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getValidForControl() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getValidForControl() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setValidForControl(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getSourceBus() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getSourceBus() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setSourceBus( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getDlc() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getDlc() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setDlc( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getFeatureState() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getFeatureState() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setFeatureState( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getStateMachine() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getStateMachine() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setStateMachine( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getControlSource() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getControlSource() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setControlSource( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getControlType() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getControlType() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setControlType( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControl::Reader::getDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControl::Builder::getDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getLightState() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getLightState() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setLightState( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getContinuationReason() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getContinuationReason() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setContinuationReason( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getConfirmationType() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getConfirmationType() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setConfirmationType( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getWarningSuppressionReason() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getWarningSuppressionReason() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setWarningSuppressionReason( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getUnavailableReason() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getUnavailableReason() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setUnavailableReason( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getVisionLight() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getVisionLight() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setVisionLight(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getVisionSign() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getVisionSign() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setVisionSign(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getVisionRoadMarking() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getVisionRoadMarking() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setVisionRoadMarking(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::getVisionLine() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControl::Builder::getVisionLine() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setVisionLine(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint64_t TeslaTrafficControl::Reader::getFrameMonoTime() const {
+  return _reader.getDataField< ::uint64_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint64_t TeslaTrafficControl::Builder::getFrameMonoTime() {
+  return _builder.getDataField< ::uint64_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setFrameMonoTime( ::uint64_t value) {
+  _builder.setDataField< ::uint64_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Reader::getQuality() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<24>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControl::Builder::getQuality() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<24>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setQuality( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<24>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TeslaTrafficControl::Reader::getRawAddress() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TeslaTrafficControl::Builder::getRawAddress() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControl::Builder::setRawAddress( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControl::Reader::hasRawPayload() const {
+  return !_reader.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
+}
+inline bool TeslaTrafficControl::Builder::hasRawPayload() {
+  return !_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Data::Reader TeslaTrafficControl::Reader::getRawPayload() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(_reader.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+inline  ::capnp::Data::Builder TeslaTrafficControl::Builder::getRawPayload() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+inline void TeslaTrafficControl::Builder::setRawPayload( ::capnp::Data::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::set(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Data::Builder TeslaTrafficControl::Builder::initRawPayload(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::init(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS), size);
+}
+inline void TeslaTrafficControl::Builder::adoptRawPayload(
+    ::capnp::Orphan< ::capnp::Data>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::adopt(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Data> TeslaTrafficControl::Builder::disownRawPayload() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::disown(_builder.getPointerField(
+      ::capnp::bounded<0>() * ::capnp::POINTERS));
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getMode() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getMode() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setMode( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getPhase() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getPhase() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setPhase( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getActive() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<16>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getActive() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<16>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setActive(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<16>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getShadow() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<17>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getShadow() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<17>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setShadow(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<17>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getApplied() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<18>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getApplied() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<18>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setApplied(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<18>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getShouldStop() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<19>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getShouldStop() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<19>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setShouldStop(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<19>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getRemainingDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getRemainingDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setRemainingDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getStopReference() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getStopReference() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStopReference(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getLightState() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getLightState() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setLightState( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getSourceBus() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getSourceBus() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setSourceBus( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getQuality() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getQuality() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setQuality( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getConstraintAccel() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getConstraintAccel() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setConstraintAccel(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getAction() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getAction() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setAction( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getBaseATarget() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getBaseATarget() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setBaseATarget(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getFinalATarget() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getFinalATarget() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setFinalATarget(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getStartRequested() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getStartRequested() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStartRequested(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getStartApplied() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getStartApplied() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStartApplied(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Reader::getStartBlockReason() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TeslaTrafficControlPlan::Builder::getStartBlockReason() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStartBlockReason( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TeslaTrafficControlPlan::Reader::getEventId() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TeslaTrafficControlPlan::Builder::getEventId() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setEventId( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getTerminalCatchActive() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getTerminalCatchActive() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setTerminalCatchActive(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getRawDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<8>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getRawDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<8>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setRawDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<8>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TeslaTrafficControlPlan::Reader::getStopSessionId() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<9>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TeslaTrafficControlPlan::Builder::getStopSessionId() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<9>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStopSessionId( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<9>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getDirectionUnknown() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getDirectionUnknown() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setDirectionUnknown(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<23>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getDriverOverrideActive() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<320>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getDriverOverrideActive() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<320>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setDriverOverrideActive(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<320>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getCanRemaining() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getCanRemaining() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setCanRemaining(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getStationInnovation() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getStationInnovation() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStationInnovation(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getStopControlAllowed() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<321>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getStopControlAllowed() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<321>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStopControlAllowed(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<321>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getRawObservationFresh() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<322>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getRawObservationFresh() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<322>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setRawObservationFresh(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<322>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TeslaTrafficControlPlan::Reader::getRawObservationAgeMs() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+
+inline float TeslaTrafficControlPlan::Builder::getRawObservationAgeMs() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setRawObservationAgeMs(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getStopDirectionUnknown() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<323>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getStopDirectionUnknown() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<323>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStopDirectionUnknown(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<323>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TeslaTrafficControlPlan::Reader::getStopSafetyAllowed() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<324>() * ::capnp::ELEMENTS);
+}
+
+inline bool TeslaTrafficControlPlan::Builder::getStopSafetyAllowed() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<324>() * ::capnp::ELEMENTS);
+}
+inline void TeslaTrafficControlPlan::Builder::setStopSafetyAllowed(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<324>() * ::capnp::ELEMENTS, value);
+}
+
 inline bool LiveMapDataSP::Reader::getSpeedLimitValid() const {
   return _reader.getDataField<bool>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
@@ -9554,6 +11492,468 @@ inline void BigModelReply::Builder::adoptStages(
 inline ::capnp::Orphan< ::cereal::ModelDataV2SP::BigStageTimes> BigModelReply::Builder::disownStages() {
   return ::capnp::_::PointerHelpers< ::cereal::ModelDataV2SP::BigStageTimes>::disown(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS));
+}
+
+inline bool TrafficRadarState::Reader::getTargetPresent() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getTargetPresent() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setTargetPresent(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getOemTargetDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getOemTargetDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setOemTargetDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getTargetRelativeVelocity() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getTargetRelativeVelocity() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setTargetRelativeVelocity(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getTargetRelativeAcceleration() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getTargetRelativeAcceleration() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setTargetRelativeAcceleration(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getDistanceToStopPoint() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getDistanceToStopPoint() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setDistanceToStopPoint(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getPhase() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getPhase() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setPhase( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getLightState() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getLightState() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setLightState( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getSourceBus() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getSourceBus() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setSourceBus( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getQuality() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getQuality() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setQuality( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<20>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getConfidence() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getConfidence() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setConfidence(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TrafficRadarState::Reader::getEventId() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TrafficRadarState::Builder::getEventId() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setEventId( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint64_t TrafficRadarState::Reader::getPublishMonoTime() const {
+  return _reader.getDataField< ::uint64_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint64_t TrafficRadarState::Builder::getPublishMonoTime() {
+  return _builder.getDataField< ::uint64_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setPublishMonoTime( ::uint64_t value) {
+  _builder.setDataField< ::uint64_t>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getControlAllowed() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getControlAllowed() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setControlAllowed(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<1>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getSuppressedByPhysicalLead() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getSuppressedByPhysicalLead() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setSuppressedByPhysicalLead(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<2>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getShouldStop() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getShouldStop() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setShouldStop(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<3>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getPlannerStartRequested() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getPlannerStartRequested() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setPlannerStartRequested(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getMode() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getMode() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setMode( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<21>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getRawGreenSeen() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getRawGreenSeen() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setRawGreenSeen(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<5>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getReleaseEligible() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getReleaseEligible() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setReleaseEligible(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<6>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getEventContinuous() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getEventContinuous() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setEventContinuous(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<7>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint8_t TrafficRadarState::Reader::getEventTransitionReason() const {
+  return _reader.getDataField< ::uint8_t>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint8_t TrafficRadarState::Builder::getEventTransitionReason() {
+  return _builder.getDataField< ::uint8_t>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setEventTransitionReason( ::uint8_t value) {
+  _builder.setDataField< ::uint8_t>(
+      ::capnp::bounded<22>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TrafficRadarState::Reader::getEventTransitionSeq() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<10>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TrafficRadarState::Builder::getEventTransitionSeq() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<10>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setEventTransitionSeq( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<10>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getRawDistance() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getRawDistance() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setRawDistance(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<11>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getObservationAgeMs() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getObservationAgeMs() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setObservationAgeMs(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<12>() * ::capnp::ELEMENTS, value);
+}
+
+inline  ::uint32_t TrafficRadarState::Reader::getStopSessionId() const {
+  return _reader.getDataField< ::uint32_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+
+inline  ::uint32_t TrafficRadarState::Builder::getStopSessionId() {
+  return _builder.getDataField< ::uint32_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setStopSessionId( ::uint32_t value) {
+  _builder.setDataField< ::uint32_t>(
+      ::capnp::bounded<13>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getDirectionUnknown() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<184>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getDirectionUnknown() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<184>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setDirectionUnknown(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<184>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getDriverOverrideActive() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<185>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getDriverOverrideActive() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<185>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setDriverOverrideActive(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<185>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getCanRemaining() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getCanRemaining() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setCanRemaining(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<14>() * ::capnp::ELEMENTS, value);
+}
+
+inline float TrafficRadarState::Reader::getStationInnovation() const {
+  return _reader.getDataField<float>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+
+inline float TrafficRadarState::Builder::getStationInnovation() {
+  return _builder.getDataField<float>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setStationInnovation(float value) {
+  _builder.setDataField<float>(
+      ::capnp::bounded<15>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getStopControlAllowed() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<186>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getStopControlAllowed() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<186>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setStopControlAllowed(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<186>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getRawObservationFresh() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<187>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getRawObservationFresh() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<187>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setRawObservationFresh(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<187>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getStopDirectionUnknown() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<188>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getStopDirectionUnknown() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<188>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setStopDirectionUnknown(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<188>() * ::capnp::ELEMENTS, value);
+}
+
+inline bool TrafficRadarState::Reader::getStopSafetyAllowed() const {
+  return _reader.getDataField<bool>(
+      ::capnp::bounded<189>() * ::capnp::ELEMENTS);
+}
+
+inline bool TrafficRadarState::Builder::getStopSafetyAllowed() {
+  return _builder.getDataField<bool>(
+      ::capnp::bounded<189>() * ::capnp::ELEMENTS);
+}
+inline void TrafficRadarState::Builder::setStopSafetyAllowed(bool value) {
+  _builder.setDataField<bool>(
+      ::capnp::bounded<189>() * ::capnp::ELEMENTS, value);
 }
 
 }  // namespace

@@ -3320,7 +3320,7 @@ struct Event {
     ONROAD_EVENTS,
     TOUCH,
     BIG_MODEL_REPLY,
-    CUSTOM_RESERVED11,
+    TRAFFIC_RADAR_STATE,
     CUSTOM_RESERVED12,
     CUSTOM_RESERVED13,
     CUSTOM_RESERVED14,
@@ -23360,9 +23360,9 @@ public:
   inline bool hasBigModelReply() const;
   inline  ::cereal::BigModelReply::Reader getBigModelReply() const;
 
-  inline bool isCustomReserved11() const;
-  inline bool hasCustomReserved11() const;
-  inline  ::cereal::CustomReserved11::Reader getCustomReserved11() const;
+  inline bool isTrafficRadarState() const;
+  inline bool hasTrafficRadarState() const;
+  inline  ::cereal::TrafficRadarState::Reader getTrafficRadarState() const;
 
   inline bool isCustomReserved12() const;
   inline bool hasCustomReserved12() const;
@@ -24539,13 +24539,13 @@ public:
   inline void adoptBigModelReply(::capnp::Orphan< ::cereal::BigModelReply>&& value);
   inline ::capnp::Orphan< ::cereal::BigModelReply> disownBigModelReply();
 
-  inline bool isCustomReserved11();
-  inline bool hasCustomReserved11();
-  inline  ::cereal::CustomReserved11::Builder getCustomReserved11();
-  inline void setCustomReserved11( ::cereal::CustomReserved11::Reader value);
-  inline  ::cereal::CustomReserved11::Builder initCustomReserved11();
-  inline void adoptCustomReserved11(::capnp::Orphan< ::cereal::CustomReserved11>&& value);
-  inline ::capnp::Orphan< ::cereal::CustomReserved11> disownCustomReserved11();
+  inline bool isTrafficRadarState();
+  inline bool hasTrafficRadarState();
+  inline  ::cereal::TrafficRadarState::Builder getTrafficRadarState();
+  inline void setTrafficRadarState( ::cereal::TrafficRadarState::Reader value);
+  inline  ::cereal::TrafficRadarState::Builder initTrafficRadarState();
+  inline void adoptTrafficRadarState(::capnp::Orphan< ::cereal::TrafficRadarState>&& value);
+  inline ::capnp::Orphan< ::cereal::TrafficRadarState> disownTrafficRadarState();
 
   inline bool isCustomReserved12();
   inline bool hasCustomReserved12();
@@ -59259,57 +59259,57 @@ inline ::capnp::Orphan< ::cereal::BigModelReply> Event::Builder::disownBigModelR
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
 
-inline bool Event::Reader::isCustomReserved11() const {
-  return which() == Event::CUSTOM_RESERVED11;
+inline bool Event::Reader::isTrafficRadarState() const {
+  return which() == Event::TRAFFIC_RADAR_STATE;
 }
-inline bool Event::Builder::isCustomReserved11() {
-  return which() == Event::CUSTOM_RESERVED11;
+inline bool Event::Builder::isTrafficRadarState() {
+  return which() == Event::TRAFFIC_RADAR_STATE;
 }
-inline bool Event::Reader::hasCustomReserved11() const {
-  if (which() != Event::CUSTOM_RESERVED11) return false;
+inline bool Event::Reader::hasTrafficRadarState() const {
+  if (which() != Event::TRAFFIC_RADAR_STATE) return false;
   return !_reader.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
 }
-inline bool Event::Builder::hasCustomReserved11() {
-  if (which() != Event::CUSTOM_RESERVED11) return false;
+inline bool Event::Builder::hasTrafficRadarState() {
+  if (which() != Event::TRAFFIC_RADAR_STATE) return false;
   return !_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
 }
-inline  ::cereal::CustomReserved11::Reader Event::Reader::getCustomReserved11() const {
-  KJ_IREQUIRE((which() == Event::CUSTOM_RESERVED11),
+inline  ::cereal::TrafficRadarState::Reader Event::Reader::getTrafficRadarState() const {
+  KJ_IREQUIRE((which() == Event::TRAFFIC_RADAR_STATE),
               "Must check which() before get()ing a union member.");
-  return ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::get(_reader.getPointerField(
+  return ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::get(_reader.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
-inline  ::cereal::CustomReserved11::Builder Event::Builder::getCustomReserved11() {
-  KJ_IREQUIRE((which() == Event::CUSTOM_RESERVED11),
+inline  ::cereal::TrafficRadarState::Builder Event::Builder::getTrafficRadarState() {
+  KJ_IREQUIRE((which() == Event::TRAFFIC_RADAR_STATE),
               "Must check which() before get()ing a union member.");
-  return ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::get(_builder.getPointerField(
+  return ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::get(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
-inline void Event::Builder::setCustomReserved11( ::cereal::CustomReserved11::Reader value) {
+inline void Event::Builder::setTrafficRadarState( ::cereal::TrafficRadarState::Reader value) {
   _builder.setDataField<Event::Which>(
-      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::CUSTOM_RESERVED11);
-  ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::set(_builder.getPointerField(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::TRAFFIC_RADAR_STATE);
+  ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::set(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS), value);
 }
-inline  ::cereal::CustomReserved11::Builder Event::Builder::initCustomReserved11() {
+inline  ::cereal::TrafficRadarState::Builder Event::Builder::initTrafficRadarState() {
   _builder.setDataField<Event::Which>(
-      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::CUSTOM_RESERVED11);
-  return ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::init(_builder.getPointerField(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::TRAFFIC_RADAR_STATE);
+  return ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::init(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
-inline void Event::Builder::adoptCustomReserved11(
-    ::capnp::Orphan< ::cereal::CustomReserved11>&& value) {
+inline void Event::Builder::adoptTrafficRadarState(
+    ::capnp::Orphan< ::cereal::TrafficRadarState>&& value) {
   _builder.setDataField<Event::Which>(
-      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::CUSTOM_RESERVED11);
-  ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::adopt(_builder.getPointerField(
+      ::capnp::bounded<4>() * ::capnp::ELEMENTS, Event::TRAFFIC_RADAR_STATE);
+  ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::adopt(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS), kj::mv(value));
 }
-inline ::capnp::Orphan< ::cereal::CustomReserved11> Event::Builder::disownCustomReserved11() {
-  KJ_IREQUIRE((which() == Event::CUSTOM_RESERVED11),
+inline ::capnp::Orphan< ::cereal::TrafficRadarState> Event::Builder::disownTrafficRadarState() {
+  KJ_IREQUIRE((which() == Event::TRAFFIC_RADAR_STATE),
               "Must check which() before get()ing a union member.");
-  return ::capnp::_::PointerHelpers< ::cereal::CustomReserved11>::disown(_builder.getPointerField(
+  return ::capnp::_::PointerHelpers< ::cereal::TrafficRadarState>::disown(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
 

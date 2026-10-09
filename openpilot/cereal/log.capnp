@@ -2651,7 +2651,7 @@ struct Event {
     liveMapDataSP @115 :Custom.LiveMapDataSP;
     modelDataV2SP @116 :Custom.ModelDataV2SP;
     bigModelReply @136 :Custom.BigModelReply;
-    customReserved11 @137 :Custom.CustomReserved11;
+    trafficRadarState @137 :Custom.TrafficRadarState;
     customReserved12 @138 :Custom.CustomReserved12;
     customReserved13 @139 :Custom.CustomReserved13;
     customReserved14 @140 :Custom.CustomReserved14;
