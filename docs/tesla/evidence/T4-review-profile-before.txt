@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/profile_parity_e2e.py", line 37, in <module>
+    assert py.returncode == cpp.returncode == 0 and py.stdout.strip() == expected and cpp.stdout == str(int(expected == 'c3xl')), (override, file_value, py.stdout, cpp.stdout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (' c3xl \n', 'c3', '', '0')
