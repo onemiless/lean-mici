@@ -44,7 +44,7 @@ def main():
           event = messaging.recv_one_or_none(sock)
           if event is not None:
             state = getattr(event, name)
-            frames[name].append((state.frameId, state.timestampSof, str(state.sensor)))
+            frames[name].append((state.frameId, state.timestampSof, str(state.sensor), time.monotonic()))
         time.sleep(0.001)
     finally:
       proc.terminate()
@@ -58,13 +58,14 @@ def main():
   for name, values in frames.items():
     jumps = sum(b[0] != a[0] + 1 for a, b in zip(values, values[1:]))
     hz = (len(values) - 1) * 1e9 / (values[-1][1] - values[0][1]) if len(values) > 1 and values[-1][1] > values[0][1] else 0
+    received_hz = (len(values) - 1) / (values[-1][3] - values[0][3]) if len(values) > 1 and values[-1][3] > values[0][3] else 0
     sensors = sorted({v[2] for v in values})
-    ok = len(values) >= 100 and hz >= 18 and jumps == 0
-    if name == "roadCameraState":
+    ok = len(values) >= 100 and hz >= 18 and received_hz >= 18 and jumps == 0
+    if name in ("roadCameraState", "wideRoadCameraState"):
       ok = ok and sensors == ["ox03c10"]
     if name not in required:
       ok = not values
-    result[name] = {"frames": len(values), "sensors": sensors, "hz": hz, "frame_jumps": jumps, "pass": ok}
+    result[name] = {"frames": len(values), "sensors": sensors, "hz": hz, "received_hz": received_hz, "frame_jumps": jumps, "pass": ok}
     passed &= ok
   print(json.dumps({"pass": passed, "streams": result}, indent=2))
   return 0 if passed else 1

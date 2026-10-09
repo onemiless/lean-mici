@@ -9,7 +9,7 @@ import tempfile
 
 root = Path(__file__).resolve().parents[2]
 cases = [(None, None, 'standard'), ('', 'c3xl\n', 'c3xl'), (' c3xl \n', 'c3', 'c3xl'),
-         (None, '\t c3xl \r\n', 'c3xl'), (None, '', 'standard'), (None, ' \t\n', 'standard'),
+         (None, '\t c3xl \r\n', 'c3xl'), (None, '\n c3xl\n\n', 'c3xl'), (None, '', 'standard'), (None, ' \t\n', 'standard'),
          ('standard', 'c3xl', 'standard'), ('c3', 'c3xl', 'c3'),
          ('bogus', 'c3xl', 'invalid'), (None, 'c3xl extra', 'invalid'), (None, 'c3xl\nc3', 'invalid')]
 results = []

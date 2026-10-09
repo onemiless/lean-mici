@@ -41,7 +41,7 @@ mods = {'openpilot.common.params': params, 'openpilot.cereal': cereal, 'openpilo
 with patch.dict(sys.modules, mods):
   spec = importlib.util.spec_from_file_location('camera_check_replay', root/'tools/tesla/camera_check.py')
   camera = importlib.util.module_from_spec(spec); spec.loader.exec_module(camera)
-  for case, expected in [('valid', 0), ('wrong_wide', 1), ('gap', 1), ('slow', 1), ('missing_wide', 1)]:
+  for case, expected in [('valid', 0), ('wrong_wide', 1), ('gap', 1), ('slow', 1), ('slow_delivery', 1), ('missing_wide', 1)]:
     now = [0.0]; counters = {}; messaging.sub_sock = lambda name, **kw: name
     def receive(name):
       if name == 'driverCameraState' or (case == 'missing_wide' and name == 'wideRoadCameraState'):
@@ -53,7 +53,7 @@ with patch.dict(sys.modules, mods):
       return types.SimpleNamespace(**{name: state})
     messaging.recv_one_or_none = receive
     proc = types.SimpleNamespace(poll=lambda: None, terminate=lambda: None, wait=lambda **kw: 0, kill=lambda: None)
-    with patch.object(Path, 'glob', lambda *a: []), patch.object(camera.subprocess, 'Popen', lambda *a, **kw: proc), patch.object(camera.time, 'monotonic', lambda: now[0]), patch.object(camera.time, 'sleep', lambda seconds: now.__setitem__(0, now[0]+0.05)), contextlib.redirect_stdout(io.StringIO()) as out:
+    with patch.object(Path, 'glob', lambda *a: []), patch.object(camera.subprocess, 'Popen', lambda *a, **kw: proc), patch.object(camera.time, 'monotonic', lambda: now[0]), patch.object(camera.time, 'sleep', lambda seconds: now.__setitem__(0, now[0]+(0.1 if case=='slow_delivery' else 0.05))), contextlib.redirect_stdout(io.StringIO()) as out:
       code = camera.main()
     assert code == expected and now[0] <= 45.1, (case, code, now)
     results.append({'camera_case': case, 'exit': code, 'virtual_seconds': now[0], 'result': json.loads(out.getvalue())})

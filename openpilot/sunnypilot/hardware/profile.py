@@ -39,7 +39,7 @@ def get_hardware_profile(value: str | None = None) -> HardwareProfile:
     raw_value = HARDWARE_PROFILE_FILE.read_text().strip()
   else:
     raw_value = infer_hardware_profile()
-  return HardwareProfile(raw_value)
+  return HardwareProfile(raw_value.strip(" \t\r\n\v\f") or HardwareProfile.STANDARD)
 
 
 def has_driver_camera(profile: HardwareProfile | None = None) -> bool:

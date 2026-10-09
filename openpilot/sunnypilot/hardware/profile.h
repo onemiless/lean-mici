@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <cstdlib>
 #include <fstream>
+#include <iterator>
 #include <string>
 
 
@@ -21,7 +22,13 @@ inline HardwareProfile get_hardware_profile() {
     if (env && *env) value = env;
     else {
       const char *path = std::getenv("SUNNYPILOT_HARDWARE_PROFILE_FILE");
-      std::ifstream(path ? path : "/data/hardware_profile") >> value;
+      std::ifstream file(path ? path : "/data/hardware_profile");
+      value.assign(std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>());
+    }
+    const auto first = value.find_first_not_of(" \t\r\n\v\f");
+    value = first == std::string::npos ? "" : value.substr(first, value.find_last_not_of(" \t\r\n\v\f") - first + 1);
+    if (!value.empty() && value != "standard" && value != "c3" && value != "c3xl") {
+      throw std::runtime_error("Invalid hardware profile: " + value);
     }
     return value == "c3xl" ? HardwareProfile::C3XL : HardwareProfile::STANDARD;
   }();

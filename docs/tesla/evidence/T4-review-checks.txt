@@ -1,0 +1,244 @@
+{
+  "pass": true,
+  "scope": "synthetic CLI IO only, no hardware acceptance",
+  "results": [
+    {
+      "stage": "health",
+      "service": "active",
+      "exit": 0,
+      "camera_called": false
+    },
+    {
+      "stage": "camera",
+      "service": "inactive",
+      "exit": 0,
+      "camera_called": true
+    },
+    {
+      "camera_case": "valid",
+      "exit": 0,
+      "virtual_seconds": 4.99999999999999,
+      "result": {
+        "pass": true,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": true
+          },
+          "wideRoadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": true
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "camera_case": "wrong_wide",
+      "exit": 1,
+      "virtual_seconds": 4.99999999999999,
+      "result": {
+        "pass": false,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": true
+          },
+          "wideRoadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ar0231"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "camera_case": "gap",
+      "exit": 1,
+      "virtual_seconds": 4.99999999999999,
+      "result": {
+        "pass": false,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 1,
+            "pass": false
+          },
+          "wideRoadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 1,
+            "pass": false
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "camera_case": "slow",
+      "exit": 1,
+      "virtual_seconds": 4.99999999999999,
+      "result": {
+        "pass": false,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 10.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "wideRoadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 10.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "camera_case": "slow_delivery",
+      "exit": 1,
+      "virtual_seconds": 9.99999999999998,
+      "result": {
+        "pass": false,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 10.00000000000002,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "wideRoadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 10.00000000000002,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "camera_case": "missing_wide",
+      "exit": 1,
+      "virtual_seconds": 45.04999999999958,
+      "result": {
+        "pass": false,
+        "streams": {
+          "roadCameraState": {
+            "frames": 100,
+            "sensors": [
+              "ox03c10"
+            ],
+            "hz": 20.0,
+            "received_hz": 20.00000000000004,
+            "frame_jumps": 0,
+            "pass": true
+          },
+          "wideRoadCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": false
+          },
+          "driverCameraState": {
+            "frames": 0,
+            "sensors": [],
+            "hz": 0,
+            "received_hz": 0,
+            "frame_jumps": 0,
+            "pass": true
+          }
+        }
+      }
+    }
+  ]
+}
