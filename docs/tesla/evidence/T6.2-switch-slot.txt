@@ -1,0 +1,5 @@
+ gpt_utils_set_xbl_boot_partition: setting /dev/block/bootdevice/by-name/xbl_b lun as boot lun
+get_scsi_node_from_bootdevice:scsi generic node is :/dev/sg5:
+
+{"next_slot": "_b", "maintenance_launcher": true, "rollback_slot": "_a"}
+Connection to 172.16.1.202 closed by remote host.
