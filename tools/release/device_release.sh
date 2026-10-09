@@ -168,8 +168,8 @@ PIN_DIR=/data/matpins
 # pin = sha + 物化时每个文件的 sha1 清单。只比 sha/canary 会漏掉"flat 树 git reset 把
 # repo 内文件换回旧内容、pin 不变"（2026-10-04：旧 opendbc structs.py 被当新的发出去，card 起不来）。
 write_pin() {  # write_pin <name> <sha> <物化目录>
-  mkdir -p "$PIN_DIR"
-  (cd "$3" && find . -type f -not -path './.git/*' -not -name '*.pyc' -print0 | sort -z | xargs -0 sha1sum) > "$PIN_DIR/${1}.manifest"
+  mkdir -p "$PIN_DIR" || return 1
+  (cd "$3" && find . -type f -not -path './.git/*' -not -name '*.pyc' -print0 | sort -z | xargs -0 sha1sum) > "$PIN_DIR/${1}.manifest" || return 1
   echo "$2" > "$PIN_DIR/${1}.sha"
 }
 pin_intact() {  # pin_intact <name> <sha>
@@ -179,19 +179,22 @@ pin_intact() {  # pin_intact <name> <sha>
 materialize_repo() {
   local name="$1" url="$2" canary="$3"
   local sha
-  sha=$(git -C "$SRC" rev-parse "$SRC_REF:$name")
-  rm -f "$SRC/$name/.materialized_sha"   # 旧版 repo 内 pin 退役
+  sha=$(git -C "$SRC" rev-parse "$SRC_REF:$name") || die "$name pin lookup failed"
+  rm -f "$SRC/$name/.materialized_sha" || die "$name legacy pin removal failed"   # 旧版 repo 内 pin 退役
   if pin_intact "$name" "$sha" && [ -e "$SRC/$name/$canary" ]; then
     echo "[ok] $name 已在 $sha"
     return
   fi
   local tmp="/tmp/mat_${name%_repo}"
-  rm -rf "$tmp" && git init -q "$tmp"
-  git -C "$tmp" remote add origin "$url"
+  rm -rf "$tmp" || die "$name temporary directory removal failed"
+  git init -q "$tmp" || die "$name git init failed"
+  git -C "$tmp" remote add origin "$url" || die "$name remote setup failed"
   git_fetch_retry -C "$tmp" fetch -4 -q --depth=1 origin "$sha" || die "$name fetch 失败（3 次重试后）"
-  git -C "$tmp" checkout -q FETCH_HEAD
-  rm -rf "$SRC/$name" && cp -a "$tmp" "$SRC/$name" && rm -rf "$SRC/$name/.git"
-  write_pin "$name" "$sha" "$SRC/$name"
+  git -C "$tmp" checkout -q FETCH_HEAD || die "$name checkout failed"
+  rm -rf "$SRC/$name" || die "$name destination removal failed"
+  cp -a "$tmp" "$SRC/$name" || die "$name materialization copy failed"
+  rm -rf "$SRC/$name/.git" || die "$name git metadata removal failed"
+  write_pin "$name" "$sha" "$SRC/$name" || die "$name pin write failed"
   echo "[ok] $name materialized at $sha"
 }
 

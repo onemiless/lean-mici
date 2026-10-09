@@ -27,3 +27,7 @@ The actual abctl does not implement --get_success and returns help with status 0
 ## Native dependency path preservation, before one-line fix
 
 The AGNOS immutable root lacks the already-declared optional comma-deps-libusb package. Parent stages its pinned wheel in /data and supplies PYTHONPATH. rebuild_native currently discards that path, making libusb imports fail despite a valid caller dependency directory. Preserve caller PYTHONPATH after repository paths only for native SCons. E2E runs the real shell assignment with unset, empty and a spaced dependency directory, requiring successful import from the caller directory and no empty path element. Do not alter rootfs, install dependencies here, or change model-build paths.
+
+## Materialization failure, before release helper fix
+
+Real device removal of root-owned __pycache__ failed but an AND chain suppressed errexit and execution continued to write_pin/[ok]. Replay production function under a conditional caller with injected rm/cp/checkout/write_pin failures; any failed materialization must exit nonzero before a pin or success line. Guard each destructive/copy/setup step explicitly. write_pin's own mkdir/manifest pipeline must return failure before its SHA stamp, because checking its status also suppresses implicit errexit inside that function. No device permission changes here.
