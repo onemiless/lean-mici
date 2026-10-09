@@ -1,0 +1,46 @@
+{
+  "deleted": [
+    {
+      "path": "/data/lean-tesla.bundle",
+      "sha256": "390fb65f49b2424745f7ef63827f091bec979812f77f4125a8125b8119b150ee",
+      "bytes": 166632853
+    },
+    {
+      "path": "/data/tesla-port-preflight/opendbc_repo.tar",
+      "sha256": "faf07a419ab8626f83661201ba4a91482a49b8a64531cea6b7ded18d1bb7fb82",
+      "bytes": 2283520
+    },
+    {
+      "path": "/data/tesla-port-preflight/panda.tar",
+      "sha256": "bffef89d66fdbeb687b8eb814d484274e993998542eec6156ae91a2c34112b93",
+      "bytes": 6748160
+    },
+    {
+      "path": "/data/tesla-port-preflight/msgq_repo.tar",
+      "sha256": "8a4c924168f06000c9b7f293bf9d2d64f3042ee34066339a31f005f85783a6ee",
+      "bytes": 153600
+    },
+    {
+      "path": "/data/tesla-port-preflight/rednose_repo.tar",
+      "sha256": "6f7f4e686bc2759ba837212cd3c50c262ce696bdeb9ebafef2a542f05c5faefe",
+      "bytes": 481280
+    },
+    {
+      "path": "/data/tesla-port-preflight/tinygrad_repo.tar",
+      "sha256": "64bfb42126accb759dfe366534cc81809856d0c28f197ba223afb43c46b41c76",
+      "bytes": 44625920
+    },
+    {
+      "path": "/data/tesla-port-preflight/lean-tesla-update.bundle",
+      "sha256": "cadada9fee5f706486d1ae06c0e466930bdf537d36024f6bbf15477ca41367ea",
+      "bytes": 1116055
+    },
+    {
+      "path": "/data/tesla-port-preflight/lean-tesla-update2.bundle",
+      "sha256": "6a0ea4d253d2ce3e8ca94b5a7e51883fea823a17686e4c4f0f5fc6da43b6e546",
+      "bytes": 7337
+    }
+  ],
+  "bytes_freed": 222048725,
+  "scope": "completed task-owned transfers; rollback and active trees retained"
+}
