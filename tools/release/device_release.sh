@@ -222,7 +222,7 @@ rebuild_native() {
     cd "$SRC"
     export PATH="/usr/local/venv/bin:$PATH"
     # -j8：2026-10-03 供电确认没问题，6→8 吃满 8 核
-    SKIP_CAPNP_REGEN=1 PYTHONPATH="$SRC:$SRC/openpilot" \
+    SKIP_CAPNP_REGEN=1 PYTHONPATH="$SRC:$SRC/openpilot${PYTHONPATH:+:$PYTHONPATH}" \
       /usr/local/venv/bin/scons -j8 $ART_TARGETS
   ) || die "native 全量重建失败，拒绝发布"
   echo "[ok] native 全量重建完成 T=$SECONDS"

@@ -23,3 +23,7 @@ Validation artifacts are written to main repository docs/tesla/evidence. Existin
 ## Boot success readback correction, before implementation
 
 The actual abctl does not implement --get_success and returns help with status 0. Never classify CLI exit status alone as boot success. The installed libabctl.so.0 exports _Z25libabctl_getSuccessStatusj (unsigned int slot); captured disassembly calls only libgpt_getPartitionEntry and returns the partition success attribute bit or -1 on read failure. Use this existing read-only getter instead of guessing a misc/GPT layout. Reject unknown boot-slot text before the getter; output distinct unsuccessful (1) versus unsupported/read failure (2). Missing library/symbol or results outside 0/1 cannot PASS. Full CLI replay cases are recorded first.
+
+## Native dependency path preservation, before one-line fix
+
+The AGNOS immutable root lacks the already-declared optional comma-deps-libusb package. Parent stages its pinned wheel in /data and supplies PYTHONPATH. rebuild_native currently discards that path, making libusb imports fail despite a valid caller dependency directory. Preserve caller PYTHONPATH after repository paths only for native SCons. E2E runs the real shell assignment with unset, empty and a spaced dependency directory, requiring successful import from the caller directory and no empty path element. Do not alter rootfs, install dependencies here, or change model-build paths.

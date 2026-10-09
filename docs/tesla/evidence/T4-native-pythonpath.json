@@ -1,0 +1,37 @@
+{
+  "pass": true,
+  "scope": "actual native shell environment only; no SCons or device execution",
+  "cases": [
+    {
+      "inherited": null,
+      "result": {
+        "pythonpath": [
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source",
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source/openpilot"
+        ],
+        "pass": true
+      }
+    },
+    {
+      "inherited": "",
+      "result": {
+        "pythonpath": [
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source",
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source/openpilot"
+        ],
+        "pass": true
+      }
+    },
+    {
+      "inherited": "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/caller deps",
+      "result": {
+        "pythonpath": [
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source",
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/source/openpilot",
+          "/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path n9g728ed/caller deps"
+        ],
+        "pass": true
+      }
+    }
+  ]
+}

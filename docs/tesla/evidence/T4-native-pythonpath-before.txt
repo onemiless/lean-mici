@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/native_pythonpath_e2e.py", line 37, in <module>
+    assert p.returncode==0,(inherited,p.stderr)
+           ^^^^^^^^^^^^^^^
+AssertionError: ('/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/native path ti24i4yw/caller deps', 'Traceback (most recent call last):\n  File "<string>", line 6, in <module>\n    import native_optional_dependency\nModuleNotFoundError: No module named \'native_optional_dependency\'\n')
