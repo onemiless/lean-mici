@@ -35,21 +35,32 @@ def main():
       from openpilot.selfdrive.ui.layouts.settings.settings import PanelType
       layout = MainLayout()
       result['stages'].append('MainLayout constructed')
-      layout.open_settings(PanelType.DEVICE)
-      for frame, _ in enumerate(gui_app.render()):
-        if frame >= 2:
-          break
-      result['stages'].append('MainLayout Device panel rendered three frames')
       import pyray as rl
-      screenshot = args.output.resolve().with_suffix('.png')
-      screenshot.parent.mkdir(parents=True, exist_ok=True)
-      rl.take_screenshot(os.path.relpath(screenshot))
-      result['screenshot'] = str(screenshot)
-      result['screenshot_sha256'] = hashlib.sha256(screenshot.read_bytes()).hexdigest()
+
+      renderer = gui_app.render()
+
+      def render_page(name):
+        for _ in range(3):
+          next(renderer)
+        result['stages'].append(name + ' rendered three frames')
+        screenshot = args.output.resolve().with_name(args.output.stem + '-' + name + '.png')
+        screenshot.parent.mkdir(parents=True, exist_ok=True)
+        rl.take_screenshot(os.path.relpath(screenshot))
+        result.setdefault('screenshots', {})[name] = {
+          'path': str(screenshot), 'sha256': hashlib.sha256(screenshot.read_bytes()).hexdigest(),
+        }
+
+      render_page('home')
+      layout.open_settings(PanelType.DEVICE)
+      render_page('device')
+      ui_state.params.put('CarPlatformBundle', {'brand': 'tesla', 'name': 'TESLA_MODEL_Y'}, block=True)
+      layout.open_settings(PanelType.VEHICLE)
+      render_page('tesla')
+      from openpilot.selfdrive.ui.layouts.main import MainState
       from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.tesla import TeslaSettings
-      tesla = TeslaSettings()
-      tesla.update_settings()
-      result['stages'].append('TeslaSettings constructed and updated')
+      vehicle = layout._layouts[MainState.SETTINGS]._panels[PanelType.VEHICLE].instance
+      assert isinstance(vehicle._brand_settings, TeslaSettings)
+      result['stages'].append('Vehicle panel uses actual TeslaSettings')
       result['passed'] = True
     except Exception:
       result['error'] = traceback.format_exc()
