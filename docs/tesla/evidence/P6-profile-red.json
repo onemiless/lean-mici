@@ -1,0 +1,10 @@
+{
+  "source_sha256": "c4879e5089eedd329307eb76469cbfd25ae6ba6a166f8341b8986bbeed4b952c",
+  "cases": [
+    {
+      "case": "release gate exists",
+      "pass": false
+    }
+  ],
+  "pass": false
+}

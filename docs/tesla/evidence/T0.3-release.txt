@@ -1,0 +1,54 @@
+....F........................................................F.......... [ 80%]
+.................                                                        [100%]
+=================================== FAILURES ===================================
+_____ TestConstants.test_panda_firmware_matches_pandad_runtime_expectation _____
+
+self = <test_release_lib.TestConstants testMethod=test_panda_firmware_matches_pandad_runtime_expectation>
+
+    def test_panda_firmware_matches_pandad_runtime_expectation(self):
+      """pandad 运行时按 panda/python/constants.py 的 McuType.H7（app_fn/bootstub_fn）
+      读 panda/board/obj 两份固件：DFU 恢复读 bootstub、刷写/验签读 app.signed。
+      扁平树缺任何一个 → panda 进 DFU 后 pandad 没固件可刷，永久恢复不了
+      （2026-09-30 实机 4764 次 flash_and_connect 重试实录）。登记表与运行时
+      文件名必须同源——少登记 = 构建/白名单/先删后建三处全漏。"""
+>     consts = (REPO_ROOT / "panda/python/constants.py").read_text()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tools/release/test_release_lib.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/Users/mile/work/tesla-port/lean-mici/panda/python/constants.py')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/Users/mile/work/tesla-port/lean-mici/panda/python/constants.py'
+
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileNotFoundError
+____________ TestSchemaRegistry.test_registry_entries_exist_in_tree ____________
+
+self = <test_release_lib.TestSchemaRegistry testMethod=test_registry_entries_exist_in_tree>
+
+    def test_registry_entries_exist_in_tree(self):
+      from openpilot.cereal.schemas import SCHEMAS
+      for rel in SCHEMAS:
+>       self.assertTrue((REPO_ROOT / rel).is_file(), rel)
+E       AssertionError: False is not true : opendbc_repo/opendbc/car/car.capnp
+
+tools/release/test_release_lib.py:921: AssertionError
+=========================== short test summary info ============================
+FAILED tools/release/test_release_lib.py::TestConstants::test_panda_firmware_matches_pandad_runtime_expectation
+FAILED tools/release/test_release_lib.py::TestSchemaRegistry::test_registry_entries_exist_in_tree
+2 failed, 87 passed in 3.63s

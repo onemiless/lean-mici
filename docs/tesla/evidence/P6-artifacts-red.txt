@@ -1,0 +1,103 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________________ TestConstants.test_artifact_paths_are_complete ________________
+
+self = <test_release_lib.TestConstants testMethod=test_artifact_paths_are_complete>
+
+    def test_artifact_paths_are_complete(self):
+      expected = {
+        "msgq_repo/msgq/ipc_pyx.so",
+        "msgq_repo/msgq/visionipc/visionipc_pyx.so",
+        "openpilot/common/libparams_c.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libacados.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libacados_ocp_solver_long.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libblasfeo.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libhpipm.so",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libqpOASES_e.so.3.1",
+        "openpilot/selfdrive/locationd/models/generated/libcar.so",
+        "openpilot/selfdrive/locationd/models/generated/libpose.so",
+        "openpilot/selfdrive/bigmodeld/bigmodeld",
+        "openpilot/selfdrive/pandad/pandad",
+        "openpilot/sunnypilot/selfdrive/locationd/locationd",
+        "openpilot/sunnypilot/selfdrive/locationd/models/generated/liblive.so",
+        "openpilot/system/camerad/camerad",
+        "openpilot/system/loggerd/bootlog",
+        "openpilot/system/loggerd/loggerd",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados_ocp_solver_sp_legacy_cruise_v1.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libblasfeo.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libhpipm.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libqpOASES_e.so.3.1",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados_ocp_solver_sp_legacy_cruise_v1_fallback.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libblasfeo.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libhpipm.so",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libqpOASES_e.so.3.1",
+        "panda/board/obj/bootstub.panda.bin",
+        "panda/board/obj/panda.bin.signed",
+        "panda/board/obj/bootstub.panda_h7.bin",
+        "panda/board/obj/panda_h7.bin.signed",
+        "rednose_repo/rednose/helpers/ekf_sym_pyx.so",
+      }
+>     self.assertEqual(set(ARTIFACT_PATHS), expected)
+E     AssertionError: Items in the second set but not the first:
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados_ocp_solver_sp_legacy_cruise_v1.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libqpOASES_e.so.3.1'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libblasfeo.so'
+E     'panda/board/obj/bootstub.panda.bin'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libhpipm.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libhpipm.so'
+E     'panda/board/obj/panda.bin.signed'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libqpOASES_e.so.3.1'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libblasfeo.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados_ocp_solver_sp_legacy_cruise_v1_fallback.so'
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.so'
+
+tools/release/test_release_lib.py:119: AssertionError
+______________ TestConstants.test_native_input_paths_are_complete ______________
+
+self = <test_release_lib.TestConstants testMethod=test_native_input_paths_are_complete>
+
+    def test_native_input_paths_are_complete(self):
+      expected = {
+        "SConstruct",
+        "site_scons",
+        "openpilot/common",
+        "openpilot/cereal",
+        "openpilot/selfdrive/bigmodeld",
+        "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib",
+        "openpilot/selfdrive/locationd/models/generated",
+        "openpilot/selfdrive/pandad",
+        "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc",
+        "openpilot/sunnypilot/hardware",
+        "openpilot/sunnypilot/selfdrive/locationd",
+        "openpilot/system/camerad",
+        "openpilot/system/loggerd",
+        "msgq_repo",
+        "opendbc_repo",
+        "rednose_repo",
+        "panda",
+        # driving model pkl inputs
+        "openpilot/selfdrive/modeld/SConscript",
+        "openpilot/selfdrive/modeld/compile_modeld.py",
+        "openpilot/selfdrive/modeld/get_model_metadata.py",
+        "openpilot/selfdrive/modeld/helpers.py",
+        "openpilot/selfdrive/modeld/models",
+        "tinygrad_repo",
+      }
+>     self.assertEqual(set(NATIVE_INPUT_PATHS), expected)
+E     AssertionError: Items in the second set but not the first:
+E     'openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc'
+E     'openpilot/sunnypilot/hardware'
+
+tools/release/test_release_lib.py:161: AssertionError
+=========================== short test summary info ============================
+FAILED tools/release/test_release_lib.py::TestConstants::test_artifact_paths_are_complete
+FAILED tools/release/test_release_lib.py::TestConstants::test_native_input_paths_are_complete
+2 failed, 73 deselected in 0.05s

@@ -98,6 +98,20 @@ class TestConstants(unittest.TestCase):
       "openpilot/system/camerad/camerad",
       "openpilot/system/loggerd/bootlog",
       "openpilot/system/loggerd/loggerd",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados_ocp_solver_sp_legacy_cruise_v1.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libblasfeo.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libhpipm.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libqpOASES_e.so.3.1",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados_ocp_solver_sp_legacy_cruise_v1_fallback.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libblasfeo.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libhpipm.so",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libqpOASES_e.so.3.1",
+      "panda/board/obj/bootstub.panda.bin",
+      "panda/board/obj/panda.bin.signed",
       "panda/board/obj/bootstub.panda_h7.bin",
       "panda/board/obj/panda_h7.bin.signed",
       "rednose_repo/rednose/helpers/ekf_sym_pyx.so",
@@ -112,7 +126,7 @@ class TestConstants(unittest.TestCase):
     （2026-09-30 实机 4764 次 flash_and_connect 重试实录）。登记表与运行时
     文件名必须同源——少登记 = 构建/白名单/先删后建三处全漏。"""
     consts = (REPO_ROOT / "panda/python/constants.py").read_text()
-    for name in ("panda_h7.bin.signed", "bootstub.panda_h7.bin"):
+    for name in ("panda_h7.bin.signed", "bootstub.panda_h7.bin", "panda.bin.signed", "bootstub.panda.bin"):
       self.assertIn(f'"{name}"', consts, f"constants.py 不再声明 {name}，登记表要跟着运行时走")
       self.assertIn(f"panda/board/obj/{name}", ARTIFACT_PATHS,
                     f"{name} 不在产物登记表：发布树会缺固件，panda DFU 恢复必挂")
@@ -127,6 +141,8 @@ class TestConstants(unittest.TestCase):
       "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib",
       "openpilot/selfdrive/locationd/models/generated",
       "openpilot/selfdrive/pandad",
+      "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc",
+      "openpilot/sunnypilot/hardware",
       "openpilot/sunnypilot/selfdrive/locationd",
       "openpilot/system/camerad",
       "openpilot/system/loggerd",

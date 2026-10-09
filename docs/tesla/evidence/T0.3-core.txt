@@ -1,0 +1,335 @@
+
+==================================== ERRORS ====================================
+____ ERROR collecting openpilot/selfdrive/car/tests/test_car_interfaces.py _____
+openpilot/selfdrive/car/tests/test_car_interfaces.py:3: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_____ ERROR collecting openpilot/selfdrive/car/tests/test_cruise_speed.py ______
+openpilot/selfdrive/car/tests/test_cruise_speed.py:4: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_________ ERROR collecting openpilot/selfdrive/car/tests/test_docs.py __________
+openpilot/selfdrive/car/tests/test_docs.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+__ ERROR collecting openpilot/selfdrive/controls/tests/test_desire_helper.py ___
+openpilot/selfdrive/controls/tests/test_desire_helper.py:6: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/selfdrive/controls/tests/test_following_distance.py _
+openpilot/selfdrive/controls/tests/test_following_distance.py:2: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+____ ERROR collecting openpilot/selfdrive/controls/tests/test_latcontrol.py ____
+openpilot/selfdrive/controls/tests/test_latcontrol.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/selfdrive/controls/tests/test_latcontrol_torque_buffer.py _
+openpilot/selfdrive/controls/tests/test_latcontrol_torque_buffer.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+______ ERROR collecting openpilot/selfdrive/controls/tests/test_leads.py _______
+openpilot/selfdrive/controls/tests/test_leads.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+___ ERROR collecting openpilot/selfdrive/controls/tests/test_longcontrol.py ____
+openpilot/selfdrive/controls/tests/test_longcontrol.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/selfdrive/controls/tests/test_speed_dep_integration.py _
+openpilot/selfdrive/controls/tests/test_speed_dep_integration.py:15: in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.latcontrol_torque_ext import LatControlTorqueExt
+openpilot/sunnypilot/selfdrive/controls/lib/latcontrol_torque_ext.py:9: in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.latcontrol_torque_jerk_aware import LatControlTorqueJerkAware
+openpilot/sunnypilot/selfdrive/controls/lib/latcontrol_torque_jerk_aware.py:10: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/selfdrive/controls/tests/test_torqued_lat_accel_offset.py _
+openpilot/selfdrive/controls/tests/test_torqued_lat_accel_offset.py:2: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dec_planner_gate.py _
+openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dec_planner_gate.py:11: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dynamic_controller.py _
+openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dynamic_controller.py:1: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_map_controller.py _
+openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_map_controller.py:13: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_vision_controller.py _
+openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_vision_controller.py:14: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_assist.py _
+openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_assist.py:19: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_resolver.py _
+openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_resolver.py:15: in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.speed_limit.speed_limit_resolver import SpeedLimitResolver, ALL_SOURCES
+openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/speed_limit_resolver.py:12: in <module>
+    from openpilot.common.gps import get_gps_location_service
+openpilot/common/gps.py:1: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/tests/test_auto_lane_change.py _
+openpilot/sunnypilot/selfdrive/controls/lib/tests/test_auto_lane_change.py:9: in <module>
+    from openpilot.selfdrive.controls.lib.desire_helper import DesireHelper, LaneChangeState, LaneChangeDirection
+openpilot/selfdrive/controls/lib/desire_helper.py:4: in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.auto_lane_change import AutoLaneChangeController, AutoLaneChangeMode
+openpilot/sunnypilot/selfdrive/controls/lib/auto_lane_change.py:9: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/tests/test_blinker_pause_lateral.py _
+openpilot/sunnypilot/selfdrive/controls/lib/tests/test_blinker_pause_lateral.py:10: in <module>
+    from openpilot.sunnypilot.selfdrive.controls.lib.blinker_pause_lateral import BlinkerPauseLateral
+openpilot/sunnypilot/selfdrive/controls/lib/blinker_pause_lateral.py:10: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/tests/test_lane_turn_desire.py _
+openpilot/sunnypilot/selfdrive/controls/lib/tests/test_lane_turn_desire.py:2: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/tests/test_latcontrol_torque_ext.py _
+openpilot/sunnypilot/selfdrive/controls/lib/tests/test_latcontrol_torque_ext.py:14: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/controls/lib/tests/test_relc.py _
+openpilot/sunnypilot/selfdrive/controls/lib/tests/test_relc.py:8: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/car/tests/test_cruise_mode.py _
+openpilot/sunnypilot/selfdrive/car/tests/test_cruise_mode.py:3: in <module>
+    from openpilot.common.test import OpenpilotTestCase
+openpilot/common/test.py:9: in <module>
+    from openpilot.common.prefix import OpenpilotPrefix
+openpilot/common/prefix.py:7: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+_ ERROR collecting openpilot/sunnypilot/selfdrive/car/tests/test_custom_cruise.py _
+openpilot/sunnypilot/selfdrive/car/tests/test_custom_cruise.py:4: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: dlopen(/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/lean-mici/openpilot/common/libparams_c.dylib' (no such file)
+=========================== short test summary info ============================
+ERROR openpilot/selfdrive/car/tests/test_car_interfaces.py - OSError: dlopen(...
+ERROR openpilot/selfdrive/car/tests/test_cruise_speed.py - OSError: dlopen(/U...
+ERROR openpilot/selfdrive/car/tests/test_docs.py - OSError: dlopen(/Users/mil...
+ERROR openpilot/selfdrive/controls/tests/test_desire_helper.py - OSError: dlo...
+ERROR openpilot/selfdrive/controls/tests/test_following_distance.py - OSError...
+ERROR openpilot/selfdrive/controls/tests/test_latcontrol.py - OSError: dlopen...
+ERROR openpilot/selfdrive/controls/tests/test_latcontrol_torque_buffer.py - O...
+ERROR openpilot/selfdrive/controls/tests/test_leads.py - OSError: dlopen(/Use...
+ERROR openpilot/selfdrive/controls/tests/test_longcontrol.py - OSError: dlope...
+ERROR openpilot/selfdrive/controls/tests/test_speed_dep_integration.py - OSEr...
+ERROR openpilot/selfdrive/controls/tests/test_torqued_lat_accel_offset.py - O...
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dec_planner_gate.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/dec/tests/test_dynamic_controller.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_map_controller.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/smart_cruise_control/tests/test_vision_controller.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_assist.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/speed_limit/tests/test_speed_limit_resolver.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/tests/test_auto_lane_change.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/tests/test_blinker_pause_lateral.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/tests/test_lane_turn_desire.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/tests/test_latcontrol_torque_ext.py
+ERROR openpilot/sunnypilot/selfdrive/controls/lib/tests/test_relc.py - OSErro...
+ERROR openpilot/sunnypilot/selfdrive/car/tests/test_cruise_mode.py - OSError:...
+ERROR openpilot/sunnypilot/selfdrive/car/tests/test_custom_cruise.py - OSErro...
+!!!!!!!!!!!!!!!!!!! Interrupted: 24 errors during collection !!!!!!!!!!!!!!!!!!!
+24 errors in 0.85s
