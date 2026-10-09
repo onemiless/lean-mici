@@ -1,0 +1,33 @@
+{
+  "pass": true,
+  "streams": {
+    "narrowRoadCameraState": {
+      "frames": 100,
+      "sensors": [
+        "ox03c10"
+      ],
+      "hz": 19.99652923271885,
+      "received_hz": 19.998401016736683,
+      "frame_jumps": 0,
+      "pass": true
+    },
+    "wideRoadCameraState": {
+      "frames": 100,
+      "sensors": [
+        "ox03c10"
+      ],
+      "hz": 19.99653175305631,
+      "received_hz": 19.998203450282826,
+      "frame_jumps": 0,
+      "pass": true
+    },
+    "cabinCameraState": {
+      "frames": 0,
+      "sensors": [],
+      "hz": 0,
+      "received_hz": 0,
+      "frame_jumps": 0,
+      "pass": true
+    }
+  }
+}

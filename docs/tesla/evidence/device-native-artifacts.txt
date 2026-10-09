@@ -1,0 +1,11 @@
+13c99877629f0ebe4662634de2fb9011cab68458cf81532e23caffddf57708c4  panda/board/obj/panda_h7.bin.signed
+8ef84f31e83576f361b9078240f10d4b57b08a6c3df9354c8cf6d3a8bc1c8494  panda/board/obj/panda.bin.signed
+openpilot/selfdrive/pandad/pandad: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=e8ec11dabcb3abeaed3aa08145e06bb01ddbd410, for GNU/Linux 3.7.0, with debug_info, not stripped
+	linux-vdso.so.1 (0x0000007f7b4b8000)
+	libstdc++.so.6 => /lib/aarch64-linux-gnu/libstdc++.so.6 (0x0000007f7b0a0000)
+	libgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000007f7b060000)
+	libc.so.6 => /lib/aarch64-linux-gnu/libc.so.6 (0x0000007f7aea0000)
+	libm.so.6 => /lib/aarch64-linux-gnu/libm.so.6 (0x0000007f7adf0000)
+	/lib/ld-linux-aarch64.so.1 (0x0000007f7b47b000)
+-rw------- 1 comma comma 1 Oct  3 12:05 /data/params/d/LongitudinalPlannerMode
+-rw------- 1 comma comma 6 Oct  9 13:09 /data/params/d/UpdaterTargetBranch

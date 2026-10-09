@@ -1,0 +1,3 @@
+{"phase": "stock_power_mode_enabled", "cpu_online": "0-7"}
+{"passed": false, "artifact": "/data/tesla-port-preflight/live-model-3.json"}
+{"phase": "offroad_power_mode_restored", "cpu_online": "0-3"}

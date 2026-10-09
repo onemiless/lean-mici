@@ -1,0 +1,12 @@
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /data/openpilot
+Traceback (most recent call last):
+  File "/data/lean-tesla-stage/tools/sp_tesla_e2e/tesla_planner_chain_e2e.py", line 556, in <module>
+    main()
+  File "/data/lean-tesla-stage/tools/sp_tesla_e2e/tesla_planner_chain_e2e.py", line 508, in main
+    result['cases'] = (feature_replay() if args.mode == 'features' else device_replay() if args.mode == 'device'
+                                                                        ^^^^^^^^^^^^^^^
+  File "/data/lean-tesla-stage/tools/sp_tesla_e2e/tesla_planner_chain_e2e.py", line 489, in device_replay
+    from openpilot.sunnypilot.selfdrive.controls.tests.test_legacy_planner_replay import _assert_matches_legacy, _replay
+  File "/data/openpilot/openpilot/sunnypilot/selfdrive/controls/tests/test_legacy_planner_replay.py", line 7, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'

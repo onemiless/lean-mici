@@ -1,0 +1,2 @@
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /data/openpilot
+{"artifact": "/data/tesla-port-preflight/device-planner.json", "passed": true}

@@ -1,0 +1,11 @@
+{
+  "reason": "initial deployment defaults specified in D3 and P3.7; vehicle remains offroad",
+  "before": {
+    "LongitudinalPlannerMode": 2,
+    "TeslaTrafficSignalControlEnabled": true
+  },
+  "after": {
+    "LongitudinalPlannerMode": 0,
+    "TeslaTrafficSignalControlEnabled": false
+  }
+}

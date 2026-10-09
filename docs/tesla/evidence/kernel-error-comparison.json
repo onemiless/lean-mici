@@ -1,0 +1,32 @@
+{
+  "before_lines": 522,
+  "after_lines": 509,
+  "normalization": "strip boot timestamps; normalize hex and decimal numeric values; keep driver/function/message text",
+  "new_messages": [
+    "",
+    "CAM_ERR: CAM-CORE: cam_subdev_ioctl: N Invalid command -N for cam-icp",
+    "CAM_ERR: CAM-IRQ-CTRL: cam_irq_controller_subscribe_irq: N Invalid params: bh_handler=ffffff8f327e8080 bh=N bh_enq_f=ffffff8f347f4e18",
+    "EXT4-fs (sda7): couldn't mount as ext2 due to feature incompatibilities",
+    "EXT4-fs (sda7): couldn't mount as ext3 due to feature incompatibilities",
+    "FG: ttf_work: failed to get ttf, rc=-N",
+    "[usb0] error: ioctl called for unsupported cmd[N]",
+    "bt_ioctl: BT chip state is already :N no change d",
+    "bt_ioctl: BT_CMD_PWR_CTRL pwr_cntrl:N",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff8f3526d478",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff8f3526d590",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff8f3526d9f0",
+    "msm-usb-ssphy-qmp 88e8000.ssphy: USB DP QMP PHY: Update TYPEC CTRL(N)"
+  ],
+  "removed_messages": [
+    "CAM_ERR: CAM-CRM: cam_mem_mgr_request_mem: N failed. mem_mgr not initialized",
+    "CAM_ERR: CAM-ICP: cam_icp_allocate_hfi_mem: N Unable to allocate qtbl memory",
+    "CAM_ERR: CAM-ICP: cam_icp_subdev_open: N FW download failed",
+    "CAM_ERR: CAM-IRQ-CTRL: cam_irq_controller_subscribe_irq: N Invalid params: bh_handler=ffffff9ee43e8080 bh=N bh_enq_f=ffffff9ee63f4e18",
+    "CAM_ERR: CAM-ISP: __cam_isp_ctx_reg_upd_in_activated_state: N Reg upd ack with no waiting request",
+    "EXT4-fs (sda6): couldn't mount as ext2 due to feature incompatibilities",
+    "EXT4-fs (sda6): couldn't mount as ext3 due to feature incompatibilities",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff9ee6e6d478",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff9ee6e6d590",
+    "diag: In diag_send_feature_mask_update, control channel is not open, p: N, ffffff9ee6e6d9f0"
+  ]
+}

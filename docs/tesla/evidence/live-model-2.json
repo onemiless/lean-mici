@@ -1,0 +1,61 @@
+{
+  "passed": false,
+  "scope": "live cameras/model inference only; synthetic demo CP, stopped car, disabled control, zero-rpy calibrated input",
+  "target_valid_samples": 120,
+  "deadline_s": 90,
+  "children": {
+    "camerad": {
+      "pid": 79246,
+      "command": [
+        "/data/relstage/openpilot/system/camerad/camerad"
+      ],
+      "log": "/data/tesla-port-preflight/live-model-2-camerad.log"
+    },
+    "modeld": {
+      "pid": 79247,
+      "command": [
+        "/usr/local/venv/bin/python",
+        "-m",
+        "openpilot.selfdrive.modeld.modeld",
+        "--demo"
+      ],
+      "log": "/data/tesla-port-preflight/live-model-2-modeld.log"
+    }
+  },
+  "cleanup": {
+    "camerad": {
+      "pid": 79246,
+      "exit_code": 0,
+      "stopped": true
+    },
+    "modeld": {
+      "pid": 79247,
+      "exit_code": 1,
+      "stopped": true
+    }
+  },
+  "global_before": {
+    "IsOffroad": "1",
+    "IsEngaged": "0"
+  },
+  "device_type": "tici",
+  "ipc_prefix": "e16483e3ab934ad",
+  "counts": {
+    "modelV2": 0,
+    "cameraOdometry": 0,
+    "narrowRoadCameraState": 61,
+    "wideRoadCameraState": 62
+  },
+  "valid_counts": {
+    "modelV2": 0,
+    "cameraOdometry": 0,
+    "narrowRoadCameraState": 61,
+    "wideRoadCameraState": 62
+  },
+  "sensors": {
+    "narrowRoadCameraState": "ox03c10",
+    "wideRoadCameraState": "ox03c10"
+  },
+  "samples": [],
+  "error": "Traceback (most recent call last):\n  File \"/data/relstage/tools/tesla/live_model_e2e.py\", line 103, in main\n    for fd in Path(f'/proc/{children[\"modeld\"].pid}/fd').iterdir():\n  File \"/usr/lib/python3.12/pathlib.py\", line 1058, in iterdir\n    for name in os.listdir(self):\n                ^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/proc/79247/fd'\n"
+}

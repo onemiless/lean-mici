@@ -1,0 +1,553 @@
+{
+  "scope": "live offroad manager/device/Panda; no driving qualification",
+  "passed": true,
+  "violations": [],
+  "head": "6cd937bc4430a453a628cb05743f22ca74733725",
+  "branch": "lean-tesla-release-c3",
+  "active_path": "/data/relstage",
+  "profile": "c3xl",
+  "seconds": 10.0,
+  "counts": {
+    "deviceState": 15,
+    "pandaStates": 101,
+    "managerState": 19,
+    "modelV2": 0,
+    "cameraOdometry": 0,
+    "carState": 0,
+    "selfdriveState": 0
+  },
+  "valid": {
+    "deviceState": true,
+    "pandaStates": true,
+    "managerState": true,
+    "modelV2": false,
+    "cameraOdometry": false,
+    "carState": false,
+    "selfdriveState": false
+  },
+  "alive": {
+    "deviceState": true,
+    "pandaStates": true,
+    "managerState": true,
+    "modelV2": false,
+    "cameraOdometry": false,
+    "carState": false,
+    "selfdriveState": false
+  },
+  "last": {
+    "pandaStates": [
+      {
+        "voltage": 0,
+        "current": 0,
+        "ignitionLine": false,
+        "controlsAllowed": false,
+        "deprecated": {
+          "gasInterceptorDetected": false,
+          "startedSignalDetected": false,
+          "hasGps": false,
+          "gmlanSendErrs": 0,
+          "fanSpeedRpm": 0,
+          "usbPowerMode": "none",
+          "safetyParam": 0,
+          "safetyParam2": 0,
+          "fanStallCount": 0
+        },
+        "rxBufferOverflow": 0,
+        "txBufferOverflow": 0,
+        "pandaType": "tres",
+        "ignitionCan": false,
+        "safetyModel": "noOutput",
+        "faultStatus": "none",
+        "powerSaveEnabled": true,
+        "uptime": 104,
+        "faults": [],
+        "safetyRxInvalid": 0,
+        "harnessStatus": "notConnected",
+        "heartbeatLost": false,
+        "alternativeExperience": 0,
+        "safetyTxBlocked": 0,
+        "interruptLoad": 0.0117647061124444,
+        "safetyParam": 0,
+        "fanPower": 0,
+        "canState0": {
+          "busOff": false,
+          "busOffCnt": 0,
+          "errorWarning": false,
+          "errorPassive": false,
+          "lastError": "noChange",
+          "lastStoredError": "noError",
+          "lastDataError": "noChange",
+          "lastDataStoredError": "noError",
+          "receiveErrorCnt": 0,
+          "transmitErrorCnt": 0,
+          "totalErrorCnt": 0,
+          "totalTxLostCnt": 0,
+          "totalRxLostCnt": 0,
+          "totalTxCnt": 0,
+          "totalRxCnt": 0,
+          "totalFwdCnt": 0,
+          "canSpeed": 500,
+          "canDataSpeed": 0,
+          "canfdEnabled": false,
+          "brsEnabled": false,
+          "canfdNonIso": false,
+          "irq0CallRate": 0,
+          "irq1CallRate": 0,
+          "irq2CallRate": 0,
+          "canCoreResetCnt": 0
+        },
+        "canState1": {
+          "busOff": false,
+          "busOffCnt": 0,
+          "errorWarning": false,
+          "errorPassive": false,
+          "lastError": "noChange",
+          "lastStoredError": "noError",
+          "lastDataError": "noChange",
+          "lastDataStoredError": "noError",
+          "receiveErrorCnt": 0,
+          "transmitErrorCnt": 0,
+          "totalErrorCnt": 0,
+          "totalTxLostCnt": 0,
+          "totalRxLostCnt": 0,
+          "totalTxCnt": 0,
+          "totalRxCnt": 0,
+          "totalFwdCnt": 0,
+          "canSpeed": 500,
+          "canDataSpeed": 0,
+          "canfdEnabled": false,
+          "brsEnabled": false,
+          "canfdNonIso": false,
+          "irq0CallRate": 0,
+          "irq1CallRate": 0,
+          "irq2CallRate": 0,
+          "canCoreResetCnt": 0
+        },
+        "canState2": {
+          "busOff": false,
+          "busOffCnt": 0,
+          "errorWarning": false,
+          "errorPassive": false,
+          "lastError": "noChange",
+          "lastStoredError": "noError",
+          "lastDataError": "noChange",
+          "lastDataStoredError": "noError",
+          "receiveErrorCnt": 0,
+          "transmitErrorCnt": 0,
+          "totalErrorCnt": 0,
+          "totalTxLostCnt": 0,
+          "totalRxLostCnt": 0,
+          "totalTxCnt": 0,
+          "totalRxCnt": 0,
+          "totalFwdCnt": 0,
+          "canSpeed": 500,
+          "canDataSpeed": 0,
+          "canfdEnabled": false,
+          "brsEnabled": false,
+          "canfdNonIso": false,
+          "irq0CallRate": 0,
+          "irq1CallRate": 0,
+          "irq2CallRate": 0,
+          "canCoreResetCnt": 0
+        },
+        "safetyRxChecksInvalid": false,
+        "spiErrorCount": 14,
+        "sbu1Voltage": 3.2660000324249268,
+        "sbu2Voltage": 3.2699999809265137,
+        "soundOutputLevel": 0,
+        "controlsAllowedLateral": false,
+        "controlsAllowedLongitudinal": false
+      }
+    ],
+    "deviceState": {
+      "deprecated": {
+        "cpu0": 0,
+        "cpu1": 0,
+        "cpu2": 0,
+        "cpu3": 0,
+        "mem": 0,
+        "gpu": 0,
+        "bat": 0,
+        "batteryPercent": 0,
+        "usbOnline": false,
+        "batteryCurrent": 0,
+        "batteryVoltage": 0,
+        "chargingError": false,
+        "chargingDisabled": false,
+        "cpuUsagePercent": 0,
+        "pa0": 0,
+        "batteryTempC": 0.0,
+        "ambientTempC": 0.0
+      },
+      "freeSpacePercent": 9.423917770385742,
+      "fanSpeedPercentDesired": 0,
+      "started": false,
+      "startedMonoTime": 0,
+      "thermalStatus": "ok",
+      "memoryUsagePercent": 33,
+      "networkType": "wifi",
+      "offroadPowerUsageUwh": 0,
+      "networkStrength": "moderate",
+      "carBatteryCapacityUwh": 13489084,
+      "cpuTempC": [
+        48.20000076293945,
+        47.29999923706055,
+        47.900001525878906,
+        47.599998474121094,
+        46.29999923706055,
+        46.29999923706055,
+        45.0,
+        45.599998474121094
+      ],
+      "gpuTempC": [
+        44.0,
+        45.0
+      ],
+      "memoryTempC": 45.400001525878906,
+      "networkInfo": {
+        "technology": "",
+        "operator": "",
+        "band": "",
+        "channel": 0,
+        "extra": "",
+        "state": "UNKNOWN"
+      },
+      "lastAthenaPingTime": 0,
+      "gpuUsagePercent": 0,
+      "cpuUsagePercent": [
+        97,
+        21,
+        13,
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      "modemTempC": [],
+      "screenBrightnessPercent": 64,
+      "pmicTempC": [
+        43.26900100708008,
+        37.0
+      ],
+      "powerDrawW": 135.98512268066406,
+      "networkMetered": false,
+      "somPowerDrawW": 1.1002628803253174,
+      "networkStats": {
+        "wwanTx": -1,
+        "wwanRx": -1
+      },
+      "maxTempC": 48.280128479003906,
+      "deviceType": "tici",
+      "intakeTempC": 0.0,
+      "exhaustTempC": 0.0,
+      "gnssTempC": 0.0,
+      "dspTempC": 44.79999923706055,
+      "bottomSocTempC": 0.0,
+      "chestnutPresent": false,
+      "usbState": {
+        "devices": [
+          {
+            "busnum": 1,
+            "devnum": 1,
+            "vendorId": 7531,
+            "productId": 2,
+            "speedMbps": 480,
+            "product": "xHCI Host Controller",
+            "manufacturer": "Linux 4.9.103 xhci-hcd",
+            "linkErrorCount": 0,
+            "usb3Lane": "unknown"
+          },
+          {
+            "busnum": 2,
+            "devnum": 1,
+            "vendorId": 7531,
+            "productId": 3,
+            "speedMbps": 5000,
+            "product": "xHCI Host Controller",
+            "manufacturer": "Linux 4.9.103 xhci-hcd",
+            "linkErrorCount": 0,
+            "usb3Lane": "unknown"
+          }
+        ]
+      }
+    },
+    "managerState": {
+      "processes": [
+        {
+          "name": "loggerd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "logmessaged",
+          "pid": 61825,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "lanlinkd",
+          "pid": 61826,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "camerad",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "proclogd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "journald",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "micd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "timed",
+          "pid": 61827,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "modeld",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "bigmodeld",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "sensord",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "ui",
+          "pid": 64348,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "soundd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "bluetooth_managerd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "locationd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "_pandad",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "calibrationd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "torqued",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "controlsd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "selfdrived",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "card",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "deleter",
+          "pid": 61829,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "qcomgpsd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "pandad",
+          "pid": 61830,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "paramsd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "lagd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "ubloxd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "pigeond",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "plannerd",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "radard",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "hardwared",
+          "pid": 61831,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "modem",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "tombstoned",
+          "pid": 61832,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "updated",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "alert_output",
+          "pid": 61833,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "trafficcontrold",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "statsd",
+          "pid": 61834,
+          "running": true,
+          "exitCode": 0,
+          "shouldBeRunning": true
+        },
+        {
+          "name": "locationd_llk",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        },
+        {
+          "name": "copyparty-sfx",
+          "pid": 0,
+          "running": false,
+          "exitCode": 0,
+          "shouldBeRunning": false
+        }
+      ]
+    }
+  }
+}

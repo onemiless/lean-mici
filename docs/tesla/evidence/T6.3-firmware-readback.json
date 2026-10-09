@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "serial": "1d002d000a51303436323838",
+  "chip_id": "0x483",
+  "flash_bytes": 1048576,
+  "application_address": "0x08020000",
+  "erased_sectors": [
+    1
+  ],
+  "bootstub_preserved": true,
+  "other_sectors_preserved": true,
+  "application_exact": true,
+  "before_sha256": "877c0be89741c2bbc68cbf6d9fae80b433ff48d0f7f543bcc1631e7b7bb8dac8",
+  "after_sha256": "c8ddbf0101f3f86a0492a0bb0fd34255e0c29571199d45be889321977996c957",
+  "candidate_sha256": "13c99877629f0ebe4662634de2fb9011cab68458cf81532e23caffddf57708c4",
+  "independent_readback": true,
+  "ack_timeout_floor_seconds": 0.1,
+  "write_repeated": false,
+  "reset": false
+}

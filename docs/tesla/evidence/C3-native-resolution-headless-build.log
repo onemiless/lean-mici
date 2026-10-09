@@ -1,0 +1,16 @@
++ set -Eeuo pipefail
++ SRC=/data/lean-tesla-stage
++ TG_SHA=9d0446a4ba8a532c8b674fb6ad795af015cd9dcf
++ compile_driving_pkl
++ MODEL_DIR=/data/lean-tesla-stage/openpilot/selfdrive/modeld
++ DRIVE_PKL=/data/lean-tesla-stage/openpilot/selfdrive/modeld/models/driving_tinygrad.pkl
++ DRIVE_ONNX=/data/lean-tesla-stage/openpilot/selfdrive/modeld/models/driving_supercombo.onnx
++ '[' -f /data/lean-tesla-stage/openpilot/selfdrive/modeld/models/driving_supercombo.onnx ']'
+++ PYTHONPATH=/data/lean-tesla-stage:/data/lean-tesla-stage/openpilot:/data/lean-tesla-stage
+++ /usr/local/venv/bin/python -
++ DRIVE_CAMERA_RESOLUTION=1928x1208
++ DRIVE_ARGS='--model-size 512x256 --camera-resolutions 1928x1208 --frame-skip 4'
+++ /usr/local/venv/bin/python /tmp/relhelper/release_lib.py fingerprint --extra driving-pkl-v1 --extra pin=9d0446a4ba8a532c8b674fb6ad795af015cd9dcf --extra '--model-size 512x256 --camera-resolutions 1928x1208 --frame-skip 4' /data/lean-tesla-stage/openpilot/selfdrive/modeld/models/driving_supercombo.onnx /data/lean-tesla-stage/openpilot/selfdrive/modeld/compile_modeld.py /data/lean-tesla-stage/openpilot/selfdrive/modeld/get_model_metadata.py /data/lean-tesla-stage/openpilot/selfdrive/modeld/helpers.py
+/usr/local/venv/bin/python: can't open file '/tmp/relhelper/release_lib.py': [Errno 2] No such file or directory
++ DRIVE_FP=
+{"build_exit": 2, "elapsed": 5.004739376000003}

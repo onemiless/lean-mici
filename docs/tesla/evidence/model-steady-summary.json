@@ -1,0 +1,11 @@
+{
+  "warmup_first_execution_ms": 443.7161982059479,
+  "warmup_frame_id_jump": [
+    31,
+    42
+  ],
+  "post_first_samples": 121,
+  "post_first_frame_ids_consecutive": true,
+  "post_first_mean_execution_ms": 26.26699477064708,
+  "scope": "9-second isolated camera/QCOM demo; not a long-duration or vehicle test"
+}

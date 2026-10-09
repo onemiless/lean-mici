@@ -1,0 +1,6 @@
+{
+  "confirmed_by_user": true,
+  "device": "C3XL comma-9c13c9f5",
+  "observation": "主页正常，横屏完整显示",
+  "scope": "Physical display observation; logical screenshots are a separate renderer artifact."
+}

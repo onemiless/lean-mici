@@ -1,0 +1,7 @@
+modeld init
+vision stream set up, main_wide_camera: False, use_extra_client: True
+connected main cam with buffer size: 4804608 (1928 x 1208)
+connected extra cam with buffer size: 4804608 (1928 x 1208)
+loading model
+loading model pkl: /data/relstage/openpilot/selfdrive/modeld/models/driving_tinygrad.pkl
+model loaded in 0.7s, modeld starting

@@ -1,0 +1,170 @@
+{
+  "scope": "live offroad stability only; no onroad or driving acceptance",
+  "passed": true,
+  "violations": [],
+  "head": "f8353f060e01f66195974190af098a6209ba5dfa",
+  "active_path": "/data/relstage",
+  "profile": "c3xl",
+  "seconds": 30.0,
+  "counts": {
+    "deviceState": 60,
+    "pandaStates": 300,
+    "managerState": 60
+  },
+  "process_pids": {
+    "logmessaged": [
+      71502
+    ],
+    "lanlinkd": [
+      71503
+    ],
+    "timed": [
+      71504
+    ],
+    "ui": [
+      71505
+    ],
+    "deleter": [
+      71506
+    ],
+    "pandad": [
+      71507
+    ],
+    "hardwared": [
+      71508
+    ],
+    "tombstoned": [
+      71509
+    ],
+    "alert_output": [
+      71512
+    ],
+    "statsd": [
+      71513
+    ]
+  },
+  "last_pandas": [
+    {
+      "voltage": 0,
+      "current": 0,
+      "ignitionLine": false,
+      "controlsAllowed": false,
+      "deprecated": {
+        "gasInterceptorDetected": false,
+        "startedSignalDetected": false,
+        "hasGps": false,
+        "gmlanSendErrs": 0,
+        "fanSpeedRpm": 0,
+        "usbPowerMode": "none",
+        "safetyParam": 0,
+        "safetyParam2": 0,
+        "fanStallCount": 0
+      },
+      "rxBufferOverflow": 0,
+      "txBufferOverflow": 0,
+      "pandaType": "tres",
+      "ignitionCan": false,
+      "safetyModel": "noOutput",
+      "faultStatus": "none",
+      "powerSaveEnabled": true,
+      "uptime": 171,
+      "faults": [],
+      "safetyRxInvalid": 0,
+      "harnessStatus": "notConnected",
+      "heartbeatLost": false,
+      "alternativeExperience": 0,
+      "safetyTxBlocked": 0,
+      "interruptLoad": 0.0117647061124444,
+      "safetyParam": 0,
+      "fanPower": 0,
+      "canState0": {
+        "busOff": false,
+        "busOffCnt": 0,
+        "errorWarning": false,
+        "errorPassive": false,
+        "lastError": "noChange",
+        "lastStoredError": "noError",
+        "lastDataError": "noChange",
+        "lastDataStoredError": "noError",
+        "receiveErrorCnt": 0,
+        "transmitErrorCnt": 0,
+        "totalErrorCnt": 0,
+        "totalTxLostCnt": 0,
+        "totalRxLostCnt": 0,
+        "totalTxCnt": 0,
+        "totalRxCnt": 0,
+        "totalFwdCnt": 0,
+        "canSpeed": 500,
+        "canDataSpeed": 0,
+        "canfdEnabled": false,
+        "brsEnabled": false,
+        "canfdNonIso": false,
+        "irq0CallRate": 0,
+        "irq1CallRate": 0,
+        "irq2CallRate": 0,
+        "canCoreResetCnt": 0
+      },
+      "canState1": {
+        "busOff": false,
+        "busOffCnt": 0,
+        "errorWarning": false,
+        "errorPassive": false,
+        "lastError": "noChange",
+        "lastStoredError": "noError",
+        "lastDataError": "noChange",
+        "lastDataStoredError": "noError",
+        "receiveErrorCnt": 0,
+        "transmitErrorCnt": 0,
+        "totalErrorCnt": 0,
+        "totalTxLostCnt": 0,
+        "totalRxLostCnt": 0,
+        "totalTxCnt": 0,
+        "totalRxCnt": 0,
+        "totalFwdCnt": 0,
+        "canSpeed": 500,
+        "canDataSpeed": 0,
+        "canfdEnabled": false,
+        "brsEnabled": false,
+        "canfdNonIso": false,
+        "irq0CallRate": 0,
+        "irq1CallRate": 0,
+        "irq2CallRate": 0,
+        "canCoreResetCnt": 0
+      },
+      "canState2": {
+        "busOff": false,
+        "busOffCnt": 0,
+        "errorWarning": false,
+        "errorPassive": false,
+        "lastError": "noChange",
+        "lastStoredError": "noError",
+        "lastDataError": "noChange",
+        "lastDataStoredError": "noError",
+        "receiveErrorCnt": 0,
+        "transmitErrorCnt": 0,
+        "totalErrorCnt": 0,
+        "totalTxLostCnt": 0,
+        "totalRxLostCnt": 0,
+        "totalTxCnt": 0,
+        "totalRxCnt": 0,
+        "totalFwdCnt": 0,
+        "canSpeed": 500,
+        "canDataSpeed": 0,
+        "canfdEnabled": false,
+        "brsEnabled": false,
+        "canfdNonIso": false,
+        "irq0CallRate": 0,
+        "irq1CallRate": 0,
+        "irq2CallRate": 0,
+        "canCoreResetCnt": 0
+      },
+      "safetyRxChecksInvalid": false,
+      "spiErrorCount": 18,
+      "sbu1Voltage": 3.2669999599456787,
+      "sbu2Voltage": 3.2709999084472656,
+      "soundOutputLevel": 0,
+      "controlsAllowedLateral": false,
+      "controlsAllowedLongitudinal": false
+    }
+  ]
+}

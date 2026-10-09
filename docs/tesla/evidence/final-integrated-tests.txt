@@ -1,0 +1,125 @@
+........................................................................ [ 12%]
+........................................................................ [ 25%]
+........................................................................ [ 37%]
+........................................................................ [ 50%]
+........................................................................ [ 62%]
+........................................................................ [ 75%]
+........................................................................ [ 87%]
+.....................................................................    [100%]
+573 passed in 4.85s
+
+SQP_RTI: QP solver returned error status 3 QP iteration 8.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 8.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 9.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 9.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 6.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 6.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 2.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 2.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 2.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 2.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 4.

@@ -1,0 +1,4 @@
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /data/openpilot
+spi list ['1d002d000a51303436323838']
+Panda False b'\t' DEV-be806f78-DEBUG
+InternalPanda False b'\t' DEV-be806f78-DEBUG

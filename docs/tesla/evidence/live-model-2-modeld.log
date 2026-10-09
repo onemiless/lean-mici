@@ -1,0 +1,13 @@
+modeld init
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/relstage/openpilot/selfdrive/modeld/modeld.py", line 443, in <module>
+    main(demo=args.demo)
+  File "/data/relstage/openpilot/selfdrive/modeld/modeld.py", line 208, in main
+    config_realtime_process(7, 54)
+  File "/data/relstage/openpilot/common/realtime.py", line 46, in config_realtime_process
+    set_core_affinity(c)
+  File "/data/relstage/openpilot/common/realtime.py", line 38, in set_core_affinity
+    os.sched_setaffinity(0, cores)
+OSError: [Errno 22] Invalid argument

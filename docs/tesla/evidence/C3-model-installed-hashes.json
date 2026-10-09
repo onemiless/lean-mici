@@ -1,0 +1,33 @@
+{
+  "camera_resolution": [
+    1928,
+    1208
+  ],
+  "files": [
+    {
+      "file": "driving_tinygrad.pkl.chunkmanifest",
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    {
+      "file": "driving_tinygrad.pkl.chunk01of03",
+      "bytes": 47185920,
+      "sha256": "23227bfe9d26e2c08affcd97f857d4c68084bbfd4ba917c4481b4599dc6ff503"
+    },
+    {
+      "file": "driving_tinygrad.pkl.chunk02of03",
+      "bytes": 31675996,
+      "sha256": "8a08def816136998a5f1c1be22dc69745a2d64a4c4f536d685e13664a5799ab9"
+    },
+    {
+      "file": "driving_tinygrad.pkl.chunk03of03",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "driving_tinygrad.pkl.inputs_fp",
+      "bytes": 65,
+      "sha256": "a108507dc3f055c56e9a8c8410de8dbdb68d28b269a0e75be697515ef4965044"
+    }
+  ]
+}

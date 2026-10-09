@@ -1,0 +1,9 @@
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: clearing and requeuing camera 0 from 1
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: clearing and requeuing camera 1 from 1
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: ** sensor 2 FAILED bringup, disabling
+openpilot/system/camerad/cameras/spectra.cc: camera 0 synced on frame_id_offset 4 timestamp 703983384561
+openpilot/system/camerad/cameras/spectra.cc: camera 1 synced on frame_id_offset 4 timestamp 703983549770

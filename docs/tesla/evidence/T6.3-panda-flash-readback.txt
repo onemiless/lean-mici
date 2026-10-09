@@ -1,0 +1,38 @@
+before 65536
+before 131072
+before 196608
+before 262144
+before 327680
+before 393216
+before 458752
+before 524288
+before 589824
+before 655360
+before 720896
+before 786432
+before 851968
+before 917504
+before 983040
+before 1048576
+application written; verifying
+after 65536
+Traceback (most recent call last):
+  File "/data/lean-tesla-panda-20261009/flash_application.py", line 45, in <module>
+    after = read_flash('after')
+            ^^^^^^^^^^^^^^^^^^^
+  File "/data/lean-tesla-panda-20261009/flash_application.py", line 32, in read_flash
+    result.extend(handle.read(0x08000000 + offset, 256))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/dev-sp-c3xl-20261007/panda/python/spi.py", line 424, in read
+    return self._cmd(0x11, data=data, read_bytes=length)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/dev-sp-c3xl-20261007/panda/python/spi.py", line 411, in _cmd
+    raise exc
+  File "/data/dev-sp-c3xl-20261007/panda/python/spi.py", line 407, in _cmd
+    return self._cmd_no_retry(cmd, data, read_bytes, predata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/dev-sp-c3xl-20261007/panda/python/spi.py", line 379, in _cmd_no_retry
+    self._get_ack(spi, timeout=0.01)
+  File "/data/dev-sp-c3xl-20261007/panda/python/spi.py", line 371, in _get_ack
+    raise PandaSpiMissingAck
+panda.python.spi.PandaSpiMissingAck

@@ -1,0 +1,20 @@
+[-] 前提检查 T=0
+[-] 同步 lean-tesla 源内容到设备树（结构性防漂移：发布树 ≡ lean-tesla + 产物） T=0
+[ok] 同步 lean-tesla @ be806f78c161
+[ok] 设备树源内容 ≡ origin/lean-tesla（+ 运行时产物）
+[ok] 设备树 ≡ origin/lean-tesla（源内容）
+[-] Materialize tinygrad at the lean-tesla gitlink T=2
+[ok] tinygrad materialized at 9d0446a4ba8a532c8b674fb6ad795af015cd9dcf
+[-] Materialize 构建 gitlink（msgq/rednose/panda；扁平树只带运行时子集） T=14
+[ok] msgq_repo materialized at e7396e76dadbb49e374d4b664ff6bbb43a39bcb0
+[ok] rednose_repo materialized at 28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0
+[ok] panda materialized at 2caa123f53bef8ba9c1561e74bde77616ee23124
+rm: cannot remove '/data/openpilot/opendbc_repo/opendbc/__pycache__/__init__.cpython-312.pyc': Permission denied
+[ok] opendbc_repo materialized at 522598445d134bea277789e01ea7d1809b3afc7c
+[-] 全量重建 native 产物（ARTIFACT_PATHS） T=22
+scons: Reading SConscript files ...
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /data/openpilot
+terminate called after throwing an instance of 'kj::ExceptionImpl'
+  what():  data/lean-tesla-stage/openpilot/cereal/log.capnp:0: failed: Import failed: /include/c++.capnp
+/tmp/device_release.sh: line 227: 50872 Aborted                 (core dumped) SKIP_CAPNP_REGEN=1 PYTHONPATH="$SRC:$SRC/openpilot${PYTHONPATH:+:$PYTHONPATH}" /usr/local/venv/bin/scons -j8 $ART_TARGETS
+native 全量重建失败，拒绝发布
