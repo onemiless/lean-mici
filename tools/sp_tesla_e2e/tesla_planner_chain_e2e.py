@@ -464,7 +464,9 @@ def model_fallback_replay(route):
       for frame in range(80):
         boundary = 'SEQ_RESET' if frame == 40 else 'ZERO_PAIR' if frame in (38, 39) else 'big' if frame < 40 else 'small'
         sm.frame += 1
-        sm['modelV2'].frameId = frame if frame < 40 else frame - 40
+        sm['modelV2'].big = frame < 40
+        sm['modelV2'].frameId = 0 if boundary == 'ZERO_PAIR' else frame if frame < 40 else frame - 40
+        sm['modelV2'].frameIdExtra = sm['modelV2'].frameId
         sm['modelV2'].action.desiredAcceleration = 0.0 if boundary == 'ZERO_PAIR' else -0.2
         sm['modelV2'].action.shouldStop = False
         planner.update(sm)
