@@ -24,7 +24,7 @@ def main():
     if entry.parent.name != str(os.getpid()) and any(a.endswith(b"/manager.py") or a == b"openpilot.system.manager.manager" or a.endswith(b"/camerad") for a in args):
       raise RuntimeError("Stop manager/camerad before running camera check")
   root = Path(__file__).resolve().parents[2]
-  streams = ["roadCameraState", "wideRoadCameraState", "driverCameraState"]
+  streams = ["narrowRoadCameraState", "wideRoadCameraState", "cabinCameraState"]
   required = streams if has_driver_camera() else streams[:2]
   sockets = {name: messaging.sub_sock(name, timeout=100) for name in streams}
   frames = {name: [] for name in streams}
@@ -61,7 +61,7 @@ def main():
     received_hz = (len(values) - 1) / (values[-1][3] - values[0][3]) if len(values) > 1 and values[-1][3] > values[0][3] else 0
     sensors = sorted({v[2] for v in values})
     ok = len(values) >= 100 and hz >= 18 and received_hz >= 18 and jumps == 0
-    if name in ("roadCameraState", "wideRoadCameraState"):
+    if name in ("narrowRoadCameraState", "wideRoadCameraState"):
       ok = ok and sensors == ["ox03c10"]
     if name not in required:
       ok = not values

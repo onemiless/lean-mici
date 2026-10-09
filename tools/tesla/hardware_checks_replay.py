@@ -42,9 +42,13 @@ with patch.dict(sys.modules, mods):
   spec = importlib.util.spec_from_file_location('camera_check_replay', root/'tools/tesla/camera_check.py')
   camera = importlib.util.module_from_spec(spec); spec.loader.exec_module(camera)
   for case, expected in [('valid', 0), ('wrong_wide', 1), ('gap', 1), ('slow', 1), ('slow_delivery', 1), ('missing_wide', 1)]:
-    now = [0.0]; counters = {}; messaging.sub_sock = lambda name, **kw: name
+    now = [0.0]; counters = {};
+    def subscribe(name, **kwargs):
+      assert name in ('narrowRoadCameraState', 'wideRoadCameraState', 'cabinCameraState'), name
+      return name
+    messaging.sub_sock = subscribe
     def receive(name):
-      if name == 'driverCameraState' or (case == 'missing_wide' and name == 'wideRoadCameraState'):
+      if name == 'cabinCameraState' or (case == 'missing_wide' and name == 'wideRoadCameraState'):
         return None
       n = counters.get(name, 0); counters[name] = n + 1
       if n >= 100:

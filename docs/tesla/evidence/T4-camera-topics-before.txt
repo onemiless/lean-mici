@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/hardware_checks_replay.py", line 61, in <module>
+    code = camera.main()
+           ^^^^^^^^^^^^^
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/camera_check.py", line 29, in main
+    sockets = {name: messaging.sub_sock(name, timeout=100) for name in streams}
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/hardware_checks_replay.py", line 47, in subscribe
+    assert name in ('narrowRoadCameraState', 'wideRoadCameraState', 'cabinCameraState'), name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: roadCameraState

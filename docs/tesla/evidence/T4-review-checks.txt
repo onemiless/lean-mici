@@ -21,7 +21,7 @@
       "result": {
         "pass": true,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -41,7 +41,7 @@
             "frame_jumps": 0,
             "pass": true
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,
@@ -59,7 +59,7 @@
       "result": {
         "pass": false,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -79,7 +79,7 @@
             "frame_jumps": 0,
             "pass": false
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,
@@ -97,7 +97,7 @@
       "result": {
         "pass": false,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -117,7 +117,7 @@
             "frame_jumps": 1,
             "pass": false
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,
@@ -135,7 +135,7 @@
       "result": {
         "pass": false,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -155,7 +155,7 @@
             "frame_jumps": 0,
             "pass": false
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,
@@ -173,7 +173,7 @@
       "result": {
         "pass": false,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -193,7 +193,7 @@
             "frame_jumps": 0,
             "pass": false
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,
@@ -211,7 +211,7 @@
       "result": {
         "pass": false,
         "streams": {
-          "roadCameraState": {
+          "narrowRoadCameraState": {
             "frames": 100,
             "sensors": [
               "ox03c10"
@@ -229,7 +229,7 @@
             "frame_jumps": 0,
             "pass": false
           },
-          "driverCameraState": {
+          "cabinCameraState": {
             "frames": 0,
             "sensors": [],
             "hz": 0,

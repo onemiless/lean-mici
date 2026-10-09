@@ -19,3 +19,7 @@ Re-run local commands from repository root. For pytest, PYTHONPATH must include 
 - Production updater body executed with real launch_env.sh and forbidden flash/slot stubs: missing, empty, standard and invalid tici profiles return before flash/slot lookup. No updater production change needed.
 - agnos_slot_check.py retains explicit _a/_b whitelist before any verify_partition calls; unknown output raises.
 - Final Panda four-artifact rebuild uses clean opendbc 522598445d134bea277789e01ea7d1809b3afc7c. T4.2-final-size.json supersedes the initial dirty-tree build evidence.
+
+## Camera topic correction after device baseline
+
+The task document's roadCameraState/driverCameraState names are stale. Both pinned lean and fixed dev-sp publish narrowRoadCameraState and cabinCameraState (hw.h), backed by FrameData at log.capnp event slots 2/70/74. The checker now uses narrowRoadCameraState/wideRoadCameraState/cabinCameraState. Synthetic replay rejects unknown subscription names before delivering frames; it reproduced the old checker failure before the correction and passes all six scenarios afterward. No camerad driver or device mutation is included. FrameData.frameId, timestampSof and sensor fields remain unchanged.
