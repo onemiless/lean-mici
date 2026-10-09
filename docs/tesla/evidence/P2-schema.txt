@@ -1,0 +1,5 @@
+1066ef3a101f5cfbb33340e235b87d02b830877b61f15b5ef7b1323b9245e117
+[ok] gen/cpp 重生成 + schema 指纹已盖（记得连同 gen/cpp 一起提交）
+1066ef3a101f5cfbb33340e235b87d02b830877b61f15b5ef7b1323b9245e117
+[ok] gen/cpp 重生成 + schema 指纹已盖（记得连同 gen/cpp 一起提交）
+generated files stable; bigModelReply and trafficRadarState coexist

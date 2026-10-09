@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "scope": "synthetic CAN/template and blindspot input; real adapter/Params/parser/safety, no physical vehicle or CAN TX",
+  "cases": [
+    {
+      "side": "left",
+      "brightness": 0,
+      "payload": "02ff000000a800",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "left",
+      "brightness": 30,
+      "payload": "02ff00001ea800",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "left",
+      "brightness": 91,
+      "payload": "02ff00005ba800",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "left",
+      "brightness": 100,
+      "payload": "02ff000064a800",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "right",
+      "brightness": 0,
+      "payload": "02ff0000005001",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "right",
+      "brightness": 30,
+      "payload": "02ff00001e5001",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "right",
+      "brightness": 91,
+      "payload": "02ff00005b5001",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "right",
+      "brightness": 100,
+      "payload": "02ff0000645001",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "both",
+      "brightness": 0,
+      "payload": "02ff000000f801",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "both",
+      "brightness": 30,
+      "payload": "02ff00001ef801",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "both",
+      "brightness": 91,
+      "payload": "02ff00005bf801",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "side": "both",
+      "brightness": 100,
+      "payload": "02ff000064f801",
+      "compiled_safety_allowed": true,
+      "overrange_rejected": true,
+      "stale_and_off_no_tx": true
+    },
+    {
+      "ui_dark_mode": 0,
+      "brightness": 100,
+      "actual_can_parser": true
+    },
+    {
+      "ui_dark_mode": 1,
+      "brightness": 30,
+      "actual_can_parser": true
+    },
+    {
+      "continuous_fresh_frames": 150,
+      "host_duration_cap": true,
+      "safety_session_cap": true,
+      "safety_stale_rejected": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "cycles": {
+    "0:0:0": 236,
+    "0:0:1": 236,
+    "0:1:0": 236,
+    "0:1:1": 236,
+    "0:2:0": 236,
+    "0:2:1": 236,
+    "1:0:0": 236,
+    "1:0:1": 236,
+    "1:1:0": 236,
+    "1:1:1": 236,
+    "1:2:0": 236,
+    "1:2:1": 236,
+    "2:0:0": 236,
+    "2:0:1": 236,
+    "2:1:0": 236,
+    "2:1:1": 236,
+    "2:2:0": 236,
+    "2:2:1": 236
+  },
+  "artifact": "artifacts/P3-18-combinations.json",
+  "sha256": "c20aba1a627bbe6b1166b430f217b6b847e92fc5cee94077e57f3b871a0ebd03",
+  "baseline_comparison": "not performed; default Experimental/TN236-cycle platform fixture comparisons separately passed"
+}

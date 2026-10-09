@@ -1,0 +1,41 @@
+PASS plain_red_stops                  offset=0.0   stop: latched=False ctl=True ctl_after_latch=False stop=True ran_red=False maxdec=1.132
+PASS plain_red_stops                  offset=0.125 stop: latched=False ctl=True ctl_after_latch=False stop=True ran_red=False maxdec=0.881
+PASS plain_red_stops                  offset=0.25  stop: latched=False ctl=True ctl_after_latch=False stop=True ran_red=False maxdec=0.923
+PASS plain_red_stops                  offset=0.375 stop: latched=False ctl=True ctl_after_latch=False stop=True ran_red=False maxdec=0.788
+PASS gas_tap_before_red               offset=0.0   stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.132
+PASS gas_tap_before_red               offset=0.125 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.881
+PASS gas_tap_before_red               offset=0.25  stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.923
+PASS gas_tap_before_red               offset=0.375 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.788
+PASS gas_tap_on_approach_resumes      offset=0.0   stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.132
+PASS gas_tap_on_approach_resumes      offset=0.125 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.881
+PASS gas_tap_on_approach_resumes      offset=0.25  stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.923
+PASS gas_tap_on_approach_resumes      offset=0.375 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.788
+PASS gas_tap_close_gives_up           offset=0.0   no_hard_brake: latched=True ctl=True ctl_after_latch=False stop=False ran_red=True maxdec=0.99
+PASS gas_tap_close_gives_up           offset=0.125 no_hard_brake: latched=True ctl=True ctl_after_latch=False stop=False ran_red=True maxdec=0.926
+PASS gas_tap_close_gives_up           offset=0.25  no_hard_brake: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.834
+PASS gas_tap_close_gives_up           offset=0.375 no_hard_brake: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.651
+PASS overspeed_then_slow_resumes      offset=0.0   stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=2.374
+PASS overspeed_then_slow_resumes      offset=0.125 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=2.465
+PASS overspeed_then_slow_resumes      offset=0.25  stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=2.459
+PASS overspeed_then_slow_resumes      offset=0.375 stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=2.532
+PASS gas_through_red_then_next        offset=0.0   bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.132
+PASS gas_through_red_then_next        offset=0.125 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.881
+PASS gas_through_red_then_next        offset=0.25  bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.923
+PASS gas_through_red_then_next        offset=0.375 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=0.788
+PASS gas_held_through_red             offset=0.0   bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS gas_held_through_red             offset=0.125 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS gas_held_through_red             offset=0.25  bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS gas_held_through_red             offset=0.375 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS yellow_pass_then_red             offset=0.0   bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=False maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.224
+PASS yellow_pass_then_red             offset=0.125 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=False maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.244
+PASS yellow_pass_then_red             offset=0.25  bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=False maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.616
+PASS yellow_pass_then_red             offset=0.375 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=False maxdec=0.0 | stop: latched=True ctl=True ctl_after_latch=True stop=True ran_red=False maxdec=1.482
+PASS release_then_infeasible_red      offset=0.0   bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_then_infeasible_red      offset=0.125 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_then_infeasible_red      offset=0.25  bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_then_infeasible_red      offset=0.375 bypass: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0 | no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_near_red_no_hard_brake   offset=0.0   no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_near_red_no_hard_brake   offset=0.125 no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_near_red_no_hard_brake   offset=0.25  no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS release_near_red_no_hard_brake   offset=0.375 no_hard_brake: latched=True ctl=False ctl_after_latch=False stop=False ran_red=True maxdec=0.0
+PASS 40/40 -> docs/tesla/evidence/traffic_override_e2e.json

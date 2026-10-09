@@ -1,0 +1,14 @@
+Long mpc reset, solution_status: 4
+Legacy long mpc recovered, primary_status: 4, fallback_status: 0
+Legacy long mpc recovered, primary_status: 4, fallback_status: 0
+{"artifact": "docs/tesla/evidence/planner-cold-start.json", "passed": true}
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 7.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 5.
