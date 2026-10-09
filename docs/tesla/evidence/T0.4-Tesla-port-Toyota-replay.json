@@ -1,0 +1,69 @@
+{
+  "baseline_source": "4802cb2fe8c993fd7852b1f78be5b8b9604dd5a5",
+  "migrated_source": "276921fc450550e7ee7f8113f371e90999de393f",
+  "input_sha256": "6c028c0d40328fc00fa12acf91dba30d9f152e89d99a7089aadac62f6c7d5d64",
+  "input_messages": 88500,
+  "opendbc_migrated": "522598445d134bea277789e01ea7d1809b3afc7c",
+  "panda_migrated": "2caa123f53bef8ba9c1561e74bde77616ee23124",
+  "processes": {
+    "card": {
+      "baseline_repeated": true,
+      "migrated_repeated": true,
+      "identical": true,
+      "sha256": "a39690fd23d88cdb156787ce87ca49ae990e0826f70728a0662beb1f8650e993",
+      "counts": {
+        "carState": 6019,
+        "carParams": 2,
+        "carOutput": 6019,
+        "radarTracks": 1204,
+        "sendcan": 5890
+      },
+      "ignore": [
+        "logMonoTime",
+        "carState.cumLagMs"
+      ]
+    },
+    "controlsd": {
+      "baseline_repeated": true,
+      "migrated_repeated": true,
+      "identical": true,
+      "sha256": "654462626388017da0688f28baa5d3664c19a9d5820540bb863c0f8864e021ac",
+      "counts": {
+        "carControl": 6020,
+        "controlsState": 6020
+      },
+      "ignore": [
+        "logMonoTime"
+      ]
+    },
+    "plannerd": {
+      "baseline_repeated": true,
+      "migrated_repeated": true,
+      "identical": true,
+      "sha256": "68f184d346dde4d60603caac5bf392b46e5e2e680a5ea3afb29c866c0d964147",
+      "counts": {
+        "longitudinalPlan": 1200,
+        "driverAssistance": 1200
+      },
+      "ignore": [
+        "logMonoTime",
+        "longitudinalPlan.processingDelay",
+        "longitudinalPlan.solverExecutionTime"
+      ]
+    },
+    "selfdrived": {
+      "baseline_repeated": true,
+      "migrated_repeated": true,
+      "identical": true,
+      "sha256": "516554662593ad3c284675463033df9c98409cb8ed4747a6d86a8a41faed7582",
+      "counts": {
+        "selfdriveState": 6020,
+        "onroadEvents": 143
+      },
+      "ignore": [
+        "logMonoTime"
+      ]
+    }
+  },
+  "passed": true
+}

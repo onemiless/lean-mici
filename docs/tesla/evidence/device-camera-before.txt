@@ -1,0 +1,28 @@
+{
+  "pass": false,
+  "streams": {
+    "roadCameraState": {
+      "frames": 0,
+      "sensors": [],
+      "hz": 0,
+      "frame_jumps": 0,
+      "pass": false
+    },
+    "wideRoadCameraState": {
+      "frames": 839,
+      "sensors": [
+        "ox03c10"
+      ],
+      "hz": 20.000129326850587,
+      "frame_jumps": 0,
+      "pass": true
+    },
+    "driverCameraState": {
+      "frames": 0,
+      "sensors": [],
+      "hz": 0,
+      "frame_jumps": 0,
+      "pass": true
+    }
+  }
+}

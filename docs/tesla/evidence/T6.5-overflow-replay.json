@@ -1,0 +1,102 @@
+{
+  "pass": true,
+  "scope": "synthetic IO, no actual Panda/Jungle/CAN",
+  "cases": [
+    {
+      "case": "stable",
+      "exit": 0,
+      "output": {
+        "pass": true,
+        "before": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 11
+          }
+        ],
+        "after": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 14
+          }
+        ],
+        "watch_seconds": 2.0
+      }
+    },
+    {
+      "case": "rx_growth",
+      "exit": 1,
+      "output": {
+        "pass": false,
+        "before": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 11
+          }
+        ],
+        "after": [
+          {
+            "type": "tres",
+            "rx": 1,
+            "tx": 0,
+            "uptime": 12
+          }
+        ],
+        "reason": "Panda changed, reset or buffer counter increased"
+      }
+    },
+    {
+      "case": "tx_growth",
+      "exit": 1,
+      "output": {
+        "pass": false,
+        "before": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 11
+          }
+        ],
+        "after": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 1,
+            "uptime": 12
+          }
+        ],
+        "reason": "Panda changed, reset or buffer counter increased"
+      }
+    },
+    {
+      "case": "reset",
+      "exit": 1,
+      "output": {
+        "pass": false,
+        "before": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 11
+          }
+        ],
+        "after": [
+          {
+            "type": "tres",
+            "rx": 0,
+            "tx": 0,
+            "uptime": 0
+          }
+        ],
+        "reason": "Panda changed, reset or buffer counter increased"
+      }
+    }
+  ]
+}

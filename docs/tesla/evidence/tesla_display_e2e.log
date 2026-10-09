@@ -1,0 +1,8 @@
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [148/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [424/431]
+docs/tesla/evidence/tesla_display_e2e.json
+{"passed": 14, "total": 14, "failures": [], "excluded": [{"case": "c3-alert", "reason": "localization and home behavior are explicitly outside this port"}, {"case": "mici-alert", "reason": "localization and home behavior are explicitly outside this port"}, {"case": "home-hides-offroad-alerts", "reason": "localization and home behavior are explicitly outside this port"}]}

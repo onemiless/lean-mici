@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/materialize_failure_e2e.py", line 41, in <module>
+    assert (p.returncode==0 and stamped) if failure=='none' else (p.returncode!=0 and not stamped and '[ok]' not in p.stdout),(failure,p.returncode,stamped,p.stdout,p.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('remove', 0, True, '[ok] e2e_materialize-e2e-8kcpzqkp_remove materialized at verifiedsha\n', '')

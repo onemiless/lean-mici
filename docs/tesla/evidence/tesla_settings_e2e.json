@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "scenarios": [
+    {
+      "case": "choice-TeslaARS408Radar",
+      "value": 1,
+      "label": "ARS408"
+    },
+    {
+      "case": "choice-DynamicAutoStockSpeedLowKph",
+      "value": 115,
+      "label": "115 km/h"
+    },
+    {
+      "case": "choice-TeslaBlindspotAmbientBrightness",
+      "value": 60,
+      "label": "60%"
+    },
+    {
+      "case": "choice-TeslaTrafficStopReference",
+      "value": 55,
+      "label": "5.5 m"
+    },
+    {
+      "case": "shared-ranges-and-retired-controls"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 999,
+      "backend": "official"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 999,
+      "backend": "experimental"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 999,
+      "backend": "tn_no_dec"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "official"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "experimental"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "tn_no_dec"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "official"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "experimental"
+    },
+    {
+      "case": "invalid-config-preserved",
+      "version": 1,
+      "backend": "tn_no_dec"
+    },
+    {
+      "case": "valid-three-backend-native-write",
+      "backend": "official"
+    },
+    {
+      "case": "valid-three-backend-native-write",
+      "backend": "experimental"
+    },
+    {
+      "case": "valid-three-backend-native-write",
+      "backend": "tn_no_dec"
+    },
+    {
+      "case": "active-session-selection-held"
+    }
+  ],
+  "scope": "native constructors/callbacks + isolated Params; window initialized, no device",
+  "gui_layout_acceptance": "pending separate render proof",
+  "repeat_command": "PYTHONPATH=. python tools/sp_tesla_e2e/tesla_settings_e2e.py",
+  "sha256": {
+    "openpilot/selfdrive/ui/sunnypilot/mici/layouts/tesla.py": "939810db824e06edb62be99d589c969725e186c2ea46a2a5a0e55375726a4969",
+    "openpilot/selfdrive/ui/sunnypilot/layouts/settings/vehicle/brands/tesla_planner.py": "1d5e09e6b7a83ef2fba53383ca66ee2fb0b429da8a1b2177e1fcdc12bb75b844",
+    "openpilot/selfdrive/ui/sunnypilot/tesla_settings.py": "6bd3ee9aa7c3c3c9956a413fdc00234cb2c3cb68ed3d29eb623f104dafcaa233",
+    "openpilot/selfdrive/ui/sunnypilot/layouts/settings/vehicle/brands/tesla.py": "92af5ad0fbdeca5d220114f1d9f500c085a4baad6fdae36e5a9df2272c17c264",
+    "openpilot/selfdrive/ui/sunnypilot/layouts/settings/vehicle/brands/tesla_control.py": "a21007cb7853aca76654ae610faf01accb614a491878656a9e31683f49f5aa1b",
+    "/Users/mile/work/tesla-port/control-work/tools/sp_tesla_e2e/tesla_settings_e2e.py": "33243479a22898e38d4ae1e729cedf0d089b37ad135425d5d78d5578bc30d629"
+  }
+}

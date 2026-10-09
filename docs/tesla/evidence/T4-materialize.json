@@ -1,0 +1,41 @@
+{
+  "pass": true,
+  "scope": "production shell function, temporary filesystem and injected IO failures; no device/network",
+  "cases": [
+    {
+      "case": "none",
+      "exit": 0,
+      "stamped": true,
+      "stdout": "[ok] e2e_materialize-e2e-z6xqut0s_none materialized at verifiedsha\n",
+      "stderr": ""
+    },
+    {
+      "case": "remove",
+      "exit": 1,
+      "stamped": false,
+      "stdout": "",
+      "stderr": "DIE: e2e_materialize-e2e-z6xqut0s_remove destination removal failed\n"
+    },
+    {
+      "case": "copy",
+      "exit": 1,
+      "stamped": false,
+      "stdout": "",
+      "stderr": "DIE: e2e_materialize-e2e-z6xqut0s_copy materialization copy failed\n"
+    },
+    {
+      "case": "checkout",
+      "exit": 1,
+      "stamped": false,
+      "stdout": "",
+      "stderr": "DIE: e2e_materialize-e2e-z6xqut0s_checkout checkout failed\n"
+    },
+    {
+      "case": "pin",
+      "exit": 1,
+      "stamped": false,
+      "stdout": "",
+      "stderr": "DIE: e2e_materialize-e2e-z6xqut0s_pin pin write failed\n"
+    }
+  ]
+}

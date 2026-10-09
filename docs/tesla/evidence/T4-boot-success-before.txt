@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/boot_success_replay.py", line 14, in <module>
+    assert script.is_file(), 'Checker must exist before replay'
+           ~~~~~~~~~~~~~~^^
+AssertionError: Checker must exist before replay

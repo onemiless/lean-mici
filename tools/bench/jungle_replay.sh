@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+#
+# 台架 jungle 回放：把 Sienna 的 CAN 循环灌给设备并点火，让设备进 onroad。
+#
+# jungle 是 V1(F4)，当前 panda pin 不支持，且固件 e462c34d 不得刷写、不得绕过硬件检查：
+# 这里从 panda 子模块导出同版本 (e462c34d) 的旧库到缓存目录，通过 PYTHONPATH 只读使用。
+#
+# 用法:
+#   tools/bench/jungle_replay.sh          点火并循环回放（前台运行，Ctrl-C 或 kill 即停）
+#   tools/bench/jungle_replay.sh --off    熄火并退出
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." >/dev/null && pwd)"
+OLD_PANDA_REV="e462c34d"
+CACHE="${HOME}/.cache/jungle_v1_panda"
+
+export CAR="${CAR:-toyota}"
+if [ "${1:-}" != "--off" ]; then
+  case "$CAR" in
+    toyota) export FRAMES="$ROOT/tools/bench/sienna_can_loop.xz"; export CAN_ROUTE="00000052--696b66504b--17" ;;
+    tesla)
+      export FRAMES="${TESLA_CAN_FRAMES:-$ROOT/tools/bench/tesla_can_loop.xz}"
+      export CAN_ROUTE="${TESLA_CAN_ROUTE:-}"
+      [ -n "${TESLA_CAN_FRAMES:-}" ] || CAN_ROUTE="2c912ca5de3b1ee9|0000025d--6eb6bcbca4--4"
+      ;;
+    *) echo "Unsupported CAR=$CAR (expected toyota or tesla)" >&2; exit 1 ;;
+  esac
+  [ -f "$FRAMES" ] || { echo "Missing $CAR CAN fixture: $FRAMES; set TESLA_CAN_FRAMES and TESLA_CAN_ROUTE to an authentic route export" >&2; exit 1; }
+  [ -n "$CAN_ROUTE" ] || { echo "TESLA_CAN_ROUTE must identify the source route" >&2; exit 1; }
+  python3 - <<'META'
+import hashlib, json, os
+from pathlib import Path
+path = Path(os.environ["FRAMES"])
+print(json.dumps({"car": os.environ["CAR"], "route": os.environ["CAN_ROUTE"], "frames": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}), flush=True)
+META
+  [ "${1:-}" != "--check" ] || exit 0
+fi
+
+if [ ! -d "$CACHE/panda" ]; then
+  mkdir -p "$CACHE/panda"
+  git -C "$ROOT/panda" archive "$OLD_PANDA_REV" | tar -x -C "$CACHE/panda"
+fi
+
+export PYTHONPATH="$CACHE${PYTHONPATH:+:$PYTHONPATH}"
+
+exec "$ROOT/.venv/bin/python" - "$@" <<'PY'
+import ctypes
+import lzma
+import os
+import pickle
+import sys
+import time
+
+import libusb_package
+import usb1
+
+usb1._libusb1.loadLibrary(ctypes.CDLL(str(libusb_package.get_library_path())))
+from panda import PandaJungle
+
+jungles = PandaJungle.list()
+if not jungles:
+  sys.exit("没找到 jungle")
+jungle = PandaJungle(jungles[0])
+
+if "--off" in sys.argv:
+  jungle.set_ignition(False)
+  print("ignition off")
+  sys.exit(0)
+
+frames = pickle.load(lzma.open(os.environ["FRAMES"]))
+for bus in [0, 1, 2, 3, 0xFFFF]:
+  jungle.can_clear(bus)
+for bus in [0, 1, 2]:
+  jungle.set_can_speed_kbps(bus, 500)
+jungle.set_ignition(True)
+jungle.set_panda_power(True)
+jungle.set_can_loopback(False)
+print("replaying", len(frames), "frames @100Hz", flush=True)
+t0, i = time.monotonic(), 0
+while True:
+  try:
+    jungle.can_send_many(frames[i % len(frames)])
+  except usb1.USBErrorTimeout:
+    pass
+  jungle.can_recv()
+  i += 1
+  time.sleep(max(0.0, t0 + i * 0.01 - time.monotonic()))
+PY

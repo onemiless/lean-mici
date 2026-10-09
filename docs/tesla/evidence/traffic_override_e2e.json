@@ -1,0 +1,837 @@
+{
+  "pass": true,
+  "source_commit": "55e9855a4557a47543e6d3afb5bca165aef2b0bd",
+  "controller_dirty": true,
+  "controller_sha256": "19a3123ad227e367c224afebfd58c47f635a8bdbadb4aeb19d215624d85ecef0",
+  "stubbed_modules": [],
+  "results": [
+    {
+      "scenario": "plain_red_stops",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": false,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 1.132,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "plain_red_stops",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": false,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.881,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "plain_red_stops",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": false,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.923,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "plain_red_stops",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": false,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.788,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_before_red",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.132,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_before_red",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.881,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_before_red",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.923,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_before_red",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.788,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_on_approach_resumes",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.132,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_on_approach_resumes",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.881,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_on_approach_resumes",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.923,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_on_approach_resumes",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.788,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_close_gives_up",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.99,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_close_gives_up",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.926,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_close_gives_up",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.834,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_tap_close_gives_up",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.651,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "overspeed_then_slow_resumes",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 2.374,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "overspeed_then_slow_resumes",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 2.465,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "overspeed_then_slow_resumes",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 2.459,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "overspeed_then_slow_resumes",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 2.532,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_through_red_then_next",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.132,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_through_red_then_next",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.881,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_through_red_then_next",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.923,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_through_red_then_next",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 0.788,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "gas_held_through_red",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "bypass"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "gas_held_through_red",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "bypass"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "gas_held_through_red",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "bypass"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "gas_held_through_red",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "bypass"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "yellow_pass_then_red",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": false,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.224,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "yellow_pass_then_red",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": false,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.244,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "yellow_pass_then_red",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": false,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.616,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "yellow_pass_then_red",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "bypass",
+        "stop"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": false,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": true,
+          "controlled_after_latch": true,
+          "max_required_decel": 1.482,
+          "ran_red": false,
+          "stopped_before_line": true
+        }
+      ]
+    },
+    {
+      "scenario": "release_then_infeasible_red",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "bypass",
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_then_infeasible_red",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "bypass",
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_then_infeasible_red",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "bypass",
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_then_infeasible_red",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "bypass",
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        },
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_near_red_no_hard_brake",
+      "frame_offset_s": 0.0,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_near_red_no_hard_brake",
+      "frame_offset_s": 0.125,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_near_red_no_hard_brake",
+      "frame_offset_s": 0.25,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    },
+    {
+      "scenario": "release_near_red_no_hard_brake",
+      "frame_offset_s": 0.375,
+      "expect": [
+        "no_hard_brake"
+      ],
+      "pass": true,
+      "lights": [
+        {
+          "latched": true,
+          "controlled": false,
+          "controlled_after_latch": false,
+          "max_required_decel": 0.0,
+          "ran_red": true,
+          "stopped_before_line": false
+        }
+      ]
+    }
+  ]
+}

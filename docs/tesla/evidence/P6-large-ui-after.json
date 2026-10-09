@@ -1,0 +1,15 @@
+{
+  "scope": "actual desktop large MainLayout, DeviceLayoutSP and Tesla settings; isolated Params; no vehicle/CAN",
+  "passed": true,
+  "stages": [
+    "DeviceLayoutSP constructed",
+    "DeviceLayoutSP updated",
+    "MainLayout constructed",
+    "MainLayout Device panel rendered three frames",
+    "TeslaSettings constructed and updated"
+  ],
+  "screenshot": "/Users/mile/work/tesla-port/control-work/docs/tesla/evidence/P6-large-ui-after.png",
+  "screenshot_sha256": "57438efa172149a61353a8e262576238440a4980f49450e7fe25c17fba434423",
+  "source_sha256": "5fd1898395206b3b5e790539ad777b69040d82261e82ae007b33b6bc7e6b88ac",
+  "main_source_sha256": "9b2d4a2904efb5b4121c970116aca24c5f272a93108d5f9cd39320d21c3f9113"
+}

@@ -1,0 +1,97 @@
+{
+  "artifact": "docs/tesla/evidence/tesla_control_chain_e2e.json",
+  "passed": true,
+  "cases": [
+    {
+      "case": "fault-chain",
+      "passed": true,
+      "evidence": [
+        {
+          "source": "manualStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        },
+        {
+          "source": "dynamicStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        },
+        {
+          "source": "apHybridStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        }
+      ]
+    },
+    {
+      "case": "actual-output",
+      "passed": true,
+      "evidence": {
+        "cooperative_angle_deg": 8.849999999999909,
+        "emitted_accel": 1.0,
+        "takeover_ramp_accel": -1.0
+      }
+    },
+    {
+      "case": "yaw-chain",
+      "passed": true,
+      "evidence": [
+        {
+          "angle": 5.0,
+          "speed_kph": 72.0,
+          "reverse": false,
+          "wire_yaw_deg_s": -2.339999999999975,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": -5.0,
+          "speed_kph": 72.0,
+          "reverse": false,
+          "wire_yaw_deg_s": 2.339999999999975,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": 5.0,
+          "speed_kph": 0.0,
+          "reverse": false,
+          "wire_yaw_deg_s": 0.0,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": 5.0,
+          "speed_kph": 18.0,
+          "reverse": true,
+          "wire_yaw_deg_s": 0.7099999999999795,
+          "source": "VehicleModel estimate"
+        }
+      ]
+    },
+    {
+      "case": "accessory-chain",
+      "passed": true,
+      "evidence": {
+        "obsolete_tx_rejected": true,
+        "retired_requests_no_tx": true,
+        "ambient_and_auto_speed_allowed": true
+      }
+    },
+    {
+      "case": "startup-config",
+      "passed": true,
+      "evidence": {
+        "initialized_before_first_cycle": true,
+        "session_thresholds": [
+          95,
+          90
+        ],
+        "next_session_thresholds": [
+          80,
+          70
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "tesla_fixture_status": "missing_authentic_CAN_export",
+  "inspected_source": "dev-sp tesla_legacy_planner_warm.rlog.zst",
+  "bytes": 1296830,
+  "event_counts": {
+    "carState": 4578,
+    "selfdriveState": 4574,
+    "carControl": 4573,
+    "controlsState": 4573,
+    "radarState": 568,
+    "modelV2": 236,
+    "vehicleParameters": 236,
+    "carParams": 1
+  },
+  "can_events": 0,
+  "decision": "Do not substitute planner data or synthetic CAN. Require TESLA_CAN_FRAMES and TESLA_CAN_ROUTE; --check outputs exact SHA256 before any Jungle access.",
+  "bench_run": false,
+  "inspected_source_sha256": "36e4a6e774d33839b2b9f78d9f90d14b132020fb1cb88511d1096c737b0747f4"
+}

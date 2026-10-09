@@ -1,0 +1,77 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "env": null,
+      "file": null,
+      "profile": "standard",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": "",
+      "file": "c3xl\n",
+      "profile": "c3xl",
+      "shell": "agnos-c3xl.json:0"
+    },
+    {
+      "env": " c3xl \n",
+      "file": "c3",
+      "profile": "c3xl",
+      "shell": "agnos-c3xl.json:0"
+    },
+    {
+      "env": null,
+      "file": "\t c3xl \r\n",
+      "profile": "c3xl",
+      "shell": "agnos-c3xl.json:0"
+    },
+    {
+      "env": null,
+      "file": "\n c3xl\n\n",
+      "profile": "c3xl",
+      "shell": "agnos-c3xl.json:0"
+    },
+    {
+      "env": null,
+      "file": "",
+      "profile": "standard",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": null,
+      "file": " \t\n",
+      "profile": "standard",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": "standard",
+      "file": "c3xl",
+      "profile": "standard",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": "c3",
+      "file": "c3xl",
+      "profile": "c3",
+      "shell": "agnos-c3.json:0"
+    },
+    {
+      "env": "bogus",
+      "file": "c3xl",
+      "profile": "invalid",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": null,
+      "file": "c3xl extra",
+      "profile": "invalid",
+      "shell": "agnos.json:1"
+    },
+    {
+      "env": null,
+      "file": "c3xl\nc3",
+      "profile": "invalid",
+      "shell": "agnos.json:1"
+    }
+  ]
+}

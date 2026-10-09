@@ -1,0 +1,91 @@
+{
+  "scope": "actual UI renderers, BmsLayout, HomeLayoutSP and UIState Params integration; in-memory passive CAN only",
+  "language": "zh-CHS",
+  "cases": [
+    {
+      "case": "missing-cp-does-not-subscribe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "late-tesla-cp-subscribes-while-visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "can-message-reaches-bms-state",
+      "passed": true,
+      "detail": "{'soc': 50.0, 'voltage': None, 'current': None, 'power': None, 'temp_min': None, 'temp_max': None, 'cell_min': None, 'cell_max': None, 'capacity': None, 'remaining': None, 'charged': None, 'discharged': None, 'drive_power_low': None, 'support_power_low': None, 'contactor': None, 'soc_display': None, 'consumption': None}"
+    },
+    {
+      "case": "bms-display-does-not-jitter",
+      "passed": true,
+      "detail": "last-second voltages=[400.2, 400.4, 400.7], last={'soc': 80.30000000000001, 'voltage': 400.22131102548434, 'current': 50.88524410193768, 'power': 20.36535910632929, 'temp_min': None, 'temp_max': None, 'cell_min': None, 'cell_max': None, 'capacity': None, 'remaining': None, 'charged': None, 'discharged': None, 'drive_power_low': None, 'support_power_low': None, 'contactor': None, 'soc_display': 80, 'consumption': 277.8679619165335}"
+    },
+    {
+      "case": "soc-matches-screen-ui-soc",
+      "passed": true,
+      "detail": "{'soc': 80.30000000000001, 'voltage': 400.22131102548434, 'current': 50.88524410193768, 'power': 20.36535910632929, 'temp_min': None, 'temp_max': None, 'cell_min': None, 'cell_max': None, 'capacity': None, 'remaining': None, 'charged': None, 'discharged': None, 'drive_power_low': None, 'support_power_low': None, 'contactor': None, 'soc_display': 80, 'consumption': 277.8679619165335}"
+    },
+    {
+      "case": "average-consumption-shown",
+      "passed": true,
+      "detail": "277.8679619165335"
+    },
+    {
+      "case": "implausible-ui-soc-rejected",
+      "passed": true,
+      "detail": "{'soc': 80.30000000000001, 'voltage': 400.1850883077347, 'current': 50.740353230938865, 'power': 20.30553273848892, 'temp_min': None, 'temp_max': None, 'cell_min': None, 'cell_max': None, 'capacity': None, 'remaining': None, 'charged': None, 'discharged': None, 'drive_power_low': None, 'support_power_low': None, 'contactor': None, 'soc_display': None, 'consumption': 277.549141846435}"
+    },
+    {
+      "case": "stale-bms-values-clear",
+      "passed": true,
+      "detail": "{'soc': None, 'voltage': None, 'current': None, 'power': None, 'temp_min': None, 'temp_max': None, 'cell_min': None, 'cell_max': None, 'capacity': None, 'remaining': None, 'charged': None, 'discharged': None, 'drive_power_low': None, 'support_power_low': None, 'contactor': None, 'soc_display': None, 'consumption': None}"
+    },
+    {
+      "case": "supported-car-change-clears-old-readings",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "unsupported-car-releases-and-clears",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "hidden-page-does-not-subscribe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "reopen-uses-latest-supported-car",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "hide-releases-subscription",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "case": "home-keeps-excessive-actuation-ack",
+      "passed": true,
+      "detail": "state=2, count=2"
+    }
+  ],
+  "failures": [],
+  "excluded": [
+    {
+      "case": "c3-alert",
+      "reason": "localization and home behavior are explicitly outside this port"
+    },
+    {
+      "case": "mici-alert",
+      "reason": "localization and home behavior are explicitly outside this port"
+    },
+    {
+      "case": "home-hides-offroad-alerts",
+      "reason": "localization and home behavior are explicitly outside this port"
+    }
+  ]
+}

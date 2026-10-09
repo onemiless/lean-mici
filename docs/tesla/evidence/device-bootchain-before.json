@@ -1,0 +1,53 @@
+{
+  "slot": "_a",
+  "partitions": [
+    {
+      "name": "xbl",
+      "size": 3282256,
+      "expected": "e8acf2a9cc7f0ce84cb803bfea9477f765c0d7b4daf26048e59651b9e6a7bfbb",
+      "actual": "e8acf2a9cc7f0ce84cb803bfea9477f765c0d7b4daf26048e59651b9e6a7bfbb",
+      "match": true,
+      "matches_documented_ondevice": false
+    },
+    {
+      "name": "xbl_config",
+      "size": 98124,
+      "expected": "758552ecf92b5569677197783bf0ccb73d7f961685308e45d3276ac9dd974f85",
+      "actual": "758552ecf92b5569677197783bf0ccb73d7f961685308e45d3276ac9dd974f85",
+      "match": true,
+      "matches_documented_ondevice": false
+    },
+    {
+      "name": "abl",
+      "size": 274432,
+      "expected": "32a2174b5f764e95dfc54cf358ba01752943b1b3b90e626149c3da7d5f1830b6",
+      "actual": "32a2174b5f764e95dfc54cf358ba01752943b1b3b90e626149c3da7d5f1830b6",
+      "match": true,
+      "matches_documented_ondevice": true
+    },
+    {
+      "name": "aop",
+      "size": 184364,
+      "expected": "78b2287ca219a0811b3004c523fa0f4749e4d1fd92be3aba61699305b7943ad1",
+      "actual": "78b2287ca219a0811b3004c523fa0f4749e4d1fd92be3aba61699305b7943ad1",
+      "match": true,
+      "matches_documented_ondevice": false
+    },
+    {
+      "name": "devcfg",
+      "size": 40336,
+      "expected": "f71df3a86958c093ba3969254c4db025187eef9385427f1ade946742939b43cc",
+      "actual": "f71df3a86958c093ba3969254c4db025187eef9385427f1ade946742939b43cc",
+      "match": true,
+      "matches_documented_ondevice": false
+    },
+    {
+      "name": "boot",
+      "size": 18515968,
+      "expected": "0191529aa97d90d1fa04b472d80230b777606459e1e1e9e2323c9519839827b4",
+      "actual": "0191529aa97d90d1fa04b472d80230b777606459e1e1e9e2323c9519839827b4",
+      "match": true,
+      "matches_documented_ondevice": false
+    }
+  ]
+}

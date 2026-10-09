@@ -1,0 +1,140 @@
+scons: Reading SConscript files ...
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /Users/mile/work/tesla-port/devsp-ref
+scons: done reading SConscript files.
+scons: Building targets ...
+progress: 2.1
+progress: 4.2
+progress: 6.3
+  [CXX] openpilot/common/params_c.os
+progress: 8.4
+progress: 10.5
+/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/capnproto/install/bin/capnpc --src-prefix=openpilot/cereal --src-prefix=opendbc_repo/opendbc/car --import-path=opendbc_repo/opendbc/car openpilot/cereal/log.capnp openpilot/cereal/deprecated.capnp openpilot/cereal/custom.capnp opendbc_repo/opendbc/car/car.capnp -o /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/capnproto/install/bin/capnpc-c++:openpilot/cereal/gen/cpp/
+progress: 12.6
+progress: 14.6
+  [CXX] openpilot/common/util.o
+progress: 16.7
+  [CXX] openpilot/common/ratekeeper.o
+progress: 18.8
+progress: 20.9
+progress: 23.0
+  [CXX] openpilot/common/yuv.o
+progress: 25.1
+Retrieved `msgq_repo/msgq/ipc_pyx.cpp' from cache
+  [CXX] msgq_repo/msgq/event.os
+  [CXX] msgq_repo/msgq/ipc.os
+progress: 27.2
+progress: 29.3
+progress: 31.4
+progress: 33.5
+progress: 35.6
+progress: 37.7
+progress: 39.7
+progress: 41.8
+progress: 43.9
+progress: 46.0
+progress: 48.1
+progress: 50.2
+progress: 52.3
+progress: 54.4
+progress: 56.5
+progress: 58.6
+progress: 60.7
+progress: 62.8
+progress: 64.9
+progress: 66.9
+progress: 69.0
+progress: 71.1
+progress: 73.2
+progress: 75.3
+  [CXX] msgq_repo/msgq/ipc_pyx.o
+progress: 77.4
+progress: 79.5
+progress: 81.6
+progress: 83.7
+  [CXX] openpilot/common/swaglog.o
+  [CXX] openpilot/common/params.o
+  [CXX] msgq_repo/msgq/impl_msgq.os
+progress: 85.8
+  [CXX] msgq_repo/msgq/impl_fake.os
+  [CXX] msgq_repo/msgq/msgq.os
+progress: 87.9
+progress: 90.0
+progress: 92.1
+progress: 94.1
+progress: 96.2
+progress: 98.3
+progress: 100.0
+  [AR] msgq_repo/libmsgq.a
+  [RANLIB] msgq_repo/libmsgq.a
+  [AR] openpilot/common/libcommon.a
+  [RANLIB] openpilot/common/libcommon.a
+  [LINK] msgq_repo/msgq/ipc_pyx.so
+  [LINK] openpilot/common/libparams_c.dylib
+prune_cache_dir(["openpilot/common/libparams_c.dylib"], ["openpilot/common/params_c.os"])
+cd /Users/mile/work/tesla-port/devsp-ref/openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc && python3 long_mpc.py
+cd /Users/mile/work/tesla-port/devsp-ref/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib && python3 long_mpc.py
+Warning: Please note that the following versions of CasADi  are officially supported: 3.5.6 or 3.5.5 or 3.5.4 or 3.5.3 or 3.5.2 or 3.5.1 or 3.4.5 or 3.4.0.
+ If there is an incompatibility with the CasADi generated code, please consider changing your CasADi version.
+Version 3.6.7 currently in use.
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_constraints/long_constr_h_fun_jac_uxt_zt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_fun.os
+cython -o /Users/mile/work/tesla-port/devsp-ref/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.c -I /Users/mile/work/tesla-port/devsp-ref/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code -I /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template/acados_ocp_solver_pyx.pyx
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_model/long_expl_vde_forw.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_constraints/long_constr_h_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_model/long_expl_ode_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_solver_long.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_fun.os
+  [LINK] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libacados_ocp_solver_long.dylib
+Warning: Please note that the following versions of CasADi  are officially supported: 3.5.6 or 3.5.5 or 3.5.4 or 3.5.3 or 3.5.2 or 3.5.1 or 3.4.5 or 3.4.0.
+ If there is an incompatibility with the CasADi generated code, please consider changing your CasADi version.
+Version 3.6.7 currently in use.
+Warning: Please note that the following versions of CasADi  are officially supported: 3.5.6 or 3.5.5 or 3.5.4 or 3.5.3 or 3.5.2 or 3.5.1 or 3.4.5 or 3.4.0.
+ If there is an incompatibility with the CasADi generated code, please consider changing your CasADi version.
+Version 3.6.7 currently in use.
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_model/sp_legacy_cruise_v1_fallback_expl_vde_forw.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_0_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_constraints/sp_legacy_cruise_v1_fallback_constr_h_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_e_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_0_fun.os
+cython -o /Users/mile/work/tesla-port/devsp-ref/openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.c -I /Users/mile/work/tesla-port/devsp-ref/openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code -I /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template/acados_ocp_solver_pyx.pyx
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_e_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_model/sp_legacy_cruise_v1_expl_vde_forw.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_model/sp_legacy_cruise_v1_fallback_expl_ode_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_0_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_constraints/sp_legacy_cruise_v1_constr_h_fun_jac_uxt_zt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_e_hess.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_e_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_model/sp_legacy_cruise_v1_expl_ode_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_solver_sp_legacy_cruise_v1_fallback.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_0_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_constraints/sp_legacy_cruise_v1_constr_h_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_constraints/sp_legacy_cruise_v1_fallback_constr_h_fun_jac_uxt_zt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_e_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_e_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_solver_sp_legacy_cruise_v1.os
+cython -o /Users/mile/work/tesla-port/devsp-ref/openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.c -I /Users/mile/work/tesla-port/devsp-ref/openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback -I /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template/acados_ocp_solver_pyx.pyx
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_0_fun_jac_ut_xt.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/sp_legacy_cruise_v1_fallback_cost/sp_legacy_cruise_v1_fallback_cost_y_0_fun.os
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/sp_legacy_cruise_v1_cost/sp_legacy_cruise_v1_cost_y_fun.os
+  [LINK] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/libacados_ocp_solver_sp_legacy_cruise_v1_fallback.dylib
+  [LINK] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/libacados_ocp_solver_sp_legacy_cruise_v1.dylib
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.o
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.o
+  [CC] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.o
+  [LINK] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.so
+prune_cache_dir(["openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.so"], ["openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.o"])
+  [LINK] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.so
+  [LINK] openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.so
+scons: done building targets.

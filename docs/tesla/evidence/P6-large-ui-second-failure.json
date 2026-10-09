@@ -1,0 +1,10 @@
+{
+  "scope": "actual desktop large MainLayout, DeviceLayoutSP and Tesla settings; isolated Params; no vehicle/CAN",
+  "passed": false,
+  "stages": [
+    "DeviceLayoutSP constructed",
+    "DeviceLayoutSP updated"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/Users/mile/work/tesla-port/control-work/tools/sp_tesla_e2e/large_ui_startup_e2e.py\", line 36, in main\n    layout = MainLayout()\n             ^^^^^^^^^^^^\n  File \"/Users/mile/work/tesla-port/control-work/openpilot/selfdrive/ui/layouts/main.py\", line 47, in __init__\n    self._setup_callbacks()\n  File \"/Users/mile/work/tesla-port/control-work/openpilot/selfdrive/ui/layouts/main.py\", line 59, in _setup_callbacks\n    self._layouts[MainState.HOME]._setup_widget.set_open_settings_callback(lambda: self.open_settings(PanelType.FIREHOSE))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'HomeLayoutSP' object has no attribute '_setup_widget'\n",
+  "source_sha256": "5fd1898395206b3b5e790539ad777b69040d82261e82ae007b33b6bc7e6b88ac"
+}

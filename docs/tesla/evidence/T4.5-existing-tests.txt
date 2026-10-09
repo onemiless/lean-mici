@@ -1,0 +1,264 @@
+........FFFFFFF........F.....F............                               [100%]
+=================================== FAILURES ===================================
+________________ test_standard_manifest_is_official_agnos_19_7 _________________
+
+    def test_standard_manifest_is_official_agnos_19_7() -> None:
+      partitions = {partition["name"]: partition for partition in read_manifest(STANDARD_MANIFEST)}
+      assert partitions["abl"]["hash"] == "29fd7ed1c012e599420764840f9f11286d34dbff4adaf102a447f06d8c5e0b35"
+>     assert partitions["boot"]["hash"] == "6ecf6f987cd11968104abcccabbe268485d329cdb73012dfd3c381a6b8deb27d"
+E     AssertionError: assert '86275abcfd70...09a8456251eed' == '6ecf6f987cd1...381a6b8deb27d'
+E       
+E       - 6ecf6f987cd11968104abcccabbe268485d329cdb73012dfd3c381a6b8deb27d
+E       + 86275abcfd705451a58f5e248f6bcbcc16c6e4284713887efba09a8456251eed
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:45: AssertionError
+____ test_c3xl_manifest_uses_official_19_7_system_with_validated_boot_chain ____
+
+    def test_c3xl_manifest_uses_official_19_7_system_with_validated_boot_chain() -> None:
+      partitions = {partition["name"]: partition for partition in read_manifest(C3XL_MANIFEST)}
+      assert partitions["boot"]["hash"] == "0191529aa97d90d1fa04b472d80230b777606459e1e1e9e2323c9519839827b4"
+>     assert partitions["system"]["hash_raw"] == "3c271e2b3d20d2f0a8bf6555a1319f3efb12845490967d6151195174a01e912f"
+E     AssertionError: assert 'c61253f8f20f...4a8e19e52cec1' == '3c271e2b3d20...95174a01e912f'
+E       
+E       - 3c271e2b3d20d2f0a8bf6555a1319f3efb12845490967d6151195174a01e912f
+E       + c61253f8f20f5d34efeeda70e0362bf02332eaaeb6bf1d04d654a8e19e52cec1
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:52: AssertionError
+_ test_launch_environment_selects_profile_specific_agnos[standard-19.7-openpilot/common/hardware/comma/agnos.json] _
+
+profile = 'standard', version = '19.7'
+manifest = 'openpilot/common/hardware/comma/agnos.json'
+
+    @pytest.mark.parametrize("profile,version,manifest", [
+      ("standard", "19.7", "openpilot/common/hardware/comma/agnos.json"),
+      ("c3xl", "19.7", "openpilot/common/hardware/comma/agnos-c3xl.json"),
+    ])
+    def test_launch_environment_selects_profile_specific_agnos(profile: str, version: str, manifest: str) -> None:
+      env = os.environ.copy()
+      env["SUNNYPILOT_HARDWARE_PROFILE"] = profile
+      output = subprocess.check_output(
+        ["bash", "-c", "unset AGNOS_VERSION AGNOS_MANIFEST_FILE; source launch_env.sh; printf '%s\\n%s\\n' \"$AGNOS_VERSION\" \"$AGNOS_MANIFEST_FILE\""],
+        cwd=REPO_ROOT, env=env, text=True,
+      ).splitlines()
+>     assert output == [version, manifest]
+E     AssertionError: assert ['19.6.27', '...a/agnos.json'] == ['19.7', 'ope...a/agnos.json']
+E       
+E       At index 0 diff: '19.6.27' != '19.7'
+E       Use -v to get more diff
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:66: AssertionError
+----------------------------- Captured stderr call -----------------------------
+launch_env.sh: line 36: /sys/firmware/devicetree/base/model: No such file or directory
+_ test_launch_environment_selects_profile_specific_agnos[c3xl-19.7-openpilot/common/hardware/comma/agnos-c3xl.json] _
+
+profile = 'c3xl', version = '19.7'
+manifest = 'openpilot/common/hardware/comma/agnos-c3xl.json'
+
+    @pytest.mark.parametrize("profile,version,manifest", [
+      ("standard", "19.7", "openpilot/common/hardware/comma/agnos.json"),
+      ("c3xl", "19.7", "openpilot/common/hardware/comma/agnos-c3xl.json"),
+    ])
+    def test_launch_environment_selects_profile_specific_agnos(profile: str, version: str, manifest: str) -> None:
+      env = os.environ.copy()
+      env["SUNNYPILOT_HARDWARE_PROFILE"] = profile
+      output = subprocess.check_output(
+        ["bash", "-c", "unset AGNOS_VERSION AGNOS_MANIFEST_FILE; source launch_env.sh; printf '%s\\n%s\\n' \"$AGNOS_VERSION\" \"$AGNOS_MANIFEST_FILE\""],
+        cwd=REPO_ROOT, env=env, text=True,
+      ).splitlines()
+>     assert output == [version, manifest]
+E     AssertionError: assert ['19.6.27', '...a/agnos.json'] == ['19.7', 'ope...os-c3xl.json']
+E       
+E       At index 0 diff: '19.6.27' != '19.7'
+E       Use -v to get more diff
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:66: AssertionError
+----------------------------- Captured stderr call -----------------------------
+launch_env.sh: line 36: /sys/firmware/devicetree/base/model: No such file or directory
+______ test_updater_reads_real_shell_configuration_and_skips_installed_os ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1078d6360>
+
+    def test_updater_reads_real_shell_configuration_and_skips_installed_os(monkeypatch):
+>     from openpilot.system.updated import updated
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/system/updated/updated.py:15: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <CDLL '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib', handle 0 at 0x1078d51f0>
+name = '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib'
+mode = 4, handle = None, use_errno = False, use_last_error = False
+winmode = None
+
+    def __init__(self, name, mode=DEFAULT_MODE, handle=None,
+                 use_errno=False,
+                 use_last_error=False,
+                 winmode=None):
+        if name:
+            name = _os.fspath(name)
+        self._name = name
+        flags = self._func_flags_
+        if use_errno:
+            flags |= _FUNCFLAG_USE_ERRNO
+        if use_last_error:
+            flags |= _FUNCFLAG_USE_LASTERROR
+        if _sys.platform.startswith("aix"):
+            """When the name contains ".a(" and ends with ")",
+               e.g., "libFOO.a(libFOO.so)" - this is taken to be an
+               archive(member) syntax for dlopen(), and the mode is adjusted.
+               Otherwise, name is presented to dlopen() as a file argument.
+            """
+            if name and name.endswith(")") and ".a(" in name:
+                mode |= ( _os.RTLD_MEMBER | _os.RTLD_NOW )
+        if _os.name == "nt":
+            if winmode is not None:
+                mode = winmode
+            else:
+                import nt
+                mode = nt._LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+                if '/' in name or '\\' in name:
+                    self._name = nt._getfullpathname(self._name)
+                    mode |= nt._LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+    
+        class _FuncPtr(_CFuncPtr):
+            _flags_ = flags
+            _restype_ = self._func_restype_
+        self._FuncPtr = _FuncPtr
+    
+        if handle is None:
+>           self._handle = _dlopen(self._name, mode)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           OSError: dlopen(/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file)
+
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: OSError
+________ test_fresh_install_upgrade_passes_existing_validated_manifest _________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x107a1b980>
+
+    def test_fresh_install_upgrade_passes_existing_validated_manifest(monkeypatch):
+>     from openpilot.system.updated import updated
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/system/updated/updated.py:15: in <module>
+    from openpilot.common.params import Params
+openpilot/common/params.py:35: in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <CDLL '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib', handle 0 at 0x107a06090>
+name = '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib'
+mode = 4, handle = None, use_errno = False, use_last_error = False
+winmode = None
+
+    def __init__(self, name, mode=DEFAULT_MODE, handle=None,
+                 use_errno=False,
+                 use_last_error=False,
+                 winmode=None):
+        if name:
+            name = _os.fspath(name)
+        self._name = name
+        flags = self._func_flags_
+        if use_errno:
+            flags |= _FUNCFLAG_USE_ERRNO
+        if use_last_error:
+            flags |= _FUNCFLAG_USE_LASTERROR
+        if _sys.platform.startswith("aix"):
+            """When the name contains ".a(" and ends with ")",
+               e.g., "libFOO.a(libFOO.so)" - this is taken to be an
+               archive(member) syntax for dlopen(), and the mode is adjusted.
+               Otherwise, name is presented to dlopen() as a file argument.
+            """
+            if name and name.endswith(")") and ".a(" in name:
+                mode |= ( _os.RTLD_MEMBER | _os.RTLD_NOW )
+        if _os.name == "nt":
+            if winmode is not None:
+                mode = winmode
+            else:
+                import nt
+                mode = nt._LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+                if '/' in name or '\\' in name:
+                    self._name = nt._getfullpathname(self._name)
+                    mode |= nt._LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR
+    
+        class _FuncPtr(_CFuncPtr):
+            _flags_ = flags
+            _restype_ = self._func_restype_
+        self._FuncPtr = _FuncPtr
+    
+        if handle is None:
+>           self._handle = _dlopen(self._name, mode)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           OSError: dlopen(/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file)
+
+../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py:379: OSError
+_ test_factory_reset_without_profile_file_uses_device_model[comma tici-manifest0] _
+
+tmp_path = PosixPath('/private/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/pytest-of-mile/pytest-0/test_factory_reset_without_pro0')
+model_name = 'comma tici'
+manifest = PosixPath('/Users/mile/work/tesla-port/hardware-work/openpilot/common/hardware/comma/agnos-c3xl.json')
+
+    @pytest.mark.parametrize('model_name,manifest', [
+      ('comma tici', C3XL_MANIFEST), ('comma tizi', STANDARD_MANIFEST),
+    ])
+    def test_factory_reset_without_profile_file_uses_device_model(tmp_path, model_name, manifest):
+      model = tmp_path / 'model'
+      model.write_bytes(model_name.encode() + b'\x00')
+      env = os.environ.copy()
+      env.pop('SUNNYPILOT_HARDWARE_PROFILE', None)
+      env['SUNNYPILOT_HARDWARE_PROFILE_FILE'] = str(tmp_path / 'absent-profile')
+      env['SUNNYPILOT_HARDWARE_MODEL_FILE'] = str(model)
+      selected = subprocess.check_output(['bash', '-c',
+        'unset AGNOS_VERSION AGNOS_MANIFEST_FILE; source launch_env.sh; printf "%s" "$AGNOS_MANIFEST_FILE"'],
+        cwd=REPO_ROOT, env=env, text=True)
+>     assert REPO_ROOT / selected == manifest
+E     AssertionError: assert (PosixPath('/Users/mile/work/tesla-port/hardware-work') / 'openpilot/common/hardware/comma/agnos.json') == PosixPath('/Users/mile/work/tesla-port/hardware-work/openpilot/common/hardware/comma/agnos-c3xl.json')
+
+openpilot/sunnypilot/hardware/tests/test_agnos.py:113: AssertionError
+___________ test_missing_profile_defaults_raw_tici_hardware_to_c3xl ____________
+
+tmp_path = PosixPath('/private/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/pytest-of-mile/pytest-0/test_missing_profile_defaults_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10829a120>
+
+    def test_missing_profile_defaults_raw_tici_hardware_to_c3xl(tmp_path, monkeypatch) -> None:
+      from openpilot.sunnypilot.hardware import profile
+    
+      profile_file = tmp_path / "missing_hardware_profile"
+      model_file = tmp_path / "model"
+      model_file.write_bytes(b"comma tici\x00")
+      monkeypatch.setattr(profile, "HARDWARE_PROFILE_FILE", profile_file)
+      monkeypatch.setattr(profile, "HARDWARE_MODEL_FILE", model_file, raising=False)
+    
+>     assert get_hardware_profile() == HardwareProfile.C3XL
+E     AssertionError: assert <HardwareProf...D: 'standard'> == <HardwareProfile.C3XL: 'c3xl'>
+E       
+E       - c3xl
+E       + standard
+
+openpilot/sunnypilot/hardware/tests/test_profile.py:26: AssertionError
+_________________ test_native_build_uses_device_local_profile __________________
+
+    def test_native_build_uses_device_local_profile() -> None:
+      sconstruct = (Path(__file__).parents[4] / "SConstruct").read_text()
+    
+>     assert "get_hardware_profile" in sconstruct
+E     AssertionError: assert 'get_hardware_profile' in 'import os\nimport subprocess\nimport sys\nimport sysconfig\nimport platform\nimport shlex\nimport importlib\nimport n...)\nif not GetOption(\'extras\'):\n  AddPostAction(list(build_product_nodes), Action(check_build_product_size, None))\n'
+
+openpilot/sunnypilot/hardware/tests/test_profile.py:68: AssertionError
+=========================== short test summary info ============================
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_standard_manifest_is_official_agnos_19_7
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_c3xl_manifest_uses_official_19_7_system_with_validated_boot_chain
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_launch_environment_selects_profile_specific_agnos[standard-19.7-openpilot/common/hardware/comma/agnos.json]
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_launch_environment_selects_profile_specific_agnos[c3xl-19.7-openpilot/common/hardware/comma/agnos-c3xl.json]
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_updater_reads_real_shell_configuration_and_skips_installed_os
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_fresh_install_upgrade_passes_existing_validated_manifest
+FAILED openpilot/sunnypilot/hardware/tests/test_agnos.py::test_factory_reset_without_profile_file_uses_device_model[comma tici-manifest0]
+FAILED openpilot/sunnypilot/hardware/tests/test_profile.py::test_missing_profile_defaults_raw_tici_hardware_to_c3xl
+FAILED openpilot/sunnypilot/hardware/tests/test_profile.py::test_native_build_uses_device_local_profile
+9 failed, 33 passed in 0.36s

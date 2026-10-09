@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "scope": "offline synthetic CAN, actual CI/CS/controller/adapter and compiled safety; no physical CAN",
+  "hardware_validation": "pending",
+  "cases": [
+    {
+      "case": "fault-chain",
+      "passed": true,
+      "evidence": [
+        {
+          "source": "manualStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        },
+        {
+          "source": "dynamicStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        },
+        {
+          "source": "apHybridStock",
+          "fault_cycles": 6,
+          "fault_retained": true,
+          "stale_active_control_cancel_only": true
+        }
+      ]
+    },
+    {
+      "case": "actual-output",
+      "passed": true,
+      "evidence": {
+        "cooperative_angle_deg": 8.849999999999909,
+        "emitted_accel": 1.0,
+        "takeover_ramp_accel": -1.0
+      }
+    },
+    {
+      "case": "yaw-chain",
+      "passed": true,
+      "evidence": [
+        {
+          "angle": 5.0,
+          "speed_kph": 72.0,
+          "reverse": false,
+          "wire_yaw_deg_s": -2.339999999999975,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": -5.0,
+          "speed_kph": 72.0,
+          "reverse": false,
+          "wire_yaw_deg_s": 2.339999999999975,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": 5.0,
+          "speed_kph": 0.0,
+          "reverse": false,
+          "wire_yaw_deg_s": 0.0,
+          "source": "VehicleModel estimate"
+        },
+        {
+          "angle": 5.0,
+          "speed_kph": 18.0,
+          "reverse": true,
+          "wire_yaw_deg_s": 0.7099999999999795,
+          "source": "VehicleModel estimate"
+        }
+      ]
+    },
+    {
+      "case": "accessory-chain",
+      "passed": true,
+      "evidence": {
+        "obsolete_tx_rejected": true,
+        "retired_requests_no_tx": true,
+        "ambient_and_auto_speed_allowed": true
+      }
+    },
+    {
+      "case": "startup-config",
+      "passed": true,
+      "evidence": {
+        "initialized_before_first_cycle": true,
+        "session_thresholds": [
+          95,
+          90
+        ],
+        "next_session_thresholds": [
+          80,
+          70
+        ]
+      }
+    }
+  ],
+  "head": "55e9855a4557a47543e6d3afb5bca165aef2b0bd",
+  "opendbc_head": "b9e962712e8ba7300a1c093d3e9131343ccd047a",
+  "imports": {
+    "CarInterface": "/Users/mile/work/tesla-port/control-work/opendbc_repo/opendbc/car/tesla/interface.py",
+    "libsafety": "/Users/mile/work/tesla-port/control-work/opendbc_repo/opendbc/safety/tests/libsafety/libsafety_py.py"
+  },
+  "sha256": {
+    "tools/sp_tesla_e2e/tesla_control_chain_e2e.py": "be37bb6414c83ea1052ce1ee708cae74957d829d63a05aee3dc0a82785886df8",
+    "docs/tesla/ref/TESLA_CONTROL_FIXES.md": "a2d73ca5a654371e3527eaca50f66b9c6106ceb444663b78fc4efb3579f888b6",
+    "opendbc_repo/opendbc/safety/modes/tesla.h": "4f3bff80643d5c98f44f8c6082871b8d87c2cffca0f56638dc73cdbf759689b3",
+    "opendbc_repo/opendbc/car/tesla/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "opendbc_repo/opendbc/car/tesla/carcontroller.py": "c18a59b9064864af6920da9dbdd96a2ed2ca4c66490b2bee6c03b07c71bad730",
+    "opendbc_repo/opendbc/car/tesla/carstate.py": "bd3a700346075d1691edc7a8e1149a8d853979cbdafcc73cbbac608ba6695982",
+    "opendbc_repo/opendbc/car/tesla/fingerprints.py": "a76536facdb62a4b9e02b52929f1a813f97bd3d73c76749e7dc80d199cf283e7",
+    "opendbc_repo/opendbc/car/tesla/interface.py": "000f682908b7a318bba7b037b109b32288b48dfe77b243692e2770d43bc5c70e",
+    "opendbc_repo/opendbc/car/tesla/radar_interface.py": "a234139a8a508daaf373c19c2cae9d5efc056cd2e0d100653310bb48db3f2c34",
+    "opendbc_repo/opendbc/car/tesla/teslacan.py": "36f443c48509ffe83bd4d3307ab4cd6c5d4f328e1ec28ebe22f94294706dcbe9",
+    "opendbc_repo/opendbc/car/tesla/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "opendbc_repo/opendbc/car/tesla/tests/test_speed_limit_controller.py": "8d1b0fd3b8996011bacc87338ad020ef329ca09385f698cf44cfd7cf3b96949d",
+    "opendbc_repo/opendbc/car/tesla/tests/test_tesla.py": "44ecb7fa0ab48ddd987c235a1bcf27c6e455b23a5b2688f89fe8ef9c9fbe5436",
+    "opendbc_repo/opendbc/car/tesla/values.py": "1bc1d869947e52a94e998a5d727542bc17500382569a2ad51d2a04962d0b311a",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/__init__.py": "fddcad5a82a8036be355e08b32275fc1aca87b922c6867ee097ffb38130c7c83",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/constants.py": "7c59edb736875049b14297bdf3acfb2718272a634e764508ad5256847eb9be2e",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/cycle.py": "bca56a34fe858e3489534118c88da814ad330a73b4b76569ab52d2a9493f034e",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/diagnostics.py": "b99146ca935efc8955182be068ca6eada9a7984b569f88c2ee8d9c67535e5e56",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/interface.py": "1f6738f7254d6fb34a5d46a2aede17c4f913c8f6ca08f4d88f7e579baf5c1857",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/models.py": "426fee7b6f9582de961cd893907e4719b7cf903ba44ce7c0038d79a0093424bc",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/parser.py": "bfd93ef8748405f240e5c5d7d54608069a0a823d6ad3443d99ef3b40ac8864d4",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/selector.py": "65772e5f8122b87b2500e7bac0caa35be052e7056da95b0415a5333c20e6b605",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_cycle.py": "23d1f5788e2b4f3fa628fceca40d8793613433d030689ff1b61ff6192698f592",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_diagnostics.py": "7a566c20c8838168a19d796e394f9efacdd38de7272b6a5c1487e68819782c0a",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_interface.py": "62fad35d57a0fe2c61c630946c1ead4b3936b512cf257e49c1777ce67cd2b417",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_parser.py": "92a998e86846ae49d158c138720278dca0598e7a49a5f1b534e20aaa3856c995",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_tracker.py": "a6e4785ae85959a8e90de9a1ff3e059c5001cc350d6827d346b46a110162a6ca",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tests/test_transmitter.py": "3de107a99e8592e9282cfa5d0b48ef5e0d20964915b9434e0dd26d6a310f0392",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/tracker.py": "7328d469b275ea4dceb70948d235d1714075bffeca1e283fd8af38cc97ce11d7",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/ars408/transmitter.py": "3189fe8c416294a761d8e731ac76e561f5ee5743cb1b65e1e674f2d256393b4c",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/carstate_ext.py": "a08894653fe6f85b0bf3d2d7928fb73bd93009f4506e99e3599692b27c992828",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/coop_steering.py": "d1c4c1138e79f7839a37db6b6191a6526984267bcfeb013018b7cd00c4d2b3a3",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/dynamic_acc_debug.py": "5ff8f5615eab8a3b3e4d18af3cbafbdf9d1b1c22bfe2e13b7b206b68915e46f7",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/fingerprints_ext.py": "83fdae89f4ec7b043d85e3145b094dd1148b320fc6aa6fca9049f07d199237b6",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/speed_limit_controller.py": "b1e0f9584db9d5c46cfb354699c48d8794f4f880f8755c6d86c8cf6a219624d4",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/tests/test_radar_selector.py": "e5be907200bc2bd6760127e0e08177750cd4bd3a3aeb40a5cc75d577e2880f39",
+    "opendbc_repo/opendbc/sunnypilot/car/tesla/values.py": "1cdfe70a1ed819564fa8024004b4f758caeb8cd3799ba735948ede64f0b2ecaa",
+    "openpilot/sunnypilot/selfdrive/car/tesla/__init__.py": "944598042bf55479d6389f39c105dc967b529c4b7bb0dd94b2d9ea45f1b47518",
+    "openpilot/sunnypilot/selfdrive/car/tesla/ambient_lighting.py": "198a82bc10c8081da6e3470b32425730e7d53e59eff5255eb24a30315b506e9b",
+    "openpilot/sunnypilot/selfdrive/car/tesla/bms.py": "2d82a00c7cd3938b42c2117a7bee110a63651343770e995f026c11fcb90d7042",
+    "openpilot/sunnypilot/selfdrive/car/tesla/card_adapter.py": "bae64eb1a1685191a3dd2734525252696d4978dafeaa22ba6da4e22f17e8128f",
+    "openpilot/sunnypilot/selfdrive/car/tesla/control_profile.py": "7fabbbf8cf4f2adc7a93a707e2244455e15d6451645806992795c9fd7fd618da",
+    "openpilot/sunnypilot/selfdrive/car/tesla/control_runtime.py": "06983920f69abca005a81705dbeb5172409732490171b5e517d43fafa072fdbe",
+    "openpilot/sunnypilot/selfdrive/car/tesla/speed_limit_policy.py": "25770268e05d974726c9e6803fe97fc361f29369d853223616f721ac40360193"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "lean_base": "4802cb2fe8c993fd7852b1f78be5b8b9604dd5a5",
+  "devsp": "0f694538fa8f84190ce9751f106f879a62550f8a",
+  "devsp_base": "16322aef167fe14de8af28a9e437101ed3c4dac5",
+  "devsp_opendbc": "3b9bf1895eca4983b2ed7cb620f318d362129112",
+  "devsp_panda": "ac0f791f8fb2105073c390784f47591b0d313a23",
+  "devsp_opendbc_range": "e15d1889..3b9bf189",
+  "devsp_panda_range": "eebfc767..ac0f791f",
+  "lean_pins": {
+    "msgq_repo": "e7396e76dadbb49e374d4b664ff6bbb43a39bcb0",
+    "opendbc_repo": "7b519bc3c79d31a8e1217a0e91a03a6586839019",
+    "panda": "74a0adced421e8b7acd728d0f9988ce225423f13",
+    "rednose_repo": "28d4a7f69e80e1c3e0d24ca0733d7daeaeade3d0",
+    "tinygrad_repo": "9d0446a4ba8a532c8b674fb6ad795af015cd9dcf"
+  },
+  "opendbc_lean_tesla": "522598445d134bea277789e01ea7d1809b3afc7c",
+  "panda_lean_tesla": "2caa123f53bef8ba9c1561e74bde77616ee23124"
+}

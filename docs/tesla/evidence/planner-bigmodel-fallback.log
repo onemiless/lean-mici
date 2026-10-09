@@ -1,0 +1,7 @@
+Legacy long mpc recovered, primary_status: 4, fallback_status: 0
+Legacy long mpc recovered, primary_status: 4, fallback_status: 0
+{"artifact": "docs/tesla/evidence/planner-bigmodel-fallback.json", "passed": true}
+
+SQP_RTI: QP solver returned error status 3 QP iteration 9.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 9.

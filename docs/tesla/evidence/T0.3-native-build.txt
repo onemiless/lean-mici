@@ -1,0 +1,96 @@
+scons: Reading SConscript files ...
+kj/filesystem-disk-unix.c++:1734: warning: PWD environment variable doesn't match current directory; pwd = /Users/mile/work/tesla-port/lean-mici
+scons: done reading SConscript files.
+scons: Building targets ...
+progress: 3.2
+progress: 6.4
+progress: 9.6
+  [CXX] openpilot/common/params_c.os
+progress: 12.7
+progress: 15.9
+capnpc --src-prefix=openpilot/cereal --src-prefix=opendbc_repo/opendbc/car --import-path=opendbc_repo/opendbc/car openpilot/cereal/log.capnp openpilot/cereal/deprecated.capnp openpilot/cereal/custom.capnp opendbc_repo/opendbc/car/car.capnp -o c++:openpilot/cereal/gen/cpp/
+progress: 19.1
+  [CXX] openpilot/common/util.o
+progress: 22.3
+  [CXX] openpilot/common/ratekeeper.o
+progress: 25.5
+  [CXX] openpilot/common/yuv.o
+progress: 28.7
+cythonize msgq_repo/msgq/ipc_pyx.pyx
+progress: 31.8
+progress: 35.0
+  [CXX] msgq_repo/msgq/ipc.os
+  [CXX] msgq_repo/msgq/event.os
+progress: 38.2
+progress: 41.4
+progress: 44.6
+progress: 47.8
+  [CXX] openpilot/common/swaglog.o
+  [CXX] openpilot/common/params.o
+progress: 51.0
+  [CXX] msgq_repo/msgq/impl_msgq.os
+  [CXX] msgq_repo/msgq/impl_fake.os
+Compiling /Users/mile/work/tesla-port/lean-mici/msgq_repo/msgq/ipc_pyx.pyx because it changed.
+[1/1] Cythonizing /Users/mile/work/tesla-port/lean-mici/msgq_repo/msgq/ipc_pyx.pyx
+  [CXX] msgq_repo/msgq/msgq.os
+progress: 54.1
+cythonize msgq_repo/msgq/visionipc/visionipc_pyx.pyx
+progress: 57.3
+progress: 60.5
+progress: 63.7
+progress: 66.9
+progress: 70.1
+progress: 73.2
+progress: 76.4
+progress: 79.6
+progress: 82.8
+progress: 86.0
+progress: 89.2
+progress: 92.4
+progress: 95.5
+progress: 98.7
+progress: 100.0
+  [CXX] msgq_repo/msgq/ipc_pyx.o
+  [CXX] msgq_repo/msgq/visionipc/visionipc.os
+  [CXX] msgq_repo/msgq/visionipc/visionipc_server.os
+  [CXX] msgq_repo/msgq/visionipc/visionipc_client.os
+  [CXX] msgq_repo/msgq/visionipc/visionbuf.os
+  [AR] msgq_repo/libmsgq.a
+Compiling /Users/mile/work/tesla-port/lean-mici/msgq_repo/msgq/visionipc/visionipc_pyx.pyx because it changed.
+[1/1] Cythonizing /Users/mile/work/tesla-port/lean-mici/msgq_repo/msgq/visionipc/visionipc_pyx.pyx
+  [AR] msgq_repo/libvisionipc.a
+  [CXX] msgq_repo/msgq/visionipc/visionipc_pyx.o
+  [RANLIB] msgq_repo/libmsgq.a
+  [RANLIB] msgq_repo/libvisionipc.a
+  [AR] openpilot/common/libcommon.a
+  [RANLIB] openpilot/common/libcommon.a
+  [LINK] openpilot/common/libparams_c.dylib
+  [LINK] msgq_repo/msgq/ipc_pyx.so
+prune_cache_dir(["msgq_repo/msgq/ipc_pyx.so"], ["msgq_repo/msgq/ipc_pyx.o"])
+prune_cache_dir(["openpilot/common/libparams_c.dylib"], ["openpilot/common/params_c.os"])
+cd /Users/mile/work/tesla-port/lean-mici/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib && python3 long_mpc.py
+  [LINK] msgq_repo/msgq/visionipc/visionipc_pyx.so
+prune_cache_dir(["msgq_repo/msgq/visionipc/visionipc_pyx.so"], ["msgq_repo/msgq/visionipc/visionipc_pyx.o"])
+Warning: Please note that the following versions of CasADi  are officially supported: 3.5.6 or 3.5.5 or 3.5.4 or 3.5.3 or 3.5.2 or 3.5.1 or 3.4.5 or 3.4.0.
+ If there is an incompatibility with the CasADi generated code, please consider changing your CasADi version.
+Version 3.6.7 currently in use.
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_model/long_expl_vde_forw.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_constraints/long_constr_h_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_model/long_expl_ode_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_hess.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_solver_long.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_0_fun_jac_ut_xt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_fun.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_constraints/long_constr_h_fun_jac_uxt_zt.os
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/long_cost/long_cost_y_e_fun.os
+cython -o /Users/mile/work/tesla-port/lean-mici/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.c -I /Users/mile/work/tesla-port/lean-mici/openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code -I /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template /Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/acados/acados_template/acados_ocp_solver_pyx.pyx
+  [LINK] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/libacados_ocp_solver_long.dylib
+  [CC] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.o
+  [LINK] openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.so
+prune_cache_dir(["openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.so"], ["openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/c_generated_code/acados_ocp_solver_pyx.o"])
+scons: done building targets.

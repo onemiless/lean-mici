@@ -1,0 +1,69 @@
+{
+  "pass": true,
+  "scope": "synthetic CLI IO; getter implementation verified separately on device",
+  "cases": [
+    {
+      "slot_input": "_a",
+      "getter_result": 1,
+      "exit": 0,
+      "output": {
+        "pass": true,
+        "slot": "_a",
+        "successful": true,
+        "method": "libabctl_getSuccessStatus"
+      }
+    },
+    {
+      "slot_input": "_b",
+      "getter_result": 1,
+      "exit": 0,
+      "output": {
+        "pass": true,
+        "slot": "_b",
+        "successful": true,
+        "method": "libabctl_getSuccessStatus"
+      }
+    },
+    {
+      "slot_input": "_a",
+      "getter_result": 0,
+      "exit": 1,
+      "output": {
+        "pass": false,
+        "slot": "_a",
+        "successful": false,
+        "method": "libabctl_getSuccessStatus"
+      }
+    },
+    {
+      "slot_input": "_a",
+      "getter_result": -1,
+      "exit": 2,
+      "output": {
+        "pass": false,
+        "status": "unsupported_or_read_error",
+        "error": "libabctl could not read boot-success metadata: -1"
+      }
+    },
+    {
+      "slot_input": "help text",
+      "getter_result": 1,
+      "exit": 2,
+      "output": {
+        "pass": false,
+        "status": "unsupported_or_read_error",
+        "error": "Unrecognized boot slot: 'help text'"
+      }
+    },
+    {
+      "slot_input": "_a",
+      "getter_result": null,
+      "exit": 2,
+      "output": {
+        "pass": false,
+        "status": "unsupported_or_read_error",
+        "error": "library unavailable"
+      }
+    }
+  ]
+}

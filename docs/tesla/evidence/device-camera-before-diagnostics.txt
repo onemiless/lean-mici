@@ -1,0 +1,69 @@
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: clearing and requeuing camera 0 from 1
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: clearing and requeuing camera 1 from 1
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: VIDIOC_CAM_CONTROL error: op_code 266 - errno 19
+openpilot/system/camerad/cameras/spectra.cc: ** sensor 2 FAILED bringup, disabling
+openpilot/system/camerad/cameras/spectra.cc: camera first frame sync timed out
+active
+10[    2.653945] coresight-remote-etm soc:sensor_etm0: Remote ETM initialized
+[    2.656976] CHRDEV "sensors" major number 225 goes below the dynamic allocation range
+[    3.021747] qcom,fg-gen3 c440000.qcom,spmi:qcom,pmi8998@2:qpnp,fg: thermal_zone_of_sensor_register() failed rc:-19
+[    3.344101] camera_vana_ldo: disabling
+[    3.344108] camera_vdig_ldo: disabling
+[    3.344122] camera_rear_ldo: disabling
+[    3.344129] camera_ldo: disabling
+[    8.321944] CAM_ERR: CAM-CSIPHY: cam_csiphy_subdev_ioctl: 34 Wrong ioctl : -2140645888
+[    8.329919] CAM_ERR: CAM-CSIPHY: cam_csiphy_subdev_ioctl: 34 Wrong ioctl : -2140645888
+[    8.346771] CAM_ERR: CAM-CORE: cam_subdev_ioctl: 68 Invalid command -2140645888 for cam-lrme
+[    8.364927] CAM_ERR: CAM-SENSOR: cam_sensor_subdev_ioctl: 30 Invalid ioctl cmd: -2140645888
+[    8.377437] CAM_ERR: CAM-CORE: cam_subdev_ioctl: 68 Invalid command -2140645888 for cam-fd
+[    8.397516] CAM_ERR: CAM-CCI: cam_cci_subdev_ioctl: 33 Invalid Args
+[    8.403703] CAM_ERR: CAM-SENSOR: cam_sensor_subdev_ioctl: 30 Invalid ioctl cmd: -2140645888
+[    8.411554] CAM_ERR: CAM-CORE: cam_subdev_ioctl: 68 Invalid command -2140645888 for cam-isp
+[    8.411750] CAM_ERR: CAM-SENSOR: cam_sensor_subdev_ioctl: 30 Invalid ioctl cmd: -2140645888
+[    8.448221] CAM_ERR: CAM-CSIPHY: cam_csiphy_subdev_ioctl: 34 Wrong ioctl : -2140645888
+[    8.462440] CAM_ERR: CAM-CRM: cam_mem_mgr_request_mem: 972 failed. mem_mgr not initialized
+[    8.462444] CAM_ERR: CAM-ICP: cam_icp_allocate_hfi_mem: 2203 Unable to allocate qtbl memory
+[    8.462494] CAM_ERR: CAM-ICP: cam_icp_subdev_open: 101 FW download failed
+[    8.464765] CAM_ERR: CAM-SENSOR: cam_sensor_subdev_ioctl: 30 Invalid ioctl cmd: -2140645888
+[    8.473976] CAM_ERR: CAM-CORE: cam_subdev_ioctl: 68 Invalid command -2140645888 for cam-jpeg
+[    8.475748] CAM_ERR: CAM-CPAS: cam_cpas_subdev_ioctl: 454 Invalid command -2140645888 for CPAS!
+[    8.489407] CAM_ERR: CAM-CSIPHY: cam_csiphy_subdev_ioctl: 34 Wrong ioctl : -2140645888
+[    8.509084] CAM_INFO: CAM-CRM: cam_req_mgr_open: 130 cam_req_mgr_open:130 disalbe lpm
+[    8.509102] CAM_INFO: CAM-SENSOR: cam_pm_qos_update_request: 117 cam_pm_qos_update_request: update request 100
+[    8.513767] CAM_INFO: CAM-CRM: cam_req_mgr_close: 228 cam_req_mgr_close:228 enable lpm
+[    8.513775] CAM_INFO: CAM-SENSOR: cam_pm_qos_update_request: 117 cam_pm_qos_update_request: update request -1
+[    8.513796] CAM_INFO: CAM-SENSOR: cam_pm_qos_remove_request: 112 cam_pm_qos_remove_request: remove request
+[ 1340.412579] CAM_INFO: CAM-CRM: cam_req_mgr_open: 130 cam_req_mgr_open:130 disalbe lpm
+[ 1340.412609] CAM_INFO: CAM-SENSOR: cam_pm_qos_update_request: 117 cam_pm_qos_update_request: update request 100
+[ 1340.486659] CAM_INFO: CAM-ICP: cam_icp_mgr_hw_open: 2990 FW download done successfully
+[ 1340.548212] CAM_ERR: CAM-SENSOR: cam_sensor_match_id: 669 chip id 5803 does not match 5304
+[ 1340.638989] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 768 Probe success,slot:0,slave_addr:0x6c,sensor_id:0x5803
+[ 1340.708652] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 841 CAM_ACQUIRE_DEV Success, sensor_id:0x5803,sensor_slave_addr:0x6c
+[ 1340.947423] CAM_ERR: CAM-SENSOR: cam_sensor_match_id: 669 chip id 5803 does not match 5304
+[ 1340.955659] CAM_INFO: CAM: cam_res_mgr_shared_pinctrl_put: 273 Need hold put this pinctrl
+[ 1341.027498] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 768 Probe success,slot:1,slave_addr:0x20,sensor_id:0x5803
+[ 1341.035292] CAM_INFO: CAM: cam_res_mgr_shared_pinctrl_put: 273 Need hold put this pinctrl
+[ 1341.087060] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 841 CAM_ACQUIRE_DEV Success, sensor_id:0x5803,sensor_slave_addr:0x20
+[ 1341.317618] CAM_ERR: CAM-CCI: cam_cci_read: 1254 read_words = 0, exp words = 1
+[ 1341.317692] CAM_ERR: CAM-CCI: cam_cci_read_bytes: 1484 failed to read rc:-22
+[ 1341.317748] CAM_ERR: CAM-SENSOR: cam_cci_i2c_read: 42 rc = -22
+[ 1341.317802] CAM_ERR: CAM-SENSOR: cam_sensor_match_id: 669 chip id 0 does not match 5304
+[ 1341.324842] CAM_INFO: CAM: cam_res_mgr_shared_pinctrl_put: 273 Need hold put this pinctrl
+[ 1341.397315] CAM_ERR: CAM-CCI: cam_cci_read: 1254 read_words = 0, exp words = 1
+[ 1341.397369] CAM_ERR: CAM-CCI: cam_cci_read_bytes: 1484 failed to read rc:-22
+[ 1341.397418] CAM_ERR: CAM-SENSOR: cam_cci_i2c_read: 42 rc = -22
+[ 1341.397467] CAM_ERR: CAM-SENSOR: cam_sensor_match_id: 669 chip id 0 does not match 5803
+[ 1341.405128] CAM_INFO: CAM: cam_res_mgr_shared_pinctrl_put: 273 Need hold put this pinctrl
+[ 1385.431597] CAM_INFO: CAM: cam_res_mgr_shared_pinctrl_put: 273 Need hold put this pinctrl
+[ 1385.431664] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 882 CAM_RELEASE_DEV Success, sensor_id:0x5803,sensor_slave_addr:0x6c
+[ 1385.432133] CAM-REQ-MGR_UTIL cam_destroy_hdl:299 CAM_ERR: CAM-CRM: cam_destroy_hdl: 299 Invalid idx 255
+[ 1385.432166] CAM_ERR: CAM-SENSOR: cam_sensor_shutdown: 629  failed destroying dhdl
+[ 1385.453628] CAM_INFO: CAM-SENSOR: cam_sensor_driver_cmd: 882 CAM_RELEASE_DEV Success, sensor_id:0x5803,sensor_slave_addr:0x20
+[ 1385.453980] CAM-REQ-MGR_UTIL cam_destroy_hdl:299 CAM_ERR: CAM-CRM: cam_destroy_hdl: 299 Invalid idx 255
+[ 1385.454001] CAM_ERR: CAM-SENSOR: cam_sensor_shutdown: 629  failed destroying dhdl
+[ 1385.455246] CAM_INFO: CAM-CRM: cam_req_mgr_close: 228 cam_req_mgr_close:228 enable lpm
+[ 1385.455264] CAM_INFO: CAM-SENSOR: cam_pm_qos_update_request: 117 cam_pm_qos_update_request: update request -1
+[ 1385.455308] CAM_INFO: CAM-SENSOR: cam_pm_qos_remove_request: 112 cam_pm_qos_remove_request: remove request

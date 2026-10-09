@@ -1,0 +1,94 @@
+{
+  "scope": "offline actual solver/publish/LongControl plus spawned Params processes; no CAN/device/road",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "fixture_sha256": "36e4a6e774d33839b2b9f78d9f90d14b132020fb1cb88511d1096c737b0747f4",
+  "mode": "session-transition",
+  "device_validation": "pending",
+  "transitions": [
+    {
+      "consumer": "plannerd",
+      "stubborn": false,
+      "old_exit": 0,
+      "old_backend": 0,
+      "offroad_clears": [
+        {
+          "consumer_alive": false,
+          "active_before_clear": null
+        }
+      ],
+      "active_after_offroad": null,
+      "desired": 2,
+      "next_session_backend": 2,
+      "passed": true
+    },
+    {
+      "consumer": "controlsd",
+      "stubborn": false,
+      "old_exit": 0,
+      "old_backend": 0,
+      "offroad_clears": [
+        {
+          "consumer_alive": false,
+          "active_before_clear": null
+        }
+      ],
+      "active_after_offroad": null,
+      "desired": 2,
+      "next_session_backend": 2,
+      "passed": true
+    },
+    {
+      "consumer": "plannerd",
+      "stubborn": true,
+      "old_exit": -9,
+      "old_backend": null,
+      "offroad_clears": [
+        {
+          "consumer_alive": false,
+          "active_before_clear": null
+        }
+      ],
+      "active_after_offroad": null,
+      "desired": 2,
+      "next_session_backend": 2,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "source_sha256": {
+    "/Users/mile/work/tesla-port/control-work/tools/sp_tesla_e2e/tesla_planner_chain_e2e.py": "9bd85e0905c2d944d6486dd6f7fbc246e669f5d583233c64d0b704ab2549e6e9",
+    "openpilot/sunnypilot/selfdrive/traffic_control/final_plan_arbitrator.py": "848dd1135c655c02c214e43fa1b0525f3f1e8711c7d3117416ab7d2935ce1081",
+    "openpilot/selfdrive/controls/lib/longitudinal_planner.py": "9d1527546ca2aa914f1e7ff723152387216f7b8a81ae985e6c36cdf9aa7484f0",
+    "openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py": "e4bd68970b820c498870bcda35e16beae1704c4ee97fd0234d679b71179e7e52",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/__init__.py": "cf5ccc1654fa45d6090b811f5363cc54462f0d2c58edf1f3d275eb923b29b03a",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/experimental/__init__.py": "658d9fa80771ada61d17bf00a35b82614359d496e17a75b738efe3ba313051fa",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/experimental/long_mpc.py": "8de5a5c0eba6466677f7bd72045c3d0e5f2cc5cdb04b372f1adfb73aa4a05914",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/experimental/planner.py": "ded440ca430f2595258df83a529fe50217881d291f561f0dfff40fe1dbcd519d",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/factory.py": "998ebbe5bb2831e488d5bbaf0ce1eef79d4956f47ba4a3d8ddee454950196e97",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/__init__.py": "a2e59643ba12b6cb4e4a264ddb7081e671f3e6e1a3cbd130a0c0356f9cc9fd68",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/contract.py": "14c82b045bb07d8c937ef6d2d606d1d8089b15e82b14c0d0f9c814bdc4bf8755",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/long_mpc.py": "06a74297e8871aa949a2f74d62399f933ef8f6a45c9de0339f1f234eb71fcee7",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/planner.py": "eb7cd43c90362f9a99b442cc0ddf1823c4af8148d4b859e916a9bd7c529ffa4e",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/longcontrol_factory.py": "facb154cadfbda6c72f077e0d3aeed0f6bd185ce0ee1f0befed9993a015aae13",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/registry.py": "cff5392f2d4e3d6b19d95a37ec6ff79a637dfb00d2618f6c1808cb145cabcf8e",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/session.py": "3cf8b1751eff0480dbd80e24e77b706f683bfbcfd8d707ed154a10bc314ac671",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/accel_controller.py": "c6462f2835845016446a5e228dd19a5ddd290b98a7eac1fdd234e12f95997d9f",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/constants.py": "1fab7bddbe8e12ac2335220c6887f15fda5b77f8defe267efeb1b3c52d19cc02",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/helpers.py": "8738017a3da00fdfb43c243a31a1717f3210a54a3b042ee01bb7378ffe3ea732",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/lead.py": "ea58118d06b67c9e20c5328c20b034d1c9ba909f810a1e559f0c9978c3ad1c7c",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/accel_controller/pace.py": "fa4675fe16ec8977e0a9ccd926c02531ce8f4be3f18370a4f5bb677a3a7aa63b",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/long_mpc.py": "f06be1373d2dfe4291e0d2bf45806951deaba6ad98f74091b86d1e47e57b24bf",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/long_mpc_sp.py": "76c0acabe0af10871df263bc60fa510ea068d141d57a620272135541f933f32e",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/longcontrol_policy.py": "f080bd27f54188adf44457123979755687babcdb893dda8f3e345b237ef0d8d4",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/planner.py": "e28a36932ae82527c89f05ffd6d11ed59cadffced535bf1d20e2c8df81a6dc94",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tn_no_dec/planner_sp.py": "c754ac1bc055fa90c7c691c5535e7d99dc947a73570ec754baf44b6257cba1f0",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/tuning.py": "1cfee531f2fee4de5199de3e25066846ca12a66301be0dd40762cb22b0cee26d",
+    "openpilot/system/manager/manager.py": "4b0bcdd914bc2524c0180084dfb6f360ccac188dd770bb55a77f83d1d355960b"
+  },
+  "solver_sha256": {
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code/acados_ocp_solver_pyx.so": "08cdb343fbc15898bdc2d43eba2fcb0de8eed7a3f841e3fdfc796545eee8fe67",
+    "openpilot/sunnypilot/selfdrive/controls/lib/longitudinal_backends/legacy_mpc/c_generated_code_fallback/acados_ocp_solver_pyx.so": "b4da19897ca0ba3b4e2cf7f4eb1a3f229383817d5a1e61a4643d680502c864ec"
+  }
+}
