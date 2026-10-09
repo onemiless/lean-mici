@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/lean-mici/tools/tesla/bench_routing_e2e.py", line 22, in <module>
+    assert p.returncode == expected, (override, p.returncode, p.stdout, p.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'CAR': 'tesla'}, 1, '', 'TESLA_CAN_ROUTE must identify the source route\n')

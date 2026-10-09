@@ -18,7 +18,11 @@ export CAR="${CAR:-toyota}"
 if [ "${1:-}" != "--off" ]; then
   case "$CAR" in
     toyota) export FRAMES="$ROOT/tools/bench/sienna_can_loop.xz"; export CAN_ROUTE="00000052--696b66504b--17" ;;
-    tesla) export FRAMES="${TESLA_CAN_FRAMES:-$ROOT/tools/bench/tesla_can_loop.xz}"; export CAN_ROUTE="${TESLA_CAN_ROUTE:-}" ;;
+    tesla)
+      export FRAMES="${TESLA_CAN_FRAMES:-$ROOT/tools/bench/tesla_can_loop.xz}"
+      export CAN_ROUTE="${TESLA_CAN_ROUTE:-}"
+      [ -n "${TESLA_CAN_FRAMES:-}" ] || CAN_ROUTE="2c912ca5de3b1ee9|0000025d--6eb6bcbca4--4"
+      ;;
     *) echo "Unsupported CAR=$CAR (expected toyota or tesla)" >&2; exit 1 ;;
   esac
   [ -f "$FRAMES" ] || { echo "Missing $CAR CAN fixture: $FRAMES; set TESLA_CAN_FRAMES and TESLA_CAN_ROUTE to an authentic route export" >&2; exit 1; }

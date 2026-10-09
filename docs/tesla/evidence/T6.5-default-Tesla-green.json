@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "scope": "read-only selection; no Jungle, CAN or bench acceptance",
+  "cases": [
+    {
+      "case": "default Toyota",
+      "exit": 0,
+      "stdout": "{\"car\": \"toyota\", \"route\": \"00000052--696b66504b--17\", \"frames\": \"/Users/mile/work/tesla-port/lean-mici/tools/bench/sienna_can_loop.xz\", \"sha256\": \"0d1a13930c5502c7d5c6445e2a02e1f63453e92e37cf3259d8f58045900c4235\"}\n",
+      "stderr": ""
+    },
+    {
+      "case": "tesla",
+      "exit": 0,
+      "stdout": "{\"car\": \"tesla\", \"route\": \"2c912ca5de3b1ee9|0000025d--6eb6bcbca4--4\", \"frames\": \"/Users/mile/work/tesla-port/lean-mici/tools/bench/tesla_can_loop.xz\", \"sha256\": \"076005e6a33d461c50da3bfc04b708b266fa4cc352862620a9e3f3cb53e97b5f\"}\n",
+      "stderr": ""
+    },
+    {
+      "case": "unknown",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Unsupported CAR=unknown (expected toyota or tesla)\n"
+    },
+    {
+      "case": "tesla",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "TESLA_CAN_ROUTE must identify the source route\n"
+    },
+    {
+      "case": "tesla",
+      "exit": 0,
+      "stdout": "{\"car\": \"tesla\", \"route\": \"synthetic-routing-only\", \"frames\": \"/var/folders/h4/f23gh_151sqfn4k3y8_fdx940000gn/T/tmpkgzfigfc/synthetic-routing-only.xz\", \"sha256\": \"e2936f99752bf3bfa1d7e0d54511c9cb947b3729a5bb1d6b49d69171101b4e3f\"}\n",
+      "stderr": ""
+    }
+  ]
+}

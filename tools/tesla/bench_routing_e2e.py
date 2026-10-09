@@ -14,7 +14,7 @@ results = []
 with tempfile.TemporaryDirectory() as tmp:
   fixture = Path(tmp)/'synthetic-routing-only.xz'
   fixture.write_bytes(b'Routing check only: never transmit or deserialize this file')
-  cases = [({}, 0), ({'CAR':'tesla'}, 1), ({'CAR':'unknown'}, 1),
+  cases = [({}, 0), ({'CAR':'tesla'}, 0), ({'CAR':'unknown'}, 1), ({'CAR':'tesla', 'TESLA_CAN_FRAMES':str(fixture)}, 1),
            ({'CAR':'tesla', 'TESLA_CAN_FRAMES':str(fixture), 'TESLA_CAN_ROUTE':'synthetic-routing-only'}, 0)]
   for override, expected in cases:
     env = {k:v for k,v in os.environ.items() if k not in ('CAR','TESLA_CAN_FRAMES','TESLA_CAN_ROUTE')}; env.update(override)
@@ -22,7 +22,7 @@ with tempfile.TemporaryDirectory() as tmp:
     assert p.returncode == expected, (override, p.returncode, p.stdout, p.stderr)
     if p.returncode == 0:
       data = json.loads(p.stdout)
-      selected = fixture if override else root/'tools/bench/sienna_can_loop.xz'
+      selected = fixture if 'TESLA_CAN_FRAMES' in override else root/'tools/bench'/('tesla_can_loop.xz' if override.get('CAR') == 'tesla' else 'sienna_can_loop.xz')
       assert data['sha256'] == hashlib.sha256(selected.read_bytes()).hexdigest()
       assert data['car'] == override.get('CAR','toyota')
     results.append({'case': override.get('CAR','default Toyota'), 'exit':p.returncode, 'stdout':p.stdout, 'stderr':p.stderr})
