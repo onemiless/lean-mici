@@ -1,0 +1,9 @@
+{
+  "passed": false,
+  "scope": "live cameras/model inference only; synthetic demo CP, stopped car, disabled control, zero-rpy calibrated input",
+  "target_valid_samples": 120,
+  "deadline_s": 90,
+  "children": {},
+  "cleanup": {},
+  "error": "Traceback (most recent call last):\n  File \"/Users/mile/work/tesla-port/control-work/tools/tesla/live_model_e2e.py\", line 51, in main\n    assert platform.system() == 'Linux' and platform.machine() == 'aarch64', 'requires Linux aarch64 device'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: requires Linux aarch64 device\n"
+}
