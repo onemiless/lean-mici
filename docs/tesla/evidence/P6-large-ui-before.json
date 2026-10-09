@@ -1,0 +1,7 @@
+{
+  "scope": "actual desktop large MainLayout, DeviceLayoutSP and Tesla settings; isolated Params; no vehicle/CAN",
+  "passed": false,
+  "stages": [],
+  "error": "Traceback (most recent call last):\n  File \"/Users/mile/work/tesla-port/control-work/tools/sp_tesla_e2e/large_ui_startup_e2e.py\", line 30, in main\n    device = DeviceLayoutSP()\n             ^^^^^^^^^^^^^^^^\n  File \"/Users/mile/work/tesla-port/control-work/openpilot/selfdrive/ui/sunnypilot/layouts/settings/device.py\", line 38, in __init__\n    DeviceLayout.__init__(self)\n  File \"/Users/mile/work/tesla-port/control-work/openpilot/selfdrive/ui/layouts/settings/device.py\", line 35, in __init__\n    items = self._initialize_items()\n            ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/mile/work/tesla-port/control-work/openpilot/selfdrive/ui/sunnypilot/layouts/settings/device.py\", line 87, in _initialize_items\n    right_callback=self._on_review_training_guide\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'DeviceLayoutSP' object has no attribute '_on_review_training_guide'\n",
+  "source_sha256": "cb27e66650cc053d198bef2a90921c16d2bebd2792cd93561b4ca8c04cc46254"
+}

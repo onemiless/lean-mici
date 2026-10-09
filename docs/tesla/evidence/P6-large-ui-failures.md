@@ -1,0 +1,5 @@
+# Large UI startup failure recorded before fix
+
+Parent observed actual device `DeviceLayoutSP` startup AttributeError for missing `_on_review_training_guide`, while entering the standard large C3XL UI. Exact retained base lean source has removed the training callback, but the sunnypilot wrapper still constructs its dual regulatory/training row and references the removed method. Repository search finds no remaining callback implementation or other callable reference. Its `_update_state` also accesses both sides of that obsolete row.
+
+Failure modes: constructor fails before any UI renders; deleting the whole dual row also removes still-supported Regulatory; stale `_update_state` references then fail after constructor succeeds; unrelated native MainLayout panels expose additional removed base APIs. Capture failing native DeviceLayoutSP, then retry actual full MainLayout rendering and TeslaSettings using `tools/sp_tesla_e2e/large_ui_startup_e2e.py`. No hardware, reboot, reset, or regulatory callbacks are invoked.
