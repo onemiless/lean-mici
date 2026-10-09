@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/hardware_checks_replay.py", line 31, in <module>
+    assert camera_called == (stage == 'camera'), (stage, calls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('health', [['cat', '/VERSION'], ['uname', '-r'], ['abctl', '--boot_slot'], ['sudo', 'abctl', '--get_success'], ['dmesg', '-l', 'err,crit'], ['ls', '/dev/kgsl-3d0', '/dev/spidev0.0', '/dev/ion'], ['lsusb'], ['ip', '-br', 'a'], ['systemctl', 'is-active', 'comma'], ['cat', '/data/hardware_profile'], ['python3', 'tools/tesla/camera_check.py']])
