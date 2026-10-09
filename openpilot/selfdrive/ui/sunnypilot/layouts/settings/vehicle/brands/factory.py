@@ -5,6 +5,7 @@ This file is part of sunnypilot and is licensed under the MIT License.
 See the LICENSE.md file in the root directory for more details.
 """
 from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.base import BrandSettings
+from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.tesla import TeslaSettings
 from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.body import BodySettings
 from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.toyota import ToyotaSettings
 
@@ -13,6 +14,7 @@ class BrandSettingsFactory:
   _BRAND_MAP: dict[str, type[BrandSettings]] = {
     "body": BodySettings,
     "toyota": ToyotaSettings,
+    "tesla": TeslaSettings,
   }
 
   @staticmethod

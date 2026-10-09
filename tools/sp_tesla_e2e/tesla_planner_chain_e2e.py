@@ -349,7 +349,8 @@ def non_tesla_scope(route):
       planner = create_longitudinal_planner(cp, custom.CarParamsSP.new_message(), params=params)
       controller = create_long_control(cp, custom.CarParamsSP.new_message(), params=params)
       passed = (int(planner.active_backend_id) == 0 and planner.mpc._tuning_controller is None
-                and controller.stopping_policy is None and params.get('ActiveLongitudinalBackend') is None)
+                and controller.stopping_policy is None and params.get('ActiveLongitudinalBackend') is None
+                and not any('legacy_mpc' in name for name in sys.modules))
       records.append({'brand': cp.brand, 'desired': desired, 'provider': type(planner).__module__,
                       'active': params.get('ActiveLongitudinalBackend'), 'passed': passed})
   return records
@@ -404,16 +405,25 @@ def replay_rows():
   return rows
 
 
-def feature_replay():
-  from openpilot.selfdrive.test.process_replay.process_replay import replay_process_with_name
+def upstream_planner_launcher(proc, name, nice=None):
   from openpilot.selfdrive.controls.lib.longitudinal_mpc_lib import long_mpc
-  # Execute the pinned upstream class in its normal module namespace: same solver,
-  # without importing a second generated extension or changing production files.
-  upstream_source = subprocess.check_output(
+  from openpilot.selfdrive.controls.lib import longitudinal_planner
+  from openpilot.system.manager.process import launcher
+  source = subprocess.check_output(
     ['git', 'show', '4802cb2fe8c993fd7852b1f78be5b8b9604dd5a5:openpilot/selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py'],
     cwd=ROOT, text=True)
   namespace = dict(long_mpc.__dict__)
-  exec(compile(upstream_source, '<pinned-lean-long-mpc>', 'exec'), namespace)
+  exec(compile(source, '<pinned-lean-long-mpc>', 'exec'), namespace)
+  upstream_mpc = namespace['LongitudinalMpc']
+  assert not hasattr(upstream_mpc, 'configure_runtime_tuning')
+  upstream_mpc.configure_runtime_tuning = lambda self, params, spec: None
+  longitudinal_planner.LongitudinalMpc = upstream_mpc
+  launcher(proc, name, nice)
+
+
+def feature_replay():
+  from openpilot.selfdrive.test.process_replay.process_replay import replay_process_with_name
+  from openpilot.system.manager.process_config import managed_processes
   def rows(backend):
     outputs = replay_process_with_name('plannerd', list(LogReader(str(FIXTURE))), fingerprint='TESLA_MODEL_Y',
       custom_params={'LongitudinalPlannerMode': backend, 'DynamicExperimentalControl': True,
@@ -427,8 +437,7 @@ def feature_replay():
       for key in ('speeds', 'accels', 'jerks') for v in row[key]) and all(math.isfinite(row['aTarget']) for row in actual)
     cases.append({'backend': backend, 'cycles': len(actual), 'passed': finite})
     if backend == 0:
-      from openpilot.selfdrive.controls.lib import longitudinal_planner
-      with patch.object(longitudinal_planner, 'LongitudinalMpc', namespace['LongitudinalMpc']):
+      with patch.object(managed_processes['plannerd'], 'launcher', upstream_planner_launcher):
         baseline = rows(backend)
       cases.append({'case': 'official-default-upstream-bitwise', 'passed': actual == baseline})
   return cases

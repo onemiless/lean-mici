@@ -282,7 +282,7 @@ def main():
   parser.add_argument("--output", type=Path, required=True)
   parser.add_argument("--phase", choices=("fault", "all"), default="all")
   args = parser.parse_args()
-  assert Path(inspect.getfile(CarInterface)).resolve().is_relative_to(ROOT / "opendbc_repo"), "wrong opendbc checkout"
+  assert Path(inspect.getfile(CarInterface)).resolve().is_relative_to((ROOT / "opendbc_repo").resolve()), "wrong opendbc checkout"
   cases = []
   checks = [("fault-chain", fault_chain)]
   if args.phase == "all":
@@ -293,7 +293,7 @@ def main():
       cases.append({"case": name, "passed": True, "evidence": check()})
     except Exception as error:
       cases.append({"case": name, "passed": False, "error": repr(error), "traceback": traceback.format_exc()})
-  sources = [Path(__file__), ROOT / "docs/sp-tesla-migration/TESLA_CONTROL_FIXES.md", ROOT / "opendbc_repo/opendbc/safety/modes/tesla.h"]
+  sources = [Path(__file__), ROOT / "docs/tesla/ref/TESLA_CONTROL_FIXES.md", ROOT / "opendbc_repo/opendbc/safety/modes/tesla.h"]
   for directory in ("opendbc_repo/opendbc/car/tesla", "opendbc_repo/opendbc/sunnypilot/car/tesla", "openpilot/sunnypilot/selfdrive/car/tesla"):
     sources.extend(sorted((ROOT / directory).rglob("*.py")))
   result = {

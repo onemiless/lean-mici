@@ -7,6 +7,7 @@ See the LICENSE.md file in the root directory for more details.
 import pyray as rl
 
 from openpilot.selfdrive.ui.mici.onroad.hud_renderer import HudRenderer
+from openpilot.selfdrive.ui.sunnypilot.onroad.traffic_control import TrafficControlRenderer
 from openpilot.selfdrive.ui.sunnypilot.npu_state import BigFrameWindow
 from openpilot.selfdrive.ui.sunnypilot.onroad.blind_spot_indicators import BlindSpotIndicators
 from openpilot.selfdrive.ui.ui_state import ui_state
@@ -17,12 +18,14 @@ class HudRendererSP(HudRenderer):
   def __init__(self):
     super().__init__()
     self.blind_spot_indicators = BlindSpotIndicators()
+    self.traffic_control_renderer = TrafficControlRenderer(compact=True)
     self._big_frames = BigFrameWindow()
     self._txt_npu_green: rl.Texture = gui_app.texture('icons_mici/NPU_GREEN.png', 54, 40)
 
   def _update_state(self) -> None:
     super()._update_state()
     self.blind_spot_indicators.update()
+    self.traffic_control_renderer.update()
     if not ui_state.started:
       self._big_frames.clear()
     elif ui_state.sm.updated['modelV2']:
@@ -31,6 +34,7 @@ class HudRendererSP(HudRenderer):
   def _render(self, rect: rl.Rectangle) -> None:
     super()._render(rect)
     self.blind_spot_indicators.render(rect)
+    self.traffic_control_renderer.render(rect)
     # 右下角与左下角方向盘对称；盲区指示亮起时让位
     if ui_state.bigmodel_enabled and self._big_frames.mostly_big() and not self._has_blind_spot_detected():
       tex = self._txt_npu_green

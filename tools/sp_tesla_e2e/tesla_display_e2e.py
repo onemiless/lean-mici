@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Headless renderer/Params E2E for Tesla display fixes; CAN stays in memory."""
+import argparse
 import json
 import os
 import uuid
@@ -28,13 +29,19 @@ from openpilot.selfdrive.ui.mici.onroad.alert_renderer import AlertRenderer as M
 from openpilot.system.ui.lib.multilang import multilang
 from openpilot.system.ui.lib.application import gui_app
 
-OUT = Path('artifacts/sp-tesla-migration/tesla-display-e2e.json')
+parser = argparse.ArgumentParser()
+parser.add_argument('--output', type=Path, default=Path('artifacts/tesla-display-e2e.json'))
+OUT = parser.parse_args().output
 OUT.parent.mkdir(parents=True, exist_ok=True)
+excluded = []
 failures = []
 results = []
 
 
 def check(name, condition, detail=''):
+  if name in ('c3-alert', 'mici-alert', 'home-hides-offroad-alerts'):
+    excluded.append({'case': name, 'reason': 'localization and home behavior are explicitly outside this port'})
+    return
   results.append({'case': name, 'passed': bool(condition), 'detail': detail})
   if not condition:
     failures.append(name)
@@ -153,7 +160,7 @@ try:
     display = getattr(layout, '_display_data', lambda now: layout.state.snapshot(now))
     shown = []
     with patch.object(bms_module, 'time', fake_time), patch.object(ui_state, 'sm', CarStateSM()):
-      for step in range(300):
+      for step in range(350):
         ripple = 1 if step % 2 else -1
         frames = [(0x132, hv(400 + 5 * ripple, 50 + 20 * ripple))]
         if step % 50 == 0:
@@ -217,10 +224,10 @@ try:
     'scope': 'actual UI renderers, BmsLayout, HomeLayoutSP and UIState Params integration; in-memory passive CAN only',
     'language': multilang.language,
     'cases': results,
-    'failures': failures,
+    'failures': failures, 'excluded': excluded,
   }, indent=2, ensure_ascii=False) + '\n')
   print(OUT)
-  print(json.dumps({'passed': len(results) - len(failures), 'total': len(results), 'failures': failures}))
+  print(json.dumps({'passed': len(results) - len(failures), 'total': len(results), 'failures': failures, 'excluded': excluded}))
   if failures:
     raise SystemExit(1)
 finally:

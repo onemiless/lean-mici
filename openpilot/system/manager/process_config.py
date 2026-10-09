@@ -105,6 +105,7 @@ procs = [
   PythonProcess("tombstoned", "openpilot.system.tombstoned", always_run, enabled=not PC),
   PythonProcess("updated", "openpilot.system.updated.updated", only_offroad, enabled=not PC),
   PythonProcess("alert_output", "openpilot.sunnypilot.system.alert_output", lambda started, params, CP: not PC and get_hardware_profile() == HardwareProfile.C3XL),
+  PythonProcess("trafficcontrold", "openpilot.sunnypilot.selfdrive.traffic_control.trafficcontrold", only_onroad),
   PythonProcess("statsd", "openpilot.sunnypilot.system.statsd", always_run),
 
   # locationd

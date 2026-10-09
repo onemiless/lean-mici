@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Actual native Tesla settings callbacks with isolated persisted Params; no device."""
+import argparse
 import hashlib
 import json
 import os
@@ -13,7 +14,9 @@ from openpilot.common.prefix import OpenpilotPrefix
 
 
 def main():
-  out = Path('artifacts/tesla-implementation-20261005/settings.json')
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--output', type=Path, default=Path('artifacts/tesla-settings.json'))
+  out = parser.parse_args().output
   out.parent.mkdir(parents=True, exist_ok=True)
   results = []
   with OpenpilotPrefix(prefix=os.environ['OPENPILOT_PREFIX']):

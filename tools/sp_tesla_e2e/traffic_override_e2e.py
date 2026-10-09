@@ -202,7 +202,7 @@ SCENARIOS = [
 
 def main():
   parser = argparse.ArgumentParser()
-  parser.add_argument("--out", default="/tmp/sp_traffic_override_e2e.json")
+  parser.add_argument("--out", "--output", dest="out", default="/tmp/sp_traffic_override_e2e.json")
   args = parser.parse_args()
   controller_path = ROOT / "openpilot/sunnypilot/selfdrive/traffic_control/controller.py"
   results, ok = [], True
@@ -222,6 +222,7 @@ def main():
   artifact = {"pass": ok, "source_commit": head, "controller_dirty": bool(dirty),
               "controller_sha256": hashlib.sha256(controller_path.read_bytes()).hexdigest(),
               "stubbed_modules": STUBS, "results": results}
+  Path(args.out).parent.mkdir(parents=True, exist_ok=True)
   Path(args.out).write_text(json.dumps(artifact, indent=2))
   print(f"{'PASS' if ok else 'FAIL'} {sum(r['pass'] for r in results)}/{len(results)} -> {args.out}")
   return 0 if ok else 1

@@ -12,6 +12,7 @@ from openpilot.selfdrive.ui.mici.widgets.dialog import BigConfirmationDialog, Bi
 from openpilot.selfdrive.ui.sunnypilot.mici.layouts.lanlink import LanLinkLayoutMici
 from openpilot.selfdrive.ui.sunnypilot.mici.layouts.bigmodel import BigmodelLayoutMici
 from openpilot.selfdrive.ui.ui_state import ui_state
+from openpilot.selfdrive.ui.sunnypilot.mici.layouts.tesla import TeslaSettingsMici
 from openpilot.system.ui.lib.application import gui_app, FontWeight
 from openpilot.system.ui.lib.multilang import tr
 
@@ -59,6 +60,10 @@ class SettingsLayoutSP(OP.SettingsLayout):
 
     items.insert(5, lanlink_btn)
     items.insert(6, bigmodel_btn)
+    vehicle_btn = SettingsBigButton(tr("Tesla / 纵向规划"), "", gui_app.texture("../../sunnypilot/selfdrive/assets/offroad/icon_models.png", 64, 64))
+    vehicle_btn.set_click_callback(lambda: gui_app.push_widget(TeslaSettingsMici()))
+    vehicle_btn.set_visible(lambda: ui_state.CP is not None and ui_state.CP.brand == "tesla")
+    items.insert(7, vehicle_btn)
 
     # front slots (only one ever visible at a time): exit-always-offroad, then enable-onroad
     items.insert(0, self._enable_offroad_btn_onroad)
