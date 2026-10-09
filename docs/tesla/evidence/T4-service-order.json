@@ -1,0 +1,33 @@
+{
+  "pass": true,
+  "scope": "actual stage and cleanup shell with no-op systemctl; no hardware",
+  "cases": [
+    {
+      "build_failure": false,
+      "exit": 0,
+      "events": [
+        "prereqs",
+        "sudo systemctl stop comma",
+        "sync",
+        "tinygrad",
+        "gitlinks",
+        "build",
+        "model",
+        "sudo systemctl start comma"
+      ]
+    },
+    {
+      "build_failure": true,
+      "exit": 1,
+      "events": [
+        "prereqs",
+        "sudo systemctl stop comma",
+        "sync",
+        "tinygrad",
+        "gitlinks",
+        "build",
+        "sudo systemctl start comma"
+      ]
+    }
+  ]
+}

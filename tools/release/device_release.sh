@@ -368,6 +368,7 @@ built on: comma device"
 }
 
 run_stage "前提检查" check_prereqs
+run_stage "停止 comma，隔离源码同步与构建" sudo systemctl stop comma
 run_stage "同步 $SRC_BRANCH 源内容到设备树（结构性防漂移：发布树 ≡ $SRC_BRANCH + 产物）" sync_sources
 run_stage "Materialize tinygrad at the $SRC_BRANCH gitlink" materialize_tinygrad
 run_stage "Materialize 构建 gitlink（msgq/rednose/panda；扁平树只带运行时子集）" materialize_gitlinks

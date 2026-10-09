@@ -35,3 +35,7 @@ Real device removal of root-owned __pycache__ failed but an AND chain suppressed
 ## Device model camera-shape fix, before implementation
 
 C3XL actual OX03C10 streams are 1928x1208; release helper hardcoded the C4 1344x760 shape, producing modeld KeyError(1928,1208). Reuse exactly SConscript's existing _os_fisheye for mici and _ar_ox_fisheye otherwise. One queried shape must feed both cache fingerprint and compile CLI so old C4-shaped artifacts cannot hit the C3 cache. Validate actual presets for mici/tici/tizi and unchanged C4 fingerprint arguments before the production edit. No camerad/model runtime change.
+
+## Release service isolation, before one-line stage fix
+
+Source synchronization while manager processes import files and model GPU compilation while UI/hardwared run can race or compete for resources. A prior live compile required power-cycle recovery; its exact GPU/kernel cause is not established. After verifying the existing active-service precondition, stop comma before any source synchronization/build. Retain existing EXIT cleanup to start comma on success or build failure. Shell orchestration replay must prove prereqs -> stop -> sync -> build ordering and cleanup start on both outcomes; use no-op systemctl only.

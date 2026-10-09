@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/release_service_order_e2e.py", line 33, in <module>
+    assert events.count('sudo systemctl stop comma')==1,events
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ['prereqs', 'sync', 'tinygrad', 'gitlinks', 'build', 'model', 'sudo systemctl start comma']
