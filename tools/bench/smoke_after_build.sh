@@ -25,6 +25,7 @@ remote() { ssh -o ConnectTimeout=5 "$DEVICE" "$@"; }
 pids() { remote "ps -eo pid,cmd | grep -F 'openpilot.$1' | grep -v grep | awk '{print \$1}' | head -1"; }
 
 remote true || fail "设备连不上: $DEVICE"
+remote "cd /data/openpilot && /usr/local/venv/bin/python -c 'from openpilot.sunnypilot.selfdrive.controls.lib.longitudinal_backends.legacy_mpc.c_generated_code.acados_ocp_solver_pyx import AcadosOcpSolverCython; from openpilot.sunnypilot.selfdrive.controls.lib.longitudinal_backends.legacy_mpc.c_generated_code_fallback.acados_ocp_solver_pyx import AcadosOcpSolverCython'" || fail "legacy solver import failed"
 "$ROOT/tools/bench/jungle_replay.sh" > /tmp/jungle_replay.log 2>&1 &
 REPLAY_PID=$!
 

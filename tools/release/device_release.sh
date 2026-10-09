@@ -89,7 +89,19 @@ pkl_cache_hit() {
   { [ -f "$1" ] || [ -f "$1.chunkmanifest" ]; } && [ "$(cat "$1.inputs_fp" 2>/dev/null)" = "$2" ]
 }
 
+check_hardware_profile() {
+  local profile
+  profile="$(cat "${SUNNYPILOT_HARDWARE_PROFILE_FILE:-/data/hardware_profile}" 2>/dev/null || true)"
+  case "$RELEASE_BRANCH:${profile:-standard}" in
+    *-c3:c3|*-c3:c3xl) ;;
+    *-c3:*) die "C3 release requires hardware_profile=c3 or c3xl" ;;
+    *:standard) ;;
+    *) die "C4 release requires hardware_profile=standard" ;;
+  esac
+}
+
 check_prereqs() {
+  check_hardware_profile
   sudo systemctl is-active --quiet comma || die "comma 未运行（产物必须来自正在运行的构建）"
   # 子模块目录（*_repo/panda）由 gitlink 物化步管理，内容漂移不卡发布
   [ -z "$(git status --porcelain -- . ':!tinygrad_repo' ':!msgq_repo' ':!opendbc_repo' ':!rednose_repo' ':!panda' | grep -v '^??')" ] || die "工作树有未提交修改，拒绝发布"
@@ -186,8 +198,8 @@ materialize_repo() {
 materialize_gitlinks() {
   materialize_repo msgq_repo https://github.com/commaai/msgq.git site_scons/site_tools/cython.py
   materialize_repo rednose_repo https://github.com/commaai/rednose.git site_scons/site_tools/rednose_filter.py
-  materialize_repo panda https://github.com/commaai/panda.git SConscript
-  materialize_repo opendbc_repo https://github.com/lochuan/opendbc.git opendbc/car/car.capnp
+  materialize_repo panda https://github.com/onemiless/panda.git board/boards/dos.h
+  materialize_repo opendbc_repo https://github.com/onemiless/opendbc.git opendbc/car/tesla/carcontroller.py
 }
 
 rebuild_native() {

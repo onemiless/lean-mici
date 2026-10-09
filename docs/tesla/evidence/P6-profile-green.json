@@ -1,0 +1,132 @@
+{
+  "source_sha256": "1e7014412197dd76a766466446d09e5cbed1e7d5b6cc98e3a55898c51c807260",
+  "cases": [
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": null,
+      "exit": 1,
+      "pass": true,
+      "stderr": "C3 release requires hardware_profile=c3 or c3xl\n"
+    },
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": "",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C3 release requires hardware_profile=c3 or c3xl\n"
+    },
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": "standard",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C3 release requires hardware_profile=c3 or c3xl\n"
+    },
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": "c3",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": "c3xl",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release-c3",
+      "profile": "invalid",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C3 release requires hardware_profile=c3 or c3xl\n"
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": null,
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": "",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": "standard",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": "c3",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": "c3xl",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    },
+    {
+      "branch": "lean-tesla-release-c4",
+      "profile": "invalid",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": null,
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": "",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": "standard",
+      "exit": 0,
+      "pass": true,
+      "stderr": ""
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": "c3",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": "c3xl",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    },
+    {
+      "branch": "lean-tesla-release",
+      "profile": "invalid",
+      "exit": 1,
+      "pass": true,
+      "stderr": "C4 release requires hardware_profile=standard\n"
+    }
+  ],
+  "pass": true
+}
