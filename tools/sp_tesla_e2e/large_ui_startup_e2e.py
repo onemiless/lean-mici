@@ -40,6 +40,12 @@ def main():
         if frame >= 2:
           break
       result['stages'].append('MainLayout Device panel rendered three frames')
+      import pyray as rl
+      screenshot = args.output.resolve().with_suffix('.png')
+      screenshot.parent.mkdir(parents=True, exist_ok=True)
+      rl.take_screenshot(os.path.relpath(screenshot))
+      result['screenshot'] = str(screenshot)
+      result['screenshot_sha256'] = hashlib.sha256(screenshot.read_bytes()).hexdigest()
       from openpilot.selfdrive.ui.sunnypilot.layouts.settings.vehicle.brands.tesla import TeslaSettings
       tesla = TeslaSettings()
       tesla.update_settings()
@@ -51,6 +57,8 @@ def main():
       gui_app.close()
   source = Path(__file__).resolve().parents[2] / 'openpilot/selfdrive/ui/sunnypilot/layouts/settings/device.py'
   result['source_sha256'] = hashlib.sha256(source.read_bytes()).hexdigest()
+  main_source = source.parents[3] / 'layouts/main.py'
+  result['main_source_sha256'] = hashlib.sha256(main_source.read_bytes()).hexdigest()
   args.output.parent.mkdir(parents=True, exist_ok=True)
   args.output.write_text(json.dumps(result, indent=2) + '\n')
   print(json.dumps(result))

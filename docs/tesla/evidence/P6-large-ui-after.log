@@ -1,0 +1,80 @@
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [219/226]
+raylib: FONT: Requested codepoints glyphs found: [148/226]
+Failed to connect to system D-Bus
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 168, in __init__
+    self._router_main = DBusRouter(open_dbus_connection_threading(bus="SYSTEM"))  # used by scanner / general method calls
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/threading.py", line 118, in open_dbus_connection
+    sock = prep_socket(bus_addr, enable_fds, timeout=auth_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/blocking.py", line 291, in prep_socket
+    with_sock_deadline(sock.connect, addr)
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/blocking.py", line 288, in with_sock_deadline
+    return meth(*args)
+           ^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory
+wifi device not found within 10s; marking manager exited
+Exception in thread Thread-2 (_monitor_state):
+Traceback (most recent call last):
+Exception in thread Thread-3 (worker):
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+Traceback (most recent call last):
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+    self.run()
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 383, in _monitor_state
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._conn_monitor.send_and_get_reply(message_bus.AddMatch(rule))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'send_and_get_reply'
+    self._target(*self._args, **self._kwargs)
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 225, in worker
+    self._init_connections()
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 560, in _init_connections
+    known_connections = self._router_main.send_and_get_reply(new_method_call(settings_addr, 'ListConnections')).body[0]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'send_and_get_reply'
+Failed to connect to system D-Bus
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 168, in __init__
+    self._router_main = DBusRouter(open_dbus_connection_threading(bus="SYSTEM"))  # used by scanner / general method calls
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/threading.py", line 118, in open_dbus_connection
+    sock = prep_socket(bus_addr, enable_fds, timeout=auth_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/blocking.py", line 291, in prep_socket
+    with_sock_deadline(sock.connect, addr)
+  File "/Users/mile/Desktop/mo-op/.venv/lib/python3.12/site-packages/jeepney/io/blocking.py", line 288, in with_sock_deadline
+    return meth(*args)
+           ^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory
+wifi device not found within 10s; marking manager exited
+Exception in thread Thread-5 (_monitor_state):
+Traceback (most recent call last):
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+Exception in thread Thread-6 (worker):
+Traceback (most recent call last):
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self.run()
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 225, in worker
+    self._target(*self._args, **self._kwargs)
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 383, in _monitor_state
+    self._init_connections()
+  File "/Users/mile/work/tesla-port/control-work/openpilot/system/ui/lib/wifi_manager.py", line 560, in _init_connections
+    self._conn_monitor.send_and_get_reply(message_bus.AddMatch(rule))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'send_and_get_reply'
+    known_connections = self._router_main.send_and_get_reply(new_method_call(settings_addr, 'ListConnections')).body[0]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'send_and_get_reply'
+{"scope": "actual desktop large MainLayout, DeviceLayoutSP and Tesla settings; isolated Params; no vehicle/CAN", "passed": true, "stages": ["DeviceLayoutSP constructed", "DeviceLayoutSP updated", "MainLayout constructed", "MainLayout Device panel rendered three frames", "TeslaSettings constructed and updated"], "screenshot": "/Users/mile/work/tesla-port/control-work/docs/tesla/evidence/P6-large-ui-after.png", "screenshot_sha256": "57438efa172149a61353a8e262576238440a4980f49450e7fe25c17fba434423", "source_sha256": "5fd1898395206b3b5e790539ad777b69040d82261e82ae007b33b6bc7e6b88ac", "main_source_sha256": "9b2d4a2904efb5b4121c970116aca24c5f272a93108d5f9cd39320d21c3f9113"}

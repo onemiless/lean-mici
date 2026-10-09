@@ -80,13 +80,8 @@ class DeviceLayoutSP(DeviceLayout):
     self._quiet_mode_btn = button_item_sp(lambda: tr("Quiet Mode"), lambda: tr("TOGGLE"),
                                           callback=lambda: ui_state.params.put_bool("QuietMode", not ui_state.params.get_bool("QuietMode")))
 
-    self._reg_and_training = dual_button_item_sp(
-      left_text=lambda: tr("Regulatory"),
-      left_callback=self._on_regulatory,
-      right_text=lambda: tr("Training Guide"),
-      right_callback=self._on_review_training_guide
-    )
-    self._reg_and_training.action_item.right_button.set_button_style(ButtonStyle.NORMAL)
+    self._regulatory_btn = button_item_sp(lambda: tr("Regulatory"), lambda: tr("VIEW"),
+                                           callback=self._on_regulatory, enabled=ui_state.is_offroad)
 
     self._reset_settings_btn = button_item_sp(lambda: tr("Reset Settings"), lambda: tr("RESET"),
                                               callback=self._reset_settings)
@@ -112,7 +107,7 @@ class DeviceLayoutSP(DeviceLayout):
       self._max_time_offroad,
       LineSeparator(height=10),
       self._quiet_mode_btn,
-      self._reg_and_training,
+      self._regulatory_btn,
       self._reset_settings_btn,
       Spacer(10),
       LineSeparator(height=10),
@@ -198,6 +193,5 @@ class DeviceLayoutSP(DeviceLayout):
     self._quiet_mode_btn.action_item._button.set_button_style(ButtonStyle.PRIMARY if ui_state.params.get_bool("QuietMode") else ButtonStyle.NORMAL)
 
     # Offroad only buttons
-    self._reg_and_training.action_item.left_button.set_enabled(ui_state.is_offroad())
-    self._reg_and_training.action_item.right_button.set_enabled(ui_state.is_offroad())
+    self._regulatory_btn.action_item.set_enabled(ui_state.is_offroad())
     self._reset_settings_btn.action_item.set_enabled(ui_state.is_offroad())

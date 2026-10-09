@@ -23,3 +23,5 @@
 | `openpilot/system/manager/process_config.py` | P2/P3 | +1/-0 | Tesla control/planner/UI integration | 0f694538fa8f84190ce9751f106f879a62550f8a | implemented; local native/E2E verified |
 | `openpilot/selfdrive/ui/sunnypilot/onroad/hud_renderer.py` | P2/P3 | +4/-0 | Tesla control/planner/UI integration | 0f694538fa8f84190ce9751f106f879a62550f8a | implemented; local native/E2E verified |
 | `openpilot/selfdrive/ui/sunnypilot/mici/onroad/hud_renderer.py` | P2/P3 | +4/-0 | Tesla control/planner/UI integration | 0f694538fa8f84190ce9751f106f879a62550f8a | implemented; local native/E2E verified |
+| `openpilot/selfdrive/ui/sunnypilot/layouts/settings/device.py` | P6 | +4/-10 | Retain Regulatory without removed upstream training callback | lean 4802cb2f inherited inconsistency | native large UI verified |
+| `openpilot/selfdrive/ui/layouts/main.py` | P6 | +0/-1 | Remove wiring to deleted home setup widget / FIREHOSE | lean 4802cb2f inherited inconsistency | native large UI verified |
