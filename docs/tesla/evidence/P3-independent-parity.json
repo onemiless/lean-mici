@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "reference_commit": "0f694538fa8f84190ce9751f106f879a62550f8a",
+  "migrated_commit": "1a4287fca9886da18fc8e7a25250e4f856beb476",
+  "comparison": "same type, same categorical/scalar value, IEEE754 binary64 exact equality for each JSON float",
+  "replay_rows_ast_identical": true,
+  "cycles": {
+    "0:0:0": 236,
+    "0:0:1": 236,
+    "0:1:0": 236,
+    "0:1:1": 236,
+    "0:2:0": 236,
+    "0:2:1": 236,
+    "1:0:0": 236,
+    "1:0:1": 236,
+    "1:1:0": 236,
+    "1:1:1": 236,
+    "1:2:0": 236,
+    "1:2:1": 236,
+    "2:0:0": 236,
+    "2:0:1": 236,
+    "2:1:0": 236,
+    "2:1:1": 236,
+    "2:2:0": 236,
+    "2:2:1": 236
+  },
+  "total_cycles": 4248,
+  "compared_scalars": {
+    "floats": 220896,
+    "other_scalars": 12744
+  },
+  "differences": [],
+  "fields": [
+    "aTarget",
+    "shouldStop",
+    "allowThrottle",
+    "source",
+    "speeds",
+    "accels",
+    "jerks"
+  ],
+  "reference_sha256": "ec9b231a25b703e90db24305f155a80f439849ce5491e0385e3c69c2581f6adc",
+  "migrated_sha256": "c1dd75d182ad8c6a793d0ddbe34edacc25bc092a34b01487f525084af109a27b",
+  "reference_compressed_sha256": "fca2f4cc75297dcd75605d92b70f4bd4755fa385c54b72e911a4eae8f7a70ded",
+  "reference_artifact": "docs/tesla/evidence/P3-devsp-fixed-18.json.gz",
+  "migrated_artifact": "artifacts/P3-independent-parity.json",
+  "fixture_sha256": "36e4a6e774d33839b2b9f78d9f90d14b132020fb1cb88511d1096c737b0747f4",
+  "schema_slot_safety": "Fixture has only carState,selfdriveState,carControl,controlsState,radarState,modelV2,vehicleParameters,carParams. No trafficRadarState or bigModelReply input exists; no reinterpretation/filtering was needed.",
+  "scope": "macOS arm64 actual independently built solver process replays, not aarch64 or vehicle acceptance"
+}

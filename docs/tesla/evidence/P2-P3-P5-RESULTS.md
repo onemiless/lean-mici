@@ -10,7 +10,7 @@ Source: lean `4802cb2fe8c993fd7852b1f78be5b8b9604dd5a5`, Tesla source `0f694538f
 - Actual control-chain, ambient safety, traffic override E2E passed; each has JSON and a repeatable CLI.
 - Planner p1 27 cases, cold-start, non-Tesla zero legacy import/session bypass, session-transition, enabled DEC/Vision SCC/Map SCC/SLA modes all passed.
 - Feature replay: three backends ×236 cycles finite; Official default output matches a child process running the pinned lean MPC class bit-for-bit. The reference class is installed in the child launcher, not a parent-only patch lost by multiprocessing spawn.
-- All 18 backend/profile/ACC-E2E replay combinations ran, 236 cycles each. Full local artifact is `artifacts/P3-18-combinations.json`; tracked summary records its SHA256. No claim of independent dev-sp parity for all18 combinations: only the separately recorded platform goldens and Official comparison are verified.
+- All 18 backend/profile/ACC-E2E replay combinations ran, 236 cycles each. Full local artifact is `artifacts/P3-18-combinations.json`; tracked summary records its SHA256. Follow-up independent fixed dev-sp comparison also passed all18 combinations /4,248 cycles exactly; see `P3-independent-parity.json` and its compressed reference artifact.
 - Synthetic modelV2 big→small, zero frame pairs and sequence reset: two legacy consumers passed trajectory-jerk continuity and stop-state assertions. This exercises consumer messages, not bigmodeld inference or transport. The legacy MPC has jerk cost, not a hard jerk constraint; the check uses emitted trajectory jerk ×DT_MDL and does not establish a universal bound across arbitrary producer transitions.
 - Settings native constructors/callbacks and isolated persisted Params passed. BMS display/passive-subscription checks14/14 passed. Three inherited checks for home-panel behavior/alert localization are explicitly excluded as out of scope. Consumption rendering needed3.5s of synthetic data to pass the50m warmup threshold and500ms display refresh; no BMS production behavior changed.
 
@@ -35,4 +35,4 @@ The route fixture was absent from the fixed dev-sp Git tree despite its README. 
 
 ## Remaining boundaries
 
-Device/aarch64 numerical verification, physical display screenshots/HUD overlap, true bigmodeld producer fallback, full18-combination independent dev-sp comparison, Toyota reference replay, final release integration and road/control acceptance remain parent/integration work. No device, firmware, CAN transmission, remote branches, or dirty original files were modified by this workstream.
+Device/aarch64 numerical verification, physical display screenshots/HUD overlap, true bigmodeld producer fallback, Toyota reference replay, final release integration and road/control acceptance remain parent/integration work. No device, firmware, CAN transmission, remote branches, or dirty original files were modified by this workstream.
