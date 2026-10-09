@@ -13,7 +13,11 @@ DEVICE="${DEVICE:-comma@10.0.0.27}"
 SETTLE="${SETTLE:-45}"
 WATCH="${WATCH:-20}"
 PROCS="selfdrive.car.card selfdrive.controls.controlsd selfdrive.selfdrived.selfdrived selfdrive.modeld.modeld selfdrive.controls.plannerd selfdrive.controls.radard"
+export CAR="${CAR:-toyota}"
+[ "$CAR" != tesla ] || PROCS="$PROCS sunnypilot.selfdrive.traffic_control.trafficcontrold"
 REPLAY_PID=""
+"$ROOT/tools/bench/jungle_replay.sh" --check || exit 1
+[[ "$WATCH" =~ ^[0-9]+$ ]] || { echo "WATCH must be a positive integer" >&2; exit 1; }
 
 stop() {
   [ -n "$REPLAY_PID" ] && kill "$REPLAY_PID" 2>/dev/null && wait "$REPLAY_PID" 2>/dev/null
@@ -48,6 +52,6 @@ echo "$before"
 echo "$before" | awk 'NF < 2 { print $1 " 没在跑"; bad = 1 } END { exit bad }' || fail "有核心进程没在跑"
 
 echo "[-] 观察 ${WATCH}s，pid 不得变化（变了 = 被 manager 反复拉起）"
-sleep "$WATCH"
+remote "cd /data/openpilot && /usr/local/venv/bin/python tools/bench/panda_overflow_check.py $WATCH" || fail "Panda buffer overflow check failed"
 [ "$(snapshot)" = "$before" ] || fail "核心进程 pid 变了（被重启过）"
 echo "PASS: $PROCS 稳定运行 $((SETTLE + WATCH))s"

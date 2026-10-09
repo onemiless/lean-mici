@@ -14,14 +14,30 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." >/dev/null && pwd)"
 OLD_PANDA_REV="e462c34d"
 CACHE="${HOME}/.cache/jungle_v1_panda"
 
+export CAR="${CAR:-toyota}"
+if [ "${1:-}" != "--off" ]; then
+  case "$CAR" in
+    toyota) export FRAMES="$ROOT/tools/bench/sienna_can_loop.xz"; export CAN_ROUTE="00000052--696b66504b--17" ;;
+    tesla) export FRAMES="${TESLA_CAN_FRAMES:-$ROOT/tools/bench/tesla_can_loop.xz}"; export CAN_ROUTE="${TESLA_CAN_ROUTE:-}" ;;
+    *) echo "Unsupported CAR=$CAR (expected toyota or tesla)" >&2; exit 1 ;;
+  esac
+  [ -f "$FRAMES" ] || { echo "Missing $CAR CAN fixture: $FRAMES; set TESLA_CAN_FRAMES and TESLA_CAN_ROUTE to an authentic route export" >&2; exit 1; }
+  [ -n "$CAN_ROUTE" ] || { echo "TESLA_CAN_ROUTE must identify the source route" >&2; exit 1; }
+  python3 - <<'META'
+import hashlib, json, os
+from pathlib import Path
+path = Path(os.environ["FRAMES"])
+print(json.dumps({"car": os.environ["CAR"], "route": os.environ["CAN_ROUTE"], "frames": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}), flush=True)
+META
+  [ "${1:-}" != "--check" ] || exit 0
+fi
+
 if [ ! -d "$CACHE/panda" ]; then
   mkdir -p "$CACHE/panda"
   git -C "$ROOT/panda" archive "$OLD_PANDA_REV" | tar -x -C "$CACHE/panda"
 fi
 
 export PYTHONPATH="$CACHE${PYTHONPATH:+:$PYTHONPATH}"
-# 取自 Sienna route 00000052--696b66504b--17，约 60 秒，48~64 km/h
-export FRAMES="$ROOT/tools/bench/sienna_can_loop.xz"
 
 exec "$ROOT/.venv/bin/python" - "$@" <<'PY'
 import ctypes
