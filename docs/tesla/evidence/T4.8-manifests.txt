@@ -1,0 +1,3 @@
+c3: chain verified; abl equals C4: True
+c3xl: chain verified; abl equals C4: False
+C4 manifest byte-exact; corrupted chains rejected

@@ -27,9 +27,13 @@ function agnos_init {
     fi
   done
 
+  if [ "$AGNOS_SKIP_UPDATE" = "1" ]; then
+    AGNOS_UPDATE_REQUIRED=0
+    echo "AGNOS update skipped: tici requires explicit c3/c3xl profile" >&2
+  fi
   if [ "$AGNOS_UPDATE_REQUIRED" = "1" ]; then
     AGNOS_PY="$DIR/openpilot/common/hardware/comma/agnos.py"
-    MANIFEST="$DIR/openpilot/system/hardware/comma/agnos.json"
+    MANIFEST="$DIR/$AGNOS_MANIFEST_FILE"
     if $AGNOS_PY --verify $MANIFEST; then
       sudo reboot
     fi

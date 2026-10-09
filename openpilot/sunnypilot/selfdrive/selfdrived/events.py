@@ -73,6 +73,14 @@ def speed_limit_pre_active_alert(CP: car.CarParams, CS: car.CarState, sm: messag
     Priority.LOW, VisualAlert.none, AudibleAlertSP.promptSingleLow, .1)
 
 
+from openpilot.sunnypilot.hardware.profile import HardwareProfile, get_hardware_profile
+
+
+def big_model_ready_alert(CP, CS, sm, metric, soft_disable_time, personality) -> Alert:
+  audible = AudibleAlert.promptRepeat if get_hardware_profile() == HardwareProfile.C3XL else AudibleAlert.prompt
+  return Alert("Big Model Ready", "", AlertStatus.normal, AlertSize.small, Priority.LOW, VisualAlert.none, audible, 2.)
+
+
 class EventsSP(EventsBase):
   def __init__(self):
     super().__init__()
@@ -254,10 +262,6 @@ EVENTS_SP: dict[int, dict[str, Alert | AlertCallbackType]] = {
   },
 
   EventNameSP.bigModelReady: {
-    ET.PERMANENT: Alert(
-      "Big Model Ready",
-      "",
-      AlertStatus.normal, AlertSize.small,
-      Priority.LOW, VisualAlert.none, AudibleAlert.prompt, 2.),
+    ET.PERMANENT: big_model_ready_alert,
   },
 }

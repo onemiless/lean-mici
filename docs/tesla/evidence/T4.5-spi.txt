@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/c3xl_panda_discovery_e2e.py", line 12, in <module>
+    from openpilot.common.params import Params
+  File "/Users/mile/work/tesla-port/hardware-work/openpilot/common/params.py", line 35, in <module>
+    lib = ctypes.CDLL(Path(__file__).with_name(f"libparams_c{_suffix}"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mile/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: dlopen(/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib, 0x0006): tried: '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file), '/Users/mile/work/tesla-port/hardware-work/openpilot/common/libparams_c.dylib' (no such file)

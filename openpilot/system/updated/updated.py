@@ -194,8 +194,11 @@ def handle_agnos_update() -> None:
   from openpilot.common.hardware.comma.agnos import flash_agnos_update, get_target_slot_number
 
   cur_version = HARDWARE.get_os_version()
-  updated_version = run(["bash", "-c", r"unset AGNOS_VERSION && source launch_env.sh && \
-                          echo -n $AGNOS_VERSION"], OVERLAY_MERGED).strip()
+  update_config = run(["bash", "-c", 'unset AGNOS_VERSION; source launch_env.sh; printf "%s\\n" "$AGNOS_VERSION" "$AGNOS_SKIP_UPDATE" "$AGNOS_MANIFEST_FILE"'], OVERLAY_MERGED).splitlines()
+  updated_version, skip_update, manifest_file = update_config
+  if skip_update == "1":
+    cloudlog.info("AGNOS update skipped: tici requires explicit c3/c3xl profile")
+    return
 
   cloudlog.info(f"AGNOS version check: {cur_version} vs {updated_version}")
   if cur_version == updated_version:
@@ -206,7 +209,7 @@ def handle_agnos_update() -> None:
 
   cloudlog.info(f"Beginning background installation for AGNOS {updated_version}")
 
-  manifest_path = os.path.join(OVERLAY_MERGED, "openpilot/system/hardware/comma/agnos.json")
+  manifest_path = os.path.join(OVERLAY_MERGED, manifest_file)
   target_slot_number = get_target_slot_number()
   flash_agnos_update(manifest_path, target_slot_number, cloudlog)
 

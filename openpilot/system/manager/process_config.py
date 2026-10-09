@@ -11,9 +11,10 @@ from openpilot.common.params import Params
 from openpilot.common.hardware import PC, COMMA_HARDWARE
 from openpilot.system.manager.process import PythonProcess, NativeProcess, DaemonProcess
 from openpilot.common.hardware.hw import Paths
+from openpilot.sunnypilot.hardware.profile import HardwareProfile, get_hardware_profile, has_microphone, has_audio_output
 
 def soundd_run(started: bool, params: Params, CP: car.CarParams) -> bool:
-  return started or params.get_bool("BluetoothAudioTestActive")
+  return has_audio_output() and (started or params.get_bool("BluetoothAudioTestActive"))
 
 def bluetooth_enabled(started: bool, params: Params, CP: car.CarParams) -> bool:
   return params.get_bool("BluetoothEnabled")
@@ -71,7 +72,7 @@ procs = [
   NativeProcess("camerad", "openpilot/system/camerad", ["./camerad"], only_onroad),
   PythonProcess("proclogd", "openpilot.system.proclogd", only_onroad, enabled=platform.system() != "Darwin"),
   PythonProcess("journald", "openpilot.system.journald", only_onroad, platform.system() != "Darwin"),
-  PythonProcess("micd", "openpilot.system.micd", iscar),
+  PythonProcess("micd", "openpilot.system.micd", lambda started, params, CP: has_microphone() and iscar(started, params, CP)),
   PythonProcess("timed", "openpilot.system.timed", always_run, enabled=not PC),
 
   PythonProcess("modeld", "openpilot.selfdrive.modeld.modeld", only_onroad),
@@ -103,6 +104,7 @@ procs = [
   PythonProcess("modem", "openpilot.common.hardware.comma.modem", always_run, enabled=COMMA_HARDWARE),
   PythonProcess("tombstoned", "openpilot.system.tombstoned", always_run, enabled=not PC),
   PythonProcess("updated", "openpilot.system.updated.updated", only_offroad, enabled=not PC),
+  PythonProcess("alert_output", "openpilot.sunnypilot.system.alert_output", lambda started, params, CP: not PC and get_hardware_profile() == HardwareProfile.C3XL),
   PythonProcess("statsd", "openpilot.sunnypilot.system.statsd", always_run),
 
   # locationd
