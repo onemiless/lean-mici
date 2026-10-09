@@ -1,0 +1,1924 @@
+..........................................FFFFFFFFFFFFs.....sssss.....FF [ 24%]
+FFFFFFFFFFFFFFFFs....................................................... [ 48%]
+........................................................................ [ 72%]
+...............................sssssss.......................sssssssssss [ 96%]
+ssssssssssss                                                             [100%]
+=================================== FAILURES ===================================
+________________ TestCruiseSpeed_0_aggressive.test_cruise_speed ________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_0_aggressive testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff47d40>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'aggressive'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+________________ TestCruiseSpeed_1_aggressive.test_cruise_speed ________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_1_aggressive testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff68110>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'aggressive'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+_________________ TestCruiseSpeed_2_standard.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_2_standard testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff45850>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'standard'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+_________________ TestCruiseSpeed_3_standard.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_3_standard testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff456d0>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'standard'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+_________________ TestCruiseSpeed_4_relaxed.test_cruise_speed __________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_4_relaxed testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff68200>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'relaxed'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+_________________ TestCruiseSpeed_5_relaxed.test_cruise_speed __________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_5_relaxed testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff44230>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 'relaxed'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+________________ TestCruiseSpeed_6_aggressive.test_cruise_speed ________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_6_aggressive testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff46b10>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'aggressive'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+________________ TestCruiseSpeed_7_aggressive.test_cruise_speed ________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_7_aggressive testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fe41160>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'aggressive'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+_________________ TestCruiseSpeed_8_standard.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_8_standard testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff69eb0>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'standard'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+_________________ TestCruiseSpeed_9_standard.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_9_standard testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fe42240>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'standard'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+_________________ TestCruiseSpeed_10_relaxed.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_10_relaxed testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fe43a40>
+lead_relevancy = True, speed = 4.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'relaxed'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 5 m/s
+_________________ TestCruiseSpeed_11_relaxed.test_cruise_speed _________________
+
+self = <openpilot.selfdrive.car.tests.test_cruise_speed.TestCruiseSpeed_11_relaxed testMethod=test_cruise_speed>
+
+    def test_cruise_speed(self):
+      print(f'Testing {self.speed} m/s')
+      cruise_speed = float(self.speed)
+    
+>     simulation_steady_state = run_cruise_simulation(cruise_speed, self.e2e, self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/car/tests/test_cruise_speed.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/car/tests/test_cruise_speed.py:30: in run_cruise_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fcb7d10>
+lead_relevancy = True, speed = 34.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 'relaxed'
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+----------------------------- Captured stdout call -----------------------------
+Testing 35 m/s
+_______________ TestFollowingDistance_0.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_0 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fec5940>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_1.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_1 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fec7350>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_2.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_2 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fec7a10>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_3.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_3 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2a1e0>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_4.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_4 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2b980>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_5.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_5 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10ff479b0>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_6.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_6 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fcb6150>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_7.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_7 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2ac00>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_8.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_8 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2a120>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = True, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_9.test_following_distance ________________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_9 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd29850>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_10.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_10 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd287a0>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_11.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_11 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd28380>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 2
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_12.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_12 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2b800>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_13.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_13 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2b1d0>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_14.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_14 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd70b00>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 1
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_15.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_15 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd71a60>
+lead_relevancy = True, speed = 0.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_16.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_16 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd70d40>
+lead_relevancy = True, speed = 10.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+_______________ TestFollowingDistance_17.test_following_distance _______________
+
+self = <openpilot.selfdrive.controls.tests.test_following_distance.TestFollowingDistance_17 testMethod=test_following_distance>
+
+    def test_following_distance(self):
+      v_lead = float(self.speed)
+>     simulation_steady_state = run_following_distance_simulation(v_lead, e2e=self.e2e, personality=self.personality)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+openpilot/selfdrive/controls/tests/test_following_distance.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+openpilot/selfdrive/controls/tests/test_following_distance.py:28: in run_following_distance_simulation
+    valid, output = man.evaluate()
+                    ^^^^^^^^^^^^^^
+openpilot/selfdrive/test/longitudinal_maneuvers/maneuver.py:32: in evaluate
+    plant = Plant(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openpilot.selfdrive.test.longitudinal_maneuvers.plant.Plant object at 0x10fd2ac60>
+lead_relevancy = True, speed = 35.0, distance_lead = 100, enabled = True
+only_lead2 = False, only_radar = False, e2e = False, personality = 0
+force_decel = False
+
+    def __init__(self, lead_relevancy=False, speed=0.0, distance_lead=2.0,
+                 enabled=True, only_lead2=False, only_radar=False, e2e=False, personality=0, force_decel=False):
+      self.rate = 1. / DT_MDL
+    
+      if not Plant.messaging_initialized:
+        Plant.radar = messaging.pub_sock('radarState')
+        Plant.controls_state = messaging.pub_sock('controlsState')
+        Plant.selfdrive_state = messaging.pub_sock('selfdriveState')
+        Plant.car_state = messaging.pub_sock('carState')
+        Plant.plan = messaging.sub_sock('longitudinalPlan')
+        Plant.messaging_initialized = True
+    
+      self.v_lead_prev = 0.0
+    
+      self.distance = 0.
+      self.speed = speed
+      self.should_stop = False
+      self.acceleration = 0.0
+    
+      # lead car
+      self.lead_relevancy = lead_relevancy
+      self.distance_lead = distance_lead
+      self.enabled = enabled
+      self.only_lead2 = only_lead2
+      self.only_radar = only_radar
+      self.e2e = e2e
+      self.personality = personality
+      self.force_decel = force_decel
+    
+      self.rk = Ratekeeper(self.rate, print_delay_threshold=100.0)
+      self.ts = 1. / self.rate
+      time.sleep(0.1)
+      self.sm = messaging.SubMaster(['longitudinalPlan'])
+    
+>     from opendbc.car.honda.values import CAR
+E     ModuleNotFoundError: No module named 'opendbc.car.honda'
+
+openpilot/selfdrive/test/longitudinal_maneuvers/plant.py:51: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_0_aggressive::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_1_aggressive::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_2_standard::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_3_standard::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_4_relaxed::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_5_relaxed::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_6_aggressive::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_7_aggressive::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_8_standard::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_9_standard::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_10_relaxed::test_cruise_speed
+FAILED openpilot/selfdrive/car/tests/test_cruise_speed.py::TestCruiseSpeed_11_relaxed::test_cruise_speed
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_0::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_1::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_2::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_3::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_4::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_5::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_6::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_7::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_8::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_9::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_10::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_11::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_12::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_13::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_14::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_15::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_16::test_following_distance
+FAILED openpilot/selfdrive/controls/tests/test_following_distance.py::TestFollowingDistance_17::test_following_distance
+30 failed, 233 passed, 37 skipped in 19.83s
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
+
+SQP_RTI: QP solver returned error status 3 QP iteration 3.
