@@ -31,3 +31,7 @@ The AGNOS immutable root lacks the already-declared optional comma-deps-libusb p
 ## Materialization failure, before release helper fix
 
 Real device removal of root-owned __pycache__ failed but an AND chain suppressed errexit and execution continued to write_pin/[ok]. Replay production function under a conditional caller with injected rm/cp/checkout/write_pin failures; any failed materialization must exit nonzero before a pin or success line. Guard each destructive/copy/setup step explicitly. write_pin's own mkdir/manifest pipeline must return failure before its SHA stamp, because checking its status also suppresses implicit errexit inside that function. No device permission changes here.
+
+## Device model camera-shape fix, before implementation
+
+C3XL actual OX03C10 streams are 1928x1208; release helper hardcoded the C4 1344x760 shape, producing modeld KeyError(1928,1208). Reuse exactly SConscript's existing _os_fisheye for mici and _ar_ox_fisheye otherwise. One queried shape must feed both cache fingerprint and compile CLI so old C4-shaped artifacts cannot hit the C3 cache. Validate actual presets for mici/tici/tizi and unchanged C4 fingerprint arguments before the production edit. No camerad/model runtime change.

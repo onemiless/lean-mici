@@ -236,7 +236,14 @@ compile_driving_pkl() {
   DRIVE_PKL="$MODEL_DIR/models/driving_tinygrad.pkl"
   DRIVE_ONNX="$MODEL_DIR/models/driving_supercombo.onnx"
   [ -f "$DRIVE_ONNX" ] || die "driving onnx 缺失：$DRIVE_ONNX —— $SRC_BRANCH 应 tracked 此文件，前置同步步应已落盘"
-  DRIVE_ARGS="--model-size 512x256 --camera-resolutions 1344x760 --frame-skip 4"
+  DRIVE_CAMERA_RESOLUTION=$(PYTHONPATH="$SRC:$SRC/openpilot${PYTHONPATH:+:$PYTHONPATH}" /usr/local/venv/bin/python - <<'CAMERA_PY'
+from openpilot.common.hardware import HARDWARE
+from openpilot.common.transformations.camera import _ar_ox_fisheye, _os_fisheye
+camera = _os_fisheye if HARDWARE.get_device_type() == "mici" else _ar_ox_fisheye
+print(f"{camera.width}x{camera.height}")
+CAMERA_PY
+  ) || die "camera preset lookup failed"
+  DRIVE_ARGS="--model-size 512x256 --camera-resolutions $DRIVE_CAMERA_RESOLUTION --frame-skip 4"
   DRIVE_FP=$(/usr/local/venv/bin/python /tmp/relhelper/release_lib.py fingerprint \
     --extra "driving-pkl-v1" --extra "pin=$TG_SHA" --extra "$DRIVE_ARGS" \
     "$DRIVE_ONNX" "$MODEL_DIR/compile_modeld.py" "$MODEL_DIR/get_model_metadata.py" "$MODEL_DIR/helpers.py")
@@ -251,7 +258,7 @@ compile_driving_pkl() {
     PYTHONPATH="$SRC/tinygrad_repo:$SRC" \
     taskset -c 4 /usr/local/venv/bin/python "$MODEL_DIR/compile_modeld.py" \
       --model-size 512x256 \
-      --camera-resolutions 1344x760 \
+      --camera-resolutions "$DRIVE_CAMERA_RESOLUTION" \
       --onnx "$DRIVE_ONNX" \
       --output "$DRIVE_PKL" \
       --frame-skip 4

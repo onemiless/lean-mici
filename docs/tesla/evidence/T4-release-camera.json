@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "scope": "release query + actual camera presets + shell fingerprint arguments; no model build",
+  "cases": [
+    {
+      "device": "mici",
+      "camera": "1344x760",
+      "fingerprint_args": "--model-size 512x256 --camera-resolutions 1344x760 --frame-skip 4",
+      "args_sha256": "b7e5b86044d3e27c292f968475c5110c23cf22afac259892612716f57d925504"
+    },
+    {
+      "device": "tici",
+      "camera": "1928x1208",
+      "fingerprint_args": "--model-size 512x256 --camera-resolutions 1928x1208 --frame-skip 4",
+      "args_sha256": "3dd3ac4aa973bc9c6b54acf9266b97cb1ccb166c0384eba6213a8707e6b7bb82"
+    },
+    {
+      "device": "tizi",
+      "camera": "1928x1208",
+      "fingerprint_args": "--model-size 512x256 --camera-resolutions 1928x1208 --frame-skip 4",
+      "args_sha256": "3dd3ac4aa973bc9c6b54acf9266b97cb1ccb166c0384eba6213a8707e6b7bb82"
+    }
+  ]
+}

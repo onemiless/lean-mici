@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/mile/work/tesla-port/hardware-work/tools/tesla/release_camera_preset_e2e.py", line 16, in <module>
+    assert 'DRIVE_CAMERA_RESOLUTION=' in script, 'Release model build still hardcodes C4 resolution'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Release model build still hardcodes C4 resolution
