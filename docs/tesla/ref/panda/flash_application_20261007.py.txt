@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""H725 application only. Fail closed on identity/backup/readback mismatch.
+No bootstub write; one write attempt; preserve all other sectors byte for byte.
+"""
+import hashlib
+import json
+from pathlib import Path
+import time
+
+from panda.python import spi
+from panda.python.spi import STBootloaderSPIHandle
+from openpilot.common.hardware import HARDWARE
+from openpilot.common.params import Params
+
+root = Path('/data/dev-sp-c3xl-audit-20261007')
+params = Params()
+assert params.get_bool('IsOffroad') and not params.get_bool('IsEngaged')
+candidate = (root / 'panda_h7-candidate.bin.signed').read_bytes()
+old = (root / 'panda_h7-before.bin.signed').read_bytes()
+assert hashlib.sha256(candidate).hexdigest() == 'f9a93028e57858b5e1a1b716e23a95f15db3599891f4e1fb0d5ffd2d5b11f0ce'
+assert len(candidate) <= 0x20000
+HARDWARE.recover_internal_panda()
+time.sleep(1)
+handle = STBootloaderSPIHandle()
+assert handle.get_chip_id() == 0x483
+assert handle.get_uid() == '1d002d000a51303436323838'
+
+def read_flash(label):
+  result = bytearray()
+  for offset in range(0, 0x100000, 256):
+    result.extend(handle.read(0x08000000 + offset, 256))
+    if (offset + 256) % 0x10000 == 0:
+      print(label, len(result), flush=True)
+  assert len(result) == 0x100000
+  (root / ('flash-' + label + '.bin')).write_bytes(result)
+  return bytes(result)
+
+before = read_flash('before')
+assert before[0x20000:0x20000+len(old)] == old, 'existing application does not match rollback binary'
+spi.MAX_XFER_RETRY_COUNT = 1
+handle.erase_sector(1)
+handle.program(0x08020000, candidate)
+print('application written; verifying', flush=True)
+after = read_flash('after')
+assert after[:0x20000] == before[:0x20000], 'bootstub changed'
+assert after[0x40000:] == before[0x40000:], 'non-application sectors changed'
+assert after[0x20000:0x20000+len(candidate)] == candidate, 'application readback mismatch'
+assert after[0x20000+len(candidate):0x40000] == b'\xff' * (0x20000-len(candidate)), 'application padding mismatch'
+receipt = {'passed': True, 'serial': handle.get_uid(), 'chip_id': '0x483', 'flash_bytes': len(before),
+           'application_address': '0x08020000', 'erased_sectors': [1], 'bootstub_preserved': True,
+           'other_sectors_preserved': True, 'application_exact': True,
+           'before_sha256': hashlib.sha256(before).hexdigest(), 'after_sha256': hashlib.sha256(after).hexdigest(),
+           'candidate_sha256': hashlib.sha256(candidate).hexdigest()}
+(root / 'firmware-readback.json').write_text(json.dumps(receipt, indent=2) + '\n')
+HARDWARE.reset_internal_panda()
+print(json.dumps(receipt), flush=True)
