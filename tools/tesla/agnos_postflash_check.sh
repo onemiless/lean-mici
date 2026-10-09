@@ -9,7 +9,7 @@ stage = sys.argv[1].removeprefix("--")
 expected_service = "inactive" if stage == "camera" else "active"
 commands = {
   'version': ['cat', '/VERSION'], 'kernel': ['uname', '-r'], 'slot': ['abctl', '--boot_slot'],
-  'slot_success': ['sudo', 'abctl', '--get_success'], 'kernel_errors': ['dmesg', '-l', 'err,crit'],
+  'slot_success': ['sudo', 'python3', 'tools/tesla/boot_success_check.py'], 'kernel_errors': ['dmesg', '-l', 'err,crit'],
   'device_nodes': ['ls', '/dev/kgsl-3d0', '/dev/spidev0.0', '/dev/ion'], 'usb': ['lsusb'],
   'network': ['ip', '-br', 'a'], 'comma_service': ['systemctl', 'is-active', 'comma'],
   'profile': ['cat', '/data/hardware_profile'],
