@@ -24,15 +24,18 @@ def safe_global_state():
 
 
 def competing_processes():
-  import psutil
   conflicts = []
-  for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
-    if proc.pid == os.getpid():
+  for proc in Path('/proc').glob('[0-9]*'):
+    if int(proc.name) == os.getpid():
       continue
-    tokens = [proc.info['name'] or '', *(proc.info['cmdline'] or [])]
+    try:
+      tokens = [proc.joinpath('comm').read_text().strip(),
+                *proc.joinpath('cmdline').read_bytes().decode(errors='replace').split('\0')]
+    except (FileNotFoundError, ProcessLookupError):
+      continue
     names = {Path(token).name.removesuffix('.py').split('.')[-1] for token in tokens}
     if names & BLOCKED:
-      conflicts.append({'pid': proc.pid, 'names': sorted(names & BLOCKED)})
+      conflicts.append({'pid': int(proc.name), 'names': sorted(names & BLOCKED)})
   return conflicts
 
 

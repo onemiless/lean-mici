@@ -7,3 +7,5 @@
 - Exception/interrupt/timeout: terminate only owned process groups, escalate to SIGKILL with bounded waits before prefix cleanup, report cleanup failure.
 
 Scope: parent owns device access. Helper starts only camerad and modeld --demo; synthetic stopped carState, disabled carControl, zero-rpy calibration and demo CarParams are explicit. No manager/card/controlsd/Panda/CAN sender is launched. Live camera/QCOM inference is not calibration accuracy or road/control acceptance.
+
+Device preflight follow-up: lean AGNOS lacks psutil, so the initial helper failed before any children were launched. Process discovery must use the existing camera-check pattern of Linux /proc enumeration without installing packages. Read both comm and NUL-separated cmdline; ignore only disappearing-process races, retaining fail-closed behavior for permission or other read errors.
