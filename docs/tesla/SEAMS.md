@@ -48,3 +48,5 @@
 | `openpilot/system/updated/updated.py` | P4 | +6/-3 | Runtime profile, safe boot selection or DOS USB | dev-sp 0f694538 + D2/D4/D5 | local E2E |
 
 Shared core/hardware files are conservatively counted in both budgets using the full integrated diff. Generated schema code is excluded from source seam budgets.
+| `openpilot/selfdrive/ui/sunnypilot/layouts/settings/device.py` | P2 | runtime fix | Remove dangling lean large-screen callback | lean baseline repair | native full MainLayout E2E |
+| `openpilot/selfdrive/ui/layouts/main.py` | P2 | runtime fix | Remove dangling lean large-screen callback | lean baseline repair | native full MainLayout E2E |

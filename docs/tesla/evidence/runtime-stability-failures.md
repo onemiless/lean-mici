@@ -1,0 +1,3 @@
+# Live offroad acceptance failure modes
+
+The earlier legacy monitor only checked the last managerState. It returned passed while UI was crashing and restarting, because its last sample caught a newly launched PID. Actual UI traceback is retained separately. Final acceptance must reject any required process stopping or changing PID during the observation window, not merely require one running snapshot. Missing/stale messages, Panda faults/ignition/controls, wrong active commit, and inappropriate C3XL audio/driver processes also reject acceptance. The new checker only subscribes and reads state; it never starts processes or sends CAN. This is a live E2E gate, not a unit test or driving qualification.

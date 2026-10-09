@@ -1,0 +1,4 @@
+native build source: 2c8d9089c
+UI-fixed source: 0f612e8a3a2befdb1212d322dc9826e92f9a2732
+native input hash unchanged: 0ca12012937446e817a6bd4cf3a9e0890a00905e
+Python-only UI repair does not invalidate compiled native/model artifacts.
